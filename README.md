@@ -13,13 +13,13 @@ This tutorial is split into 10 lessons that aim to teach you JavaScript a few co
 
 Lessons feature the following recurrent chapters at the end:
 
-Recap
+**Recap**
 : Contains a list of links to documentation detailing concepts learned during the lesson. This is your best resource to learn. Explore. Get curious.
 
-Useful things
+**Useful things**
 : These are things I didn't know where to put in the tutorial, but I would consider them things you **should** know about.
 
-Extra credit
+**Extra credit**
 : At the very end, beyond all assignments completed, extra credits offer coding challenges that you should try after you've finished all the lessons. These will have you go over previous assignments and make changes to the code you wrote. *Did you comment your code?*
 
 
@@ -58,10 +58,10 @@ Chrome
 
 All software is just data processing and manipulation. Let me introduce you to two primitive data types found in JavaScript that we will be meeting soon.
 
-Number
+**Number**
 : The `Number` primitive data type represents *any real numbers* like `42`, `3.14159` or `-10000000000`
 
-String
+**String**
 : The `String` primitive data type represents sequences of characters, and is commonly wrapped in either single-quotes like `'single'`, or in double-quotes like `"double"`. There is a third method which we will learn in [Lesson 2](#lesson-2-values-variables-and-expressions).
 
 
@@ -422,7 +422,7 @@ Use `console.log()` to inspect the returned values when calling `greet()` with d
 
 There is still an important primitive data type we must learn about before we can move forward.
 
-Boolean
+*Boolean*
 : The `Boolean` primitive data type has only two possible values: `true` and `false`.
 
 A major part of programming is to alter the execution of a program based on it's data. Comparison operations produce `Boolean` values when evaluated.
