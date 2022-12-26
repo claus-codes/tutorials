@@ -1,31 +1,31 @@
 # JavaScript deep dive
 
-> This is very much a work in progress.
-
-This tutorial aims to teach complete beginners [JavaScript](https://en.wikipedia.org/wiki/JavaScript); the programming language running in every Internet browser and powering the web as we know it.
+This tutorial aims to be a complete beginner friendly crash course to programming with [JavaScript](https://en.wikipedia.org/wiki/JavaScript); the language running in every Internet browser and powering the web as we know it.
 
 If you find yourself struggling to understand the lessons or the assignments, please let me know so I can make improvements.
 
+> This is very much a work in progress.
 
-## How does this work?
 
-This tutorial is split into 10 lessons that aim to teach you JavaScript with sample code and thorough explanations. All sample code should work when copy-pasted to any editor with the exception of lines of code that mention *throwing an Error*.
+## INTRO TITLE TODO
 
-Each lesson is finished with an assignment that lets you put what you learned to the test by writing code yourself with clear specifications but no guidance.
+This tutorial is split into 10 lessons that aim to teach you JavaScript a few concepts at a time with sample code and thorough explanations. Each lesson is finished with an assignment that lets you put what you learned to the test by writing code yourself with clear specifications.
 
-Lessons feature the following recurrent chapters:
+Lessons feature the following recurrent chapters at the end:
 
 Recap
-: Contains a list of links to documentation detailing concepts learned during the lesson. I recommend you study them carefully if you did not understand something.
+: Contains a list of links to documentation detailing concepts learned during the lesson. This is your best resource to learn. Explore. Get curious.
 
 Useful things
-: These are things I didn't know where to put in the tutorial, but I would consider them things you **should** know.
+: These are things I didn't know where to put in the tutorial, but I would consider them things you **should** know about.
 
 Extra credit
-: Appearing at the very end, beyond assignments for each lesson, extra credits are coding challenges that you should try after you've finished all the lessons and assignments. These will have you go over previous assignments and make changes to code you wrote.
+: At the very end, beyond all assignments completed, extra credits offer coding challenges that you should try after you've finished all the lessons. These will have you go over previous assignments and make changes to the code you wrote. *Did you comment your code?*
 
 
 ## Workflow
+
+Sample code found in each lesson should work when copy-pasted to any code editor and executed.
 
 I highly recommend registering an account with [CodePen](https://codepen.io/pen/) as they offer a free coding playground where you can write code that runs and saves automatically.
 
@@ -111,9 +111,9 @@ JavaScript also offers multi-line comments, started with `/*` and terminated wit
 Write code that calls `console.log()` with your own message or messages.
 
 #### Extra credit
-- Write your own logging function that uses `console.log()`.
+- Write your own logging function that uses `console.log()`
 - Add the current time and date before each log entry.
-- Process every parameter that is of type `Object` with `JSON.stringify()`.
+- Process every parameter that is of type `Object` with `JSON.stringify()`
 - Create a mechanism to turn the logging on and off.
 
 
@@ -130,7 +130,7 @@ let text = 'coding is dope'
 ```
 Variables are declared with the keyword `let` followed by the name of the variable, followed by an optional *assign operation* to set an initial value.
 
-The code above declares two variables; `num` that we assign the `Number` value of `9`, and `text` we assign `String` value of `'coding is dope'`.
+The code above declares two variables; `num` that we assign the `Number` value of `9`, and `text` we assign `String` value of `'coding is dope'`
 
 
 ### Empty values
@@ -156,18 +156,17 @@ The `const` keyword creates a constant value, which acts like a variable but it'
 ```js
 console.log(text) // "coding is dope"
 
-const catchphrase = 'super easy, barely an inconvenience'
-text = catchphrase
-console.log(text)
+text = 'super easy, barely an inconvenience'
+console.log(text) // "super easy, barely an inconvenience"
 
 num = num * 3
 console.log(num) // 27
 ```
 Variables declared with the `let` keyword can have their value changed by simply assigning them a new value.
 
-In the code above a variable named `greeting` is given `String` value of `'Hello'`, and another variable named `frenchGreeting` gets `String` of value `'Bonjour'`. We call `console.log()` to see the current value of `greeting`. We then assign it the value of `frenchGreeting` before we log the value again to witness it changing.
+In the code above a variable named `greeting` is given `String` value of `'Hello'`, and another variable named `frenchGreeting` gets `String` of value `'Bonjour'` We call `console.log()` to see the current value of `greeting`. We then assign it the value of `frenchGreeting` before we log the value again to witness it changing.
 
-We also set the new value of `num` to be an *expression* where the value is the evaluation of `num * 3`.
+We also set the new value of `num` to be an *expression* where the value is the evaluation of `num * 3`
 
 
 ### Logging variables
