@@ -111,6 +111,7 @@ It's good practice to comment your code and explain what is happening. It can be
 Write code that calls `console.log()` with your own message.
 
 #### Extra credit
+- *TODO: review*
 - Write your own logging function that uses `console.log()` and accepts an arbitrary number of parameters.
 - Add the current time and date before each log entry.
 - Process every parameter that is of type `Object` with `JSON.stringify()` and format the output.
@@ -130,9 +131,11 @@ Variables are declared with the keyword [`let`](https://developer.mozilla.org/en
 
 ```js
 let num = 9;
-let text = 'JavaScript';
+let text = 'piece of text';
 ```
-The code above declares two variables; `num` that we assign the `Number` value of `9`, and `text` we assign `String` value of `"JavaScript"`.
+The code above declares two variables:
+- `num` that we assign the `Number` value of `9`.
+- `text` we assign `String` value of `"piece of text"`.
 
 
 ### Empty values
@@ -140,7 +143,7 @@ The code above declares two variables; `num` that we assign the `Number` value o
 let emptyVar;
 console.log(emptyVar); // undefined
 ```
-Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called `undefined`, which means it has not been given any value. There is more information about empty values in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
+Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called `undefined`, which means it has not been given a value. There is more information about empty values in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
 
 
 ### Constant values
@@ -154,18 +157,18 @@ The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 ### Logging variables
 
 ```js
-console.log('Number', num); // "Number" 9
-console.log('Message', text); // "Message" "JavaScript"
+console.log('Value of num', num); // "Number" 9
+console.log('Value of text', text); // "Message" "string value"
 ```
 Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before values when logging things as it's easy to lose track of what value is relevant in the logs.
 
-For the sake of readability in this tutorial, I will omit the context message.
+For the sake of readability I will omit the context messages going forward.
 
 
 ### Changing the value of a variable
 ```js
-text = 'JS';
-console.log('New message', text) // "JS"
+text = 'JavaScript';
+console.log('Value of text after change', text) // "JavaScript"
 
 num = num * 3;
 console.log('After multiplication', num); // 27
@@ -213,18 +216,18 @@ console.log('Exponentation', 10 ** 3); // 1000
 The remainder and exponentation operators might not be very familiar to most people, so here's examples for both. To break down the remainder:
 
 > `21 % 10` evaluates to `1` because 21 divided by 10 equals to 2, with the 1 as the remainder.
->
+
 > `4 % 2` evaluates to `0` as 4 is an even number, while odd numbers would produce `1`. 
 
 ```js
-console.log((num * 100) - 1363); // 1337
+console.log('Complex calculation', (num * 100) - 1363); // 1337
 ```
 Parenthesis can be used to group operators together which gives us the ability to write complex calculations where maintaining a strict order of operations is necessary.
 
 ```js
 const numberValue = 13;
 const notNumberValue = 'hello';
-console.log('Fail', numberValue / notNumberValue); // NaN
+console.log('Failure', numberValue / notNumberValue); // NaN
 ```
 When a mathematical operations are attempted with values that are not `Number` types, a special [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) value is used which stands for *Not-a-Number*.
 
@@ -233,7 +236,7 @@ When a mathematical operations are attempted with values that are not `Number` t
 ```js
 let text1 = 'ined';
 let text2 = 'comb';
-console.log(text2 + text1); // "combined" 
+console.log('Joined text', text2 + text1); // "combined" 
 ```
 Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins strings together.
 
@@ -286,7 +289,7 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 
 
 ### Useful things
-- 
+- TODO
 
 
 ### Assignment 2: Financial transaction
@@ -310,6 +313,7 @@ In this assignment you will define variables and perform calculations on them us
 
 ##### Step 4
 > Define a variable named `change`.
+>
 > Assign it the expression of getting the *remainder* of dividing `money` by `PRICE`.
 
 ##### Step 5
@@ -342,7 +346,7 @@ console.log('Calculation is correct', previousMoney - totalPrice === money);
 
 
 #### Extra credit
-- 
+- TODO
 
 ---
 
@@ -413,7 +417,7 @@ function functionName(requiredParameter, optionalParameter = value) {
   return expression;
 }
 ```
-Some functions are often called with the same parameters. Parameters be assigned a default value, like `optionalParameter` above, which make them optional. Optional parameters are always defined after required parameters which lack a default value.
+Some functions are often called with the same parameters. Parameters be assigned a default value, like `optionalParameter` above, which make them optional. Optional parameters are always defined after parameters which do not have a default value.
 
 ```js
 /**
@@ -436,7 +440,9 @@ const PI = 3.14159265;
 console.log(roundNumber(PI, 4)); // 3.1415
 console.log(roundNumber(PI)); // 3.14
 ```
-The code above shows the values returned by `roundNumber()` with and without the parameter `precision`.
+The first call to `roundNumber()` above passes the value `4` as a second parameter which is `precision`.
+
+The second call omits the second parameter which sets the value of `precision` to `2`.
 
 ### Functions as values
 ```
@@ -471,8 +477,8 @@ Both versions of `divide()` are functionally identical.
 
 
 ### Summary
-- [Function declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) is used to create new functions.
-- [Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to assign a function as a value.
+- [Function declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) is used to create functions.
+- [Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to create a function as a value.
 - [`return` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) is used inside a function to return a value.
 - [Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
 - [JSDoc](https://jsdoc.app/) is used to describe code in block-level comments.
@@ -483,22 +489,12 @@ Both versions of `divide()` are functionally identical.
 - 
 
 
-## Assignment 3: A flexible hello
+### Assignment 3: TODO
 
-TODO: refactor assignment 2 into function (purchase stuff)
+TODO
 
-Write a function called `greet()` that accepts two parameters; `name`, and `greeting` which should have a default value like `'Hello'` to make it optional.
-
-The function should return `"(greeting) (name)"`, where `(greeting)` is replaced by the value of the parameter `greeting`, and `(name)` is replaced by the value of the parameter `name`.
-
-Use `console.log()` to inspect the returned values when calling `greet()` with different parameters.
-
-
-### Extra credit
-- Change the implementation of `greet()`, so that the `name` parameter can be an array of `String` values. When an array is passed instead of a single value, we return the list of names joined by `', '` except for the last name on the list which is joined by `' and '` to format a list of names as follows: `'Claus, Tony and Henry'`
-- Change `createGreetFunction()` to accept a function as the `greeting` parameter. The function should return a random greeting when called.
-- Write a new function called `createGreetFunction()` that accepts a single parameter; `greeting`. When `createGreetFunction()` is called it should return a new function with a single parameter; `name`. The returned function calls `greet()` using the parameter `greeting` from the scope of `createGreetFunction()`, and `name` from it's own parameter. Create a few different customized `greet()` functions using this method.
-
+#### Extra credit
+- TODO
 
 ---
 
@@ -602,10 +598,10 @@ Conditional operations can be composed like chains of options with no upper limi
 - 
 
 
-## Assignment 4: TODO
+### Assignment 4: TODO
 
 
-### Extra credit
+#### Extra credit
 -
 
 
@@ -740,7 +736,7 @@ Other types of loops important to know are the `while` and `do...while`-loops. E
 - 
 
 
-## Assignment 5: Create an array of numbers, and remove values from it
+### Assignment 5: Create an array of numbers, and remove values from it
 
 Write a function called `createNumberList()` that accepts a single parameter called `maximumNumber`. The function must return a new `Array` containing numbers going from `1` up to the value of `maximumNumber` in sequential order.
 
@@ -788,7 +784,7 @@ Sometimes we want to add random values to our code. `Math.random()` returns a ne
 ### Useful things
 - 
 
-## Assignment 6: Generate random array indexes
+### Assignment 6: Generate random array indexes
 
 Write a function called `getRandomIndex()` that accepts a single parameter called `array`. The function must return a random index from the `array` parameter.
 
@@ -869,7 +865,7 @@ The `JSON.stringify()` function can format the values for better readability wit
 - [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse)
 
 
-## Assignment 7: TODO
+### Assignment 7: TODO
 
 TODO
 
@@ -882,7 +878,7 @@ TODO
 ### Summary
 - [Spread syntax `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-## Assignment 8: Lottery system part 3 - finishing up the number system
+### Assignment 8: Lottery system part 3 - finishing up the number system
 
 Write a function called `pluckRandomElementsFromArray()` that accepts two parameters; `array` and `count`. The function should return `count` number of random elements from `array` parameter.
 
