@@ -455,10 +455,10 @@ Function `roundNumber()` defined above accepts two parameters:
 
 ```js
 const PI = 3.14159265;
-console.log(roundNumber(PI, 4)); // 3.1415
-console.log(roundNumber(PI)); // 3.14
+console.log('PI with 4 decimals', roundNumber(PI, 4)); // 3.1415
+console.log('PI with 2 decimals', roundNumber(PI)); // 3.14
 ```
-The first call to `roundNumber()` above passes the value `4` as a second parameter which is `precision`.
+The first call to `roundNumber()` above passes the value `4` as parameter `precision`.
 
 The second call omits the second parameter which sets the value of `precision` to `2`.
 
@@ -470,13 +470,15 @@ variable = function(parameter, ...parameters) {
 ```
 Functions can be used as values using a [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function).
 
+TODO: more explanations
+
 ```js
 let divide = function(dividend, divisor) {
-  return dividend / divisor
+  return dividend / divisor;
 }
-console.log(divide(8022, 6)) // 1337 
+console.log(divide(8022, 6)); // 1337 
 ```
-This sample shows variable `divide` being assigned a function as a value. Variables can be called like functions if their value is a function.
+This sample shows variable `divide` being assigned a function as a value. Variables behave like functions if their value is a function.
 
 ```
 (parameter, ...parameters) => expression
@@ -488,8 +490,8 @@ JavaScript has a compact alternative to a traditional function expression called
 The expression after the fat arrow `=>` symbol evaluates to the return value.
 
 ```js
-divide = (dividend, divisor) => (dividend / divisor)
-console.log(divide(8022, 6)) // 1337
+divide = (dividend, divisor) => (dividend / divisor);
+console.log(divide(8022, 6)); // 1337
 ```
 Both versions of `divide()` are functionally identical.
 
@@ -581,43 +583,127 @@ This task will have you modifying the code produced in Task 2 of [Assignment 2](
 
 
 ## Lesson 4: Boolean values, comparisons and conditional operations
+There is a third important primitive data type that is crucial for altering the execution of a program:
 
-There is still an important primitive data type we must learn about before we can move forward.
-
-*Boolean*
-: The `Boolean` primitive data type has only two possible values: `true` and `false`.
+#### [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+> The `Boolean` data type has only two possible values: `true` and `false`.
 
 A major part of programming is to alter the execution of a program based on it's data. Comparison operations produce `Boolean` values when evaluated.
 
 ```js
-console.log(!true) // false
-console.log(!false) // true 
+console.log(!true); // false
+console.log(!false); // true 
 ```
-Boolean values can be inversed with the logical not `!` operator.
+`Boolean` values can be inversed with the [logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT).
+
+
+### Sameness
+```js
+console.log(1 === 1); // true
+console.log(1 !== 1); // false
+```
+It is recommended to use the [strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) to check if two values are equal.
+
+The [strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) should be used to check if two values are *not* equal.
 
 ```js
-console.log(1 === 1) // true
-console.log(1 !== 1) // false
+// Equality
+console.log(1 == '1'); // true
+console.log(1 != '1'); // false
+
+// Strict equality
+console.log(1 === '1'); // false
+console.log(1 !== '1'); // true
 ```
-To compare if two values are equal we use triple equals operator `===`, and to see if they are **not** equal, we use the negated equals check `!==`.
+JavaScript also has *non-strict* equality operators which *do not check the type* of the values being compared.
+
+The above code first uses the [equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) and the [inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) to compare a `Number` value of `1` to a `String` value of `"1"` - which is considered equal because they do not compare the *type* of a value. This can lead to strange side effects, and so their use is discouraged.
+
+Using the *strict* equality operators behaves as expected as they are *type safe*.
+
+# Comparing numbers
+```js
+console.log(4 > 3); // greater than, true
+console.log(3 >= 3); // greater than or equals, true
+
+console.log(4 < 3); // false, less than
+console.log(4 <= 3); // false, less than or equals
+```
+`Number` values can be compared to each other with using comparison operators.
+
+#### [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than)
+> The "greater than" operator returns `true` if the left value is greater than the right value, and `false` otherwise.
+
+#### [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+> The "greater than or equal" operator returns `true` if the left value is greater than or equal to the right value, and `false` otherwise.
+
+#### [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than)
+> The "less than" operator returns `true` if the left value is less than the right value, and `false` otherwise.
+
+#### [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+> The "less than or equal" operator returns `true` if the left value is less than or equal to the right value, and `false` otherwise.
+
+
+### Conditional execution of code
+```
+if (condition) {
+  ...
+}
+else {
+  ...
+}
+```
+The [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) allows execution of code when the *condition*, which is an expression, evaluates as `true`.
+
+Conditional execution starts with the `if` keyword, followed by an opening parenthesis `(`, a condition expression, and a closing parenthesis `)`.
+
+Next is an opening curly bracket `{` that starts a code block. The `...` signifies that code can be placed here. Code block ends with a matching closing curly bracket `}`.
+
+An *optional* `else` block will execute if the condition expression evaluates as `false`.
 
 ```js
-console.log(4 > 3) // greater than, true
-console.log(3 >= 3) // greater than or equals, true
-
-console.log(4 < 3) // less than, false false
-console.log(4 <= 3) // less than or equals, false
+if (1 !== 1) {
+  console.log('This is never called because 1 === 1');
+}
 ```
-We can also compare `Number` values against each other.
+The code above will not execute the `console.log()` call because the condition evaluates to `false`.
 
-
-### Logical comparisons
+```
+if (condition) {
+  ...
+}
+else if (condition) {
+  ...
+}
+else {
+  ...
+}
+```
+Multiple `if...else` statements can be nested to create an `else if` clause that will execute the first code block where the condition evaluates as true, or the *optional* `else` block if one exists.
 
 ```js
-console.log(true && true) // true
-console.log(true && false) // false (in any order)
-console.log(false && false) // false
+if (false) {
+  console.log('If');
+}
+else if (false) {
+  console.log('Else if');
+}
+else {
+  console.log('Else'); // "Else"
+}
+```
+Because `if` and `else if` conditions evaluate as `false`, the `else` block is executed.
 
+
+### Logical operators
+```js
+console.log(true && true); // true
+console.log(true && false); // false (in any order)
+console.log(false && false); // false
+```
+Using the [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) TODO
+
+```js
 console.log(true || true) // true
 console.log(true || false) // true (in any order)
 console.log(false || false) // false
@@ -646,33 +732,20 @@ All of the values in the list above are always *"falsy"* which means they produc
 All other values will always by *"truthy"* which means they produce the `Boolean` value `true` when used as booleans.
 
 
-### Conditional operations
-
-```js
-if (1 !== 1) {
-  console.log('This is never called because 1 === 1')
-}
-```
-After learning about booleans and comparisons we can finally use *conditional execution of code.* We sometimes want to execute code only if a condition is met. We begin with the `if` keyword followed by the conditional expression wrapped inside a pair of parenthesis `()`, followed by a code block to execute when the expression evaluates as `true`.
-
-```js
-if (false) {
-  console.log('Duck')
-}
-else if (false) {
-  console.log('Duck')
-}
-else {
-  console.log('Goose') // "Goose"
-}
-```
-Conditional operations can be composed like chains of options with no upper limit on complexity. Both `else` and `else if` are entirely optional. As the `if` and `else if` conditions evaluate as false, the `else`-block is executed.
 
 
 ### Summary
-- [`Boolean` values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-- [Euquality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
-- [Logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#logical_operators)
+- [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) is a primitive data type that can be `true` or `false`.
+- [Logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT) inverses the value of a `Boolean`.
+- [Equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) checks if two values are the same, but does not care about type.
+- [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) checks if two values are the same while being *type safe*.
+- [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) checks for if two values are NOT the same, but does not care about type.
+- [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) checks if two values are NOT the same while being *type safe*. 
+- [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than) TODO
+- [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) TODO
+- [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than) TODO
+- [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal) TODO
+- [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) TODO
 
 
 ### Useful things
