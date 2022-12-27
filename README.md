@@ -289,9 +289,9 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 - 
 
 
-### Assignment 2: TODO purchase of a lottery ticket maths
+### Assignment 2: Financial transaction
 
-In this assignment you will define variables and perform calculations on them using expressions.
+In this assignment you will define variables and perform calculations on them using expressions. Write the code for each step in sequence.
 
 ##### Step 1
 > Define a constant value named `PRICE`.
@@ -299,23 +299,23 @@ In this assignment you will define variables and perform calculations on them us
 > Assign it any `Number` value above zero `0`.
 
 ##### Step 2
-> Define a variable named `walletAmount`.
+> Define a variable named `moneyAmount`.
 > 
-> Assign it a `Number` value higher than `PRICE`.
+> Assign it a `Number` value higher than the value of `PRICE`.
 
 ##### Step 3
 > Define a variable named `affordAmount`.
 >
-> Assign it an expression that divides `walletAmount` by `PRICE`.
+> Assign it an expression that divides `moneyAmount` by `PRICE`.
 
 ##### Step 4
 > Define a variable named `change`.
-> Assign it the expression of getting the remainder of dividing `walletAmount` by `PRICE`.
+> Assign it the expression of getting the *remainder* of dividing `moneyAmount` by `PRICE`.
 
 ##### Step 5
 > Define a variable named `itemAmount`.
 >
-> Assign it an expression where you first subtract `change` from `walletAmount`, then divide the result with `PRICE`.
+> Assign it an expression where you first subtract `change` from `moneyAmount`, then divide the result with `PRICE`.
 
 ##### Step 6
 > Define a variable named `totalPrice`.
@@ -323,22 +323,22 @@ In this assignment you will define variables and perform calculations on them us
 > Assign it an expression where you multiply `itemAmount` with `PRICE`.
 
 ##### Step 7
-> Define a variable named `previousWalletAmount`.
-> 
-> Assign it the value of `walletAmount`.
-
-##### Step 8
 > Call `console.log()` to inspect the values of the variables you defined.
 
+##### Step 8
+> Define a variable named `previousMoneyAmount`.
+> 
+> Assign it the value of `moneyAmount`.
+
 ##### Step 9
-> Change the value of `walletAmount` with an expression where `PRICE` multiplied by `itemAmount` is subtracted from `walletAmount`.
+> Change the value of `moneyAmount` with an expression where `PRICE` multiplied by `itemAmount` is subtracted from `moneyAmount`.
 
 #### Step 10
-> Add the code below after the code for this lesson to check that your calculations are correct:
+> Add the code below after the code you wrote for this assignment to verify that the calculations are correct:
 ```js
-console.log('Calculation is correct', previousWalletAmount - totalPrice === walletAmount);
+console.log('Calculation is correct', previousMoneyAmount - totalPrice === moneyAmount);
 ```
-> This code prints `"Calculation is correct"` with `true` or `false` from the expression. These values are discussed in [Lesson 4](#lesson-4-boolean-values-comparisons-and-conditional-operations).
+> This code prints `"Calculation is correct"` with `true` or `false` as value from the expression - these values are discussed in [Lesson 4](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
 
 #### Extra credit
