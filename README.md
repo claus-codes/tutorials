@@ -333,7 +333,7 @@ In this assignment you will define variables and perform calculations on them us
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` again to inspect the new value of `money`.
+> Call `console.log()` again to inspect the new value of `money` which should be equal to the value of `change`.
 
 
 #### Extra credit
