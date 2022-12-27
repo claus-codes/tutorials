@@ -61,7 +61,7 @@ I would recommend writing a comment before the code for each assignment, and to 
 
 
 ## Lesson 1: Hello World!
-All software is just data processing and manipulation. Let me introduce you to two primitive data types found in JavaScript that we will be using soon:
+All software is just data processing and manipulation. Let me introduce you to two primitive data types found in JavaScript:
 
 #### [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 > The `Number` data type represents *any real numbers* like `42`, `3.14159` or `-10000000000`.
@@ -787,6 +787,7 @@ Above is a the *truth table* for the OR `||` operator with the different combina
 - [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) TODO
 - [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) TODO
 - [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) TODO
+
 
 ### Useful things
 - 
