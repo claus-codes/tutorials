@@ -37,7 +37,9 @@ Lessons feature the following recurrent sections at the end:
 
 
 ### Assignments
-The assignments after each lesson are designed to use new and previously learned information. Assignments can have multiple steps for you to complete, which include writing new code and modifying code you wrote previously.
+The assignments after each lesson are designed to use new and previously learned information.
+
+Assignments can have multiple tasks for you to complete, which may be broken into smaller steps.
 
 *All the code from the assignments should be placed in the same file*, as code written in earlier assignments will be used later. Tasks should be done in the order they are presented.
 
@@ -107,8 +109,10 @@ It's good practice to comment your code and explain what is happening. It can be
 - [`console.log()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log) logs all parameters from each call made to it and is incredibly useful for figuring out what is happening.
 
 
-### Assignment 1: Make your own call
-Write code that calls `console.log()` with your own message.
+### Assignment 1
+This first assignment is an easy one:
+
+> Write code that calls `console.log()` with your own message.
 
 #### Extra credit
 - *TODO: review*
@@ -292,48 +296,72 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 - TODO
 
 
-### Assignment 2: Financial transaction
+### Assignment 2
+In this assignment you will work with variables, expressions and template literals.
 
-In this assignment you will define variables and perform calculations on them using expressions. Write the code for each step in sequence.
+
+#### Task 1: "Hello world" with string interpolation
+Template literals introduced in this lesson can be used to inject values inside `String` variables.
 
 ##### Step 1
-> Define a constant value named `PRICE`.
+> Define a variable named `greeting`.
+>
+> Assign it a `String` value that is a greeting like `"Hello`.
+
+##### Step 2
+> Define a variable named `name`.
+>
+> Assign it your own name as a `String` value.
+
+##### Step 3
+> Call `console.log()` and use template literals to inject `greeting` and `name` to the output.
+
+
+#### Task 2: Financial transaction
+In this task you will define variables and perform calculations on them using expressions.
+
+##### Step 1
+> Define a variable named `price`.
 > 
 > Assign it any `Number` value above zero `0`.
 
 ##### Step 2
 > Define a variable named `money`.
 > 
-> Assign it a `Number` value higher than the value of `PRICE`.
+> Assign it a `Number` value higher than the value of `price`.
 
 ##### Step 3
 > Define a variable named `affordAmount`.
 >
-> Assign it an expression that divides `money` by `PRICE`.
+> Assign it an expression that divides `money` by `price`.
 
 ##### Step 4
 > Define a variable named `change`.
 >
-> Assign it the expression of getting the *remainder* of dividing `money` by `PRICE`.
+> Assign it the expression of getting the *remainder* of dividing `money` by `price`.
 
 ##### Step 5
 > Define a variable named `itemAmount`.
 >
-> Assign it an expression where you first subtract `change` from `money`, then divide the result with `PRICE`.
+> Assign it an expression where you first subtract `change` from `money`, then divide the result with `price`.
 
 ##### Step 6
 > Define a variable named `totalPrice`.
 >
-> Assign it an expression where you multiply `itemAmount` with `PRICE`.
+> Assign it an expression where you multiply `itemAmount` with `price`.
 
 ##### Step 7
 > Call `console.log()` to inspect the values of the variables you defined.
+>
+> Use template literals to make it look nice.
 
 ##### Step 8
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` again to inspect the new value of `money` which should be equal to the value of `change`.
+> Call `console.log()` to inspect the new value of `money` which should be equal to the value of `change` if the calculations are correct.
+>
+> Use template literals again to format the output.
 
 
 #### Extra credit
@@ -343,7 +371,6 @@ In this assignment you will define variables and perform calculations on them us
 
 
 ## Lesson 3: Functions
-
 As mentioned in [Lesson 1](#lesson-1-hello-world), a `function` is essentially a block of code that can be called with parameters.
 
 ```
@@ -480,12 +507,75 @@ Both versions of `divide()` are functionally identical.
 - 
 
 
-### Assignment 3: TODO
+### Assignment 3
+In this assignment you will utilize your knowledge of functions and variables.
 
-TODO
+
+#### Task 1: Greeting function
+Modify the code from in Task 1 of [Assignment 2](#assignment-2): *"Hello world" with string interpolation*.
+
+##### Step 1
+> Write a new function `greet()` that accepts two parameters:
+> - `name` that has no default value and is required.
+> - `greeting` that has the default `String` value of `"Greetings"`.
+
+##### Step 2
+> Make the function `greet()` return the template literal that was passed to `console.log()` previously.
+
+##### Step 3
+> Pass the return values of `greet()` to `console.log()` when using different parameters.
+>
+> Ensure the default value is used when the `greeting` parameter is omitted.
+
+
+#### Task 2: Financial transaction functions
+This task will have you modifying the code produced in Task 2 of [Assignment 2](#assignment-2): *Financial transaction*.
+
+##### Step 1
+> Write a new function `calculateAffordableItemCount()` which accepts two parameters: `price` and `money`.
+
+##### Step 2
+> Move the code from the *"Financial transaction"* task inside `calculateAffordableItemCount()`.
+>
+> Modify the code so the values of `price` and `money` come from the parameters.
+
+##### Step 3
+> Make `calculateAffordableItemCount()` return the value of `itemAmount`.
+
+##### Step 4
+> Write a new function `calculateTotalPrice()` which accepts two parameters: `price` and `amount`.
+>
+> The function should return the result of multiplying `price` with `amount`.
+
+##### Step 5
+> Define the variables `price` and `money` again outside of the function `calculateAffordableItemCount()`.
+>
+> Assign them the same `Number` values as you did previously with the variables.
+
+##### Step 6
+> Define a variable named `itemCount`.
+>
+> Assign it the return value of `calculateAffordableItemCount()` with `price` and `money` as the parameters.
+
+##### Step 7
+> Define a variable named `totalPrice`.
+>
+> Assign it the return value of `calculateTotalPrice()` with `price` and `itemCount` as the parameters.
+
+##### Step 8
+> Define a variable named `moneyAfter`.
+>
+> Assign it an expression where you subtract `totalPrice` from `money`.
+
+##### Step 9
+> Call `console.log()` to inspect the variables defined after Step 5.
+>
+> Use template literals to format the output, detailing the transaction.
+
 
 #### Extra credit
 - TODO
+
 
 ---
 
