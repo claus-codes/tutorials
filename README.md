@@ -299,23 +299,23 @@ In this assignment you will define variables and perform calculations on them us
 > Assign it any `Number` value above zero `0`.
 
 ##### Step 2
-> Define a variable named `moneyAmount`.
+> Define a variable named `money`.
 > 
 > Assign it a `Number` value higher than the value of `PRICE`.
 
 ##### Step 3
 > Define a variable named `affordAmount`.
 >
-> Assign it an expression that divides `moneyAmount` by `PRICE`.
+> Assign it an expression that divides `money` by `PRICE`.
 
 ##### Step 4
 > Define a variable named `change`.
-> Assign it the expression of getting the *remainder* of dividing `moneyAmount` by `PRICE`.
+> Assign it the expression of getting the *remainder* of dividing `money` by `PRICE`.
 
 ##### Step 5
 > Define a variable named `itemAmount`.
 >
-> Assign it an expression where you first subtract `change` from `moneyAmount`, then divide the result with `PRICE`.
+> Assign it an expression where you first subtract `change` from `money`, then divide the result with `PRICE`.
 
 ##### Step 6
 > Define a variable named `totalPrice`.
@@ -326,17 +326,17 @@ In this assignment you will define variables and perform calculations on them us
 > Call `console.log()` to inspect the values of the variables you defined.
 
 ##### Step 8
-> Define a variable named `previousMoneyAmount`.
+> Define a variable named `previousMoney`.
 > 
-> Assign it the value of `moneyAmount`.
+> Assign it the value of `money`.
 
 ##### Step 9
-> Change the value of `moneyAmount` with an expression where `PRICE` multiplied by `itemAmount` is subtracted from `moneyAmount`.
+> Change the value of `money` with an expression where `PRICE` multiplied by `itemAmount` is subtracted from `money`.
 
 #### Step 10
 > Add the code below after the code you wrote for this assignment to verify that the calculations are correct:
 ```js
-console.log('Calculation is correct', previousMoneyAmount - totalPrice === moneyAmount);
+console.log('Calculation is correct', previousMoney - totalPrice === money);
 ```
 > This code prints `"Calculation is correct"` with `true` or `false` as value from the expression - these values are discussed in [Lesson 4](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
