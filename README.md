@@ -596,7 +596,29 @@ console.log('NOT false', !false); // true
 
 Comparison operations, discussed next, produce `Boolean` values when evaluated.
 
-### Equality an sameness
+
+### Empty values and truthiness
+The concept of empty values was touched mentioned in [Lesson 2](#lesson-2-values-and-variables) where 
+when we learned about `undefined` which we can use to say something is actually nothing. Another way to do that in JavaScript is the `null` value.
+
+The difference is that `undefined` happens when a value was not ever defined to begin with, and `null` is a value that someone purposefully uses to indicate a lack of value.
+
+```js
+false
+0 // (zero)
+'' // (empty string)
+""
+``
+null
+undefined
+NaN // Not a Number
+```
+All of the values in the list above are always *"falsy"* which means they produce the `Boolean` value `false` when used as booleans.
+
+All other values will always by *"truthy"* which means they produce the `Boolean` value `true` when used as booleans.
+
+
+### Equality and sameness
 ```js
 console.log(1 === 1); // true
 console.log(1 !== 1); // false
@@ -703,6 +725,8 @@ condition ? trueExpression : falseExpression
 ```
 The [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) allows for a shorter way to perform simple `if...else` operations. It behaves like a conditional expression.
 
+TODO: write about the syntax
+
 If the `condition` evaluates as `true`, the `trueExpression` is evaluated, otherwise `falseExpression` is evaluated.
 
 ```js
@@ -717,61 +741,52 @@ conditionalVar = 4 === 4
   : 'Nah';
 console.log('True expression', conditionalVar); // "Yay"
 ```
-Using white space can be helpful to readability.
+Using white space can help readability.
 
 
 ### Logical operators
+```
+expression && expression
+```
+Using the [logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) it is possible to chain *truthiness* checks into a *combined expression* which are evaluated sequentially, and *return* a value *for* the combined expression.
+
+The conditions evaluate left to right, and if a *falsy* value is encountered the combined expression returns that *falsy* value. Otherwise the last *truthy* value is returned.
+
 ```js
 console.log(true && true); // true
 console.log(true && false); // false (in any order)
 console.log(false && false); // false
 ```
-Using the [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) TODO
+Above is a the *truth table* for the AND `&&` operator with the different combinations of `Boolean` values, and what they evaluate as. 
+
+```
+expression || expression
+```
+With the [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) conditions evaluate left to right, and if a *truthy* value is encountered the combined expression returns that *truthy* value. Otherwise it returns `false`.
 
 ```js
 console.log(true || true) // true
 console.log(true || false) // true (in any order)
 console.log(false || false) // false
 ```
-Boolean are also used to make logical comparisons with `&&` and `||` operators, meaning `and` and `or` respectively.
-
-
-### Empty values
-
-We previously touched the topic of empty values in [Lesson 2](#lesson-2-values-and-variables) when we learned about `undefined` which we can use to say someting is actually nothing. Another way to do that in JavaScript is the `null` value.
-
-The difference is that `undefined` happens when a value was not ever defined to begin with, and `null` is a value that someone purposefully uses to indicate a lack of value.
-
-```js
-false
-0 // (zero)
-'' // (empty string)
-""
-``
-null
-undefined
-NaN // Not a Number
-```
-All of the values in the list above are always *"falsy"* which means they produce the `Boolean` value `false` when used as booleans.
-
-All other values will always by *"truthy"* which means they produce the `Boolean` value `true` when used as booleans.
-
-
+Above is a the *truth table* for the OR `||` operator with the different combinations of `Boolean` values, and what they evaluate as.
 
 
 ### Summary
 - [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) is a primitive data type that can be `true` or `false`.
 - [Logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT) inverses the value of a `Boolean`.
 - [Equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) checks if two values are the same, but does not care about type.
-- [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) checks if two values are the same while being *type safe*.
+- [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) checks if two values are equal while being *type safe*.
 - [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) checks for if two values are NOT the same, but does not care about type.
-- [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) checks if two values are NOT the same while being *type safe*. 
+- [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) checks if two values are NOT equal while being *type safe*. 
 - [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than) TODO
 - [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) TODO
 - [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than) TODO
 - [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal) TODO
 - [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) TODO
 - [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) TODO
+- [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) TODO
+- [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) TODO
 
 ### Useful things
 - 
