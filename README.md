@@ -583,12 +583,10 @@ This task will have you modifying the code produced in Task 2 of [Assignment 2](
 
 
 ## Lesson 4: Boolean values, comparisons and conditional operations
-There is a third important primitive data type that is crucial for altering the execution of a program:
+There is a third important primitive data type.
 
 #### [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 > The `Boolean` data type has only two possible values: `true` and `false`.
-
-A major part of programming is to alter the execution of a program based on it's data. Comparison operations produce `Boolean` values when evaluated.
 
 ```js
 console.log(!true); // false
@@ -596,6 +594,7 @@ console.log(!false); // true
 ```
 `Boolean` values can be inversed with the [logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT).
 
+Comparison operations, discussed next, produce `Boolean` values when evaluated.
 
 ### Sameness
 ```js
@@ -621,7 +620,7 @@ The above code first uses the [equality `==` operator](https://developer.mozilla
 
 Using the *strict* equality operators behaves as expected as they are *type safe*.
 
-# Comparing numbers
+### Comparing numbers
 ```js
 console.log(4 > 3); // greater than, true
 console.log(3 >= 3); // greater than or equals, true
@@ -653,7 +652,7 @@ else {
   ...
 }
 ```
-The [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) allows execution of code when the *condition*, which is an expression, evaluates as `true`.
+A major part of software is *conditional execution of code*. The [`if...else`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) statement allows execution of code when the *condition*, which is an expression, evaluates as `true`.
 
 Conditional execution starts with the `if` keyword, followed by an opening parenthesis `(`, a condition expression, and a closing parenthesis `)`.
 
@@ -662,11 +661,14 @@ Next is an opening curly bracket `{` that starts a code block. The `...` signifi
 An *optional* `else` block will execute if the condition expression evaluates as `false`.
 
 ```js
+if ('value' === 'value') {
+  console.log('Values are equal'); // "Values are equal"
+}
 if (1 !== 1) {
   console.log('This is never called because 1 === 1');
 }
 ```
-The code above will not execute the `console.log()` call because the condition evaluates to `false`.
+The code above will execute the first `console.log()` call, but not second.
 
 ```
 if (condition) {
@@ -692,7 +694,7 @@ else {
   console.log('Else'); // "Else"
 }
 ```
-Because `if` and `else if` conditions evaluate as `false`, the `else` block is executed.
+Because both `if` and `else if` conditions evaluate to `false`, the `else` block is executed.
 
 
 ### Logical operators
