@@ -330,19 +330,10 @@ In this assignment you will define variables and perform calculations on them us
 > Call `console.log()` to inspect the values of the variables you defined.
 
 ##### Step 8
-> Define a variable named `previousMoney`.
-> 
-> Assign it the value of `money`.
+> Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Change the value of `money` with an expression where `PRICE` multiplied by `itemAmount` is subtracted from `money`.
-
-#### Step 10
-> Add the code below after the code you wrote for this assignment to verify that the calculations are correct:
-```js
-console.log('Calculation is correct', previousMoney - totalPrice === money);
-```
-> This code prints `"Calculation is correct"` with `true` or `false` as value from the expression - these values are discussed in [Lesson 4](#lesson-4-boolean-values-comparisons-and-conditional-operations).
+> Call `console.log()` again to inspect the new value of `money`.
 
 
 #### Extra credit
