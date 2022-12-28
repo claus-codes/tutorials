@@ -18,22 +18,22 @@ Whenever you see text formatted `like this`, it means we are discussing about so
 ```js
 console.log('This code is syntax highlighted.');
 ```
-Like the one seen above, sample code is always followed by an explanation and is always *syntax highlighted* which means different things have different colors based on semantic rules. JavaScript is very strict about syntax, which is the set of rules that govern the structure of a language.
+Like the one seen above, sample code is always followed by an explanation, and is always *syntax highlighted* which means different things have different colors based on semantic rules. JavaScript, like all programming languages, is very strict about syntax, which is the set of rules that govern the structure of a language.
 
 ```
 if (condition) {
   ...
 }
 ```
-Some lessons teach you how JavaScript code is structured with an example of syntax. Like sample code they are followed by an explanation, but unlike sample code they are not syntax highlighted as they are not code.
+*Syntax examples* teach you how JavaScript code is structured with an example of syntax, always followed by an explanation. Unlike sample code syntax examples are *never* syntax highlighted as they are not actual code.
 
 Lessons feature the following recurrent sections at the end:
 
 #### Summary
-> The Summary section contains a list of links to documentation for the things discussed during the lesson. These are your best resources to learn more, so be curious and explore.
+> The Summary section contains a list of links to documentation for the things discussed during the lesson, with a short description of each. The documentation contains more information and sample code, so be curious and explore.
 
 #### Useful things
-> Useful things are things you *should* know about, but did not have a good place in the tutorial.
+> Useful things did not have a good place in the tutorial, but are things you *should* know about.
 
 
 ### Assignments
@@ -42,9 +42,6 @@ The assignments after each lesson are designed to use new and previously learned
 Assignments can have multiple tasks for you to complete, which may be broken into smaller steps.
 
 *All the code from the assignments should be placed in the same file*, as code written in earlier assignments will be used later. Tasks should be done in the order they are presented.
-
-#### Extra credit
-> Some assignments have an Extra Credit section at the end. This section contains small challenges for when you have finished all the lessons and assignments.
 
 
 ### Workflow
@@ -71,18 +68,18 @@ All software is just data processing and manipulation. Let me introduce you to t
 
 ### A humble beginning
 ```
-functionName(parameter, ...parameters);
+functionName(parameter, parameter)
 ```
-Above is the syntax for a **function call**; it starts with the *name of the function* followed with an opening parenthesis `(`, an *optional* list of parameters separated by comma `,`, and a closing parenthesis `)` at the end.
-
-The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. This tutorial includes them in this tutorial as code can break in unexpected ways when you do not include them.
+This is the syntax example for a **function call**; it starts with the *name of the function* followed with an opening parenthesis `(`, an *optional* list of *parameters* separated by comma `,` with a closing parenthesis `)` at the end.
 
 ```js
 console.log('Hello World!');
 ```
-The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/console/log), is the name of a built-in function in JavaScript that lets us write to the developer console. It gets passed a single parameter - the `String` value of `"Hello World!"`.
+The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/console/log), is the name of a built-in function in JavaScript that lets us write, or *log*, to the developer console. It gets passed a single parameter: `String` value of `"Hello World!"`.
 
-There is a lesson dedicated to functions so for now think of a function as code that can be called with or without parameters.
+The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code but not in syntax examples.
+
+[Lesson 3](#lesson-3-functions) is dedicated to functions but for now think of a function as code that can be called with or without parameters.
 
 
 ### Comments
@@ -110,61 +107,58 @@ It's good practice to comment your code and explain what is happening. It can be
 
 
 ### Assignment 1
-This first assignment is an easy one:
+The first assignment is an easy one:
 
 > Write code that calls `console.log()` with your own message.
-
-#### Extra credit
-- *TODO: review*
-- Write your own logging function that uses `console.log()` and accepts an arbitrary number of parameters.
-- Add the current time and date before each log entry.
-- Process every parameter that is of type `Object` with `JSON.stringify()` and format the output.
-- Create another function to turn the logging on and off.
 
 
 ---
 
 
 ## Lesson 2: Values, variables and expressions
-To store and manipulate values, like `Number` or `String`, we need to use variables.
+To store and manipulate values, like `Number` or `String`, we need to use variables. Variables are like boxes with a label, that can contain a single thing, or *value*.
 
 ```
 let variableName = expression
 ```
-Variables are declared with the keyword [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), followed by the name of the variable, followed by an *optional* [Assignment `=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) operation to set an initial value which is evaluated from the expression. Expressions are explained later in this lesson.
+Variables are declared with the keyword [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), followed by the name of the variable, followed by an *optional* [Assignment `=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) operation to set an initial value which is evaluated from the *expression*. Expressions are explained later in this lesson.
 
 ```js
 let num = 9;
 let text = 'piece of text';
 ```
 The code above declares two variables:
-- `num` that we assign the `Number` value of `9`.
-- `text` we assign `String` value of `"piece of text"`.
+- `num` is assigned `Number` value of `9`.
+- `text` is assigned `String` value of `"piece of text"`.
 
+```
+let variableName = expression,
+    variableName = expression
+```
+Multiple variables can be defined with a single `let` keyword by separating each variable declaration with a comma `,`.
 
 ### Empty values
 ```js
 let emptyVar;
 console.log(emptyVar); // undefined
 ```
-Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called `undefined`, which means it has not been given a value. There is more information about empty values in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
+Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value. There is more information about empty values in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
 
 
 ### Constant values
 ```js
 const immutableValue = 'I cannot be overwritten';
-immutableValue = 'this will not work'; // this line will throw an Error
+immutableValue = 'this will not work'; // This line will throw an Error
 ```
 The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a constant value, which acts like a variable but it's value cannot be changed after it's declaration. When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Logging variables
-
 ```js
 console.log('Value of num', num); // "Number" 9
 console.log('Value of text', text); // "Message" "string value"
 ```
-Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before values when logging things as it's easy to lose track of what value is relevant in the logs.
+Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before when *logging* values as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
 
 For the sake of readability I will omit the context messages going forward.
 
@@ -177,76 +171,85 @@ console.log('Value of text after change', text) // "JavaScript"
 num = num * 3;
 console.log('After multiplication', num); // 27
 ```
-Variables can have their value changed by assigning them a new value. `text` is assigned a new value of `"JS"`, after which the new value is logged to see it is changed.
+Variables can have their value changed by assigning them a new value.
 
-The variable num `num` is assigned `num * 3`, an *expression*, which evaluates to the `Number` value of `27` as the value of `num` was `9` before evaluation.
+Variable `text` is assigned a new `String` value of `"JS"`, after which the new value is logged to see it is changed.
+
+Variable `num` is assigned `num * 3`, an *expression*, which evaluates to the `Number` value of `27` as the value of `num` was `9` before evaluation.
 
 
 ### Expressions
 ```js
 console.log('Nice', 23 * 3); // 69
 ```
-The code above calls `console.log()` again, but this time it gets passed the *expression* `23 * 3` instead of a single value or variable. It is a multiplication operation on numbers `23` and `3` which evaluates to the number `69`.
+The code above calls `console.log()` again, but this time it gets passed the *expression* `23 * 3` instead of a single value or variable. It is a multiplication operation on numbers 23 and 3 which evaluates to `Number` value of `69`.
 
-When referring to a value, a variable or an operation in code, you are using an expression. Simply put: *expressions are pieces of code that produce a value.*
+When referring to a value, a variable or an operation in code you are using an expression. Simply put: *expressions are pieces of code that return a value.*
 
-`Number` values can be used to perform calculations using various mathematical operators - some more familiar than others.
+`Number` values can be used to perform calculations using various mathematical operators.
 
 #### [Addition `+`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition)
-> The addition operator adds numbers together, producing a sum of values.
+> The addition operator adds numbers together, producing a sum of values.  
+> `1 + 2` = `3` 
 
 #### [Subtraction `-`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction)
-> The subtraction operator subtracts two numbers from one another, producing their difference.
+> The subtraction operator subtracts two numbers from one another, producing their difference.  
+> `2 - 1` = `1`
 
 #### [Multiplication `*`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication)
-> The multiplication operator multiplies numbers, producing the product of the numbers.
+> The multiplication operator multiplies numbers, producing the product of the numbers.  
+> `3 * 3` = `9`
 
 #### [Division `/`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division)
-> The division operator divides the left number, the dividend, with the right, the divisor.
+> The division operator divides the left number, the dividend, with the right, the divisor.  
+> `9 / 3` = `3`
 
 #### [Remainder `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
-> The remainder operator returns the remainder left over when left number is divided with right number.
+> The remainder operator returns the remainder left over when left number is divided with right number.  
+> `83 % 10` = `3`, because `83 / 10` = `8` with `3` as the remainder.  
+> 
+> `4 % 2` = `0`, because `4` is an even number, while odd numbers would produce `1`.
 
 #### [Exponentation `**`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
-> The exponentation operator returns the result of raising left number to the power of the right number.
+> The exponentation operator returns the result of raising left number to the power of the right number.  
+> `3 ** 2` = `9` because `3 * 3` = `9`  
+> 
+> `10 ** 3` = `1000` because: `10 * 10 * 10` = `1000`
 
 ```js
-console.log('Four is even', 4 % 2); // 0
-console.log('One left over', 21 % 10); // 1
-
-console.log('Basic multiplication', 10 * 10 * 10) // 1000
-console.log('Exponentation', 10 ** 3); // 1000
+console.log('Complex calculation', (11 * 367) - (num * 100)); // 1337
 ```
-The remainder and exponentation operators might not be very familiar to most people, so here's examples for both. To break down the remainder:
+Parenthesis can be used to group operations together which helps writing complex calculations where maintaining a strict [order of operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is necessary. Any expression inside a pair of matching parenthesis `()` is evaluated before other operations can take place.
 
-> `21 % 10` evaluates to `1` because 21 divided by 10 equals to 2, with the 1 as the remainder.
+> Expression `11 * 367` evaluates to `4037`.
+> 
+> Expression `num * 100` evaluates to `2700` as variable `num` has the value of `27`.  
+>
+> After the expressions inside parenthesis `()` are first evaluated to values `2700` and `4037`, the remaining subtraction operation `4037 - 2700` produces the final result of `1337`:  
+> `4037 - 2700` = `1337`.
 
-> `4 % 2` evaluates to `0` as 4 is an even number, while odd numbers would produce `1`. 
 
-```js
-console.log('Complex calculation', (num * 100) - 1363); // 1337
-```
-Parenthesis can be used to group operators together which gives us the ability to write complex calculations where maintaining a strict order of operations is necessary.
-
+### Not-a-Number
 ```js
 const numberValue = 13;
 const notNumberValue = 'hello';
-console.log('Failure', numberValue / notNumberValue); // NaN
+console.log('Math fail', numberValue / notNumberValue); // NaN
 ```
 When a mathematical operations are attempted with values that are not `Number` types, a special [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) value is used which stands for *Not-a-Number*.
 
 
 ### String interpolation
 ```js
-let text1 = 'ined';
-let text2 = 'comb';
-console.log('Joined text', text2 + text1); // "combined" 
+let text1 = 'mb',
+    text2 = 'ed',
+    text3 = 'in',
+    text4 = 'co';
+console.log('Text can be', text4 + text1 + text2 + text3); // "combined" 
 ```
-Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins strings together.
+Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins them together.
 
 ```js
-let name = 'person';
-console.log(`Hello, ${name}?`); // "Hello, person?" 
+console.log(`${text} is amazing`); // "JavaScript is amazing" 
 ```
 The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${name}` in the sample code.
 
@@ -266,7 +269,7 @@ let templateLiteralString = `
 `;
 console.log(templateLiteralString); // filled template
 ```
-To indicate a line-break on a normal string, the *escape-character* `\n` is used. Template literals instead use existing line breaks in the code.
+Line-breaks in normal strings are signified with the *escape-character* `\n`, while template literals use existing line breaks in the code.
 
 
 ### Naming variables
@@ -276,7 +279,7 @@ let variable_with_underscores = 'This is called snake_case';
 let variableWithCapitals = 'This is called camelCase';
 let VARIABLE_WITH_UPPER_CASE = 'ALL CAPS AAAHHHH!!!!';
 ```
-Variables can be named almost anything with some restrictions; a variable's name cannot start with a number, should be alpha-numeric or the underscore `_` character.
+Variables can be named almost anything with a few restrictions; a variable's name cannot start with a number and should be alpha-numeric, or the underscore `_` character.
 
 What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things, as it can help make the program logic easier to follow and reason about.
 
@@ -284,12 +287,13 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 ### Summary
 - [Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables) are containers for values defined with the [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) keyword.
 - [Assignment `=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) is used to assign a value to a variable.
+- [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) is a primitive value that means no value has been assigned.
 - [`const` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) is used to define constant values which cannot be changed.
-- [`NaN` value](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) is the result from mathematical operations with values that are *Not a Number*.
 - [Remainder `%` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder) returns the remainder left over from a division. 
 - [Exponentiation `**` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) returns the result of raising a number to the power of another number.
 - [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is a concept from classic mathematics about the order in which calculations should be evaluated.
-- [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) make it easy to construct complex `String` values.
+- [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) is a value that is produced as the result from mathematical operations with values that are not `Number` types.
+ - [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) make it easy to construct complex `String` values.
 
 
 ### Useful things
@@ -304,84 +308,74 @@ In this assignment you will work with variables, expressions and template litera
 Template literals introduced in this lesson can be used to inject values inside `String` variables.
 
 ##### Step 1
-> Define a variable named `greeting`.
->
+> Define a variable named `greeting`.  
 > Assign it a `String` value that is a greeting like `"Hello`.
 
 ##### Step 2
-> Define a variable named `name`.
->
+> Define a variable named `name`.  
 > Assign it your own name as a `String` value.
 
 ##### Step 3
-> Call `console.log()` and use template literals to inject `greeting` and `name` to the output.
+> Call `console.log()` and use template literals to inject `greeting` and `name` to the output.  
+> The console should log out `"Hello Claus!"`, where `"Claus"` is your name.
 
 
 #### Task 2: Financial transaction
 In this task you will define variables and perform calculations on them using expressions.
 
 ##### Step 1
-> Define a variable named `price`.
-> 
+> Define a variable named `price`.  
 > Assign it any `Number` value above zero `0`.
 
 ##### Step 2
-> Define a variable named `money`.
-> 
+> Define a variable named `money`.  
 > Assign it a `Number` value higher than the value of `price`.
 
 ##### Step 3
-> Define a variable named `affordAmount`.
->
+> Define a variable named `affordAmount`.  
 > Assign it an expression that divides `money` by `price`.
 
 ##### Step 4
-> Define a variable named `change`.
->
+> Define a variable named `change`.  
 > Assign it the expression of getting the *remainder* of dividing `money` by `price`.
 
 ##### Step 5
-> Define a variable named `itemAmount`.
->
+> Define a variable named `itemAmount`.  
 > Assign it an expression where you first subtract `change` from `money`, then divide the result with `price`.
 
 ##### Step 6
-> Define a variable named `totalPrice`.
->
+> Define a variable named `totalPrice`.  
 > Assign it an expression where you multiply `itemAmount` with `price`.
 
 ##### Step 7
-> Call `console.log()` to inspect the values of the variables you defined.
->
+> Call `console.log()` to inspect the values of the variables you defined.  
 > Use template literals to make it look nice.
 
 ##### Step 8
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` to inspect the new value of `money` which should be equal to the value of `change` if the calculations are correct.
->
+> Call `console.log()` to inspect the new value of `money`, which should be equal to the value of `change`.  
 > Use template literals again to format the output.
 
-
-#### Extra credit
-- TODO
 
 ---
 
 
 ## Lesson 3: Functions
-As mentioned in [Lesson 1](#lesson-1-hello-world), a `function` is essentially a block of code that can be called with parameters.
+As mentioned in [Lesson 1](#lesson-1-hello-world), a [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is essentially a block of code that can be called with parameters.
 
 ```
-function functionName(parameter, ...parameters) {
+function functionName(parameters) {
   ...
-  return expression;
+  return expression
 }
 ```
-New functions are declared with a [`function` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function), followed by the name of the function. Similar to calling a function with parameters, there is opening parenthesis `(`, an *optional* list of parameters separated by comma `,` and a closing parenthesis `)`.
+New functions are declared with a [`function` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function), followed by the name of the function. Similar to calling a function with parameters, there is an opening parenthesis `(`, an *optional* list of parameters separated by comma `,` and a closing parenthesis `)`.
 
-Next is an opening curly bracket `{` that starts the *function body*. The `...` signifies that code can be placed here. The function ends with an *optional* [`return` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) followed by an expression to return a value. The function body ends with a closing curly bracket `}`.
+Next is an opening curly bracket `{` that starts the *function body*. The `...` inside the function body signifies that your code goes here.
+
+The function ends with an *optional* [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement followed by an expression for the return value. The function body ends with a closing curly bracket `}`.
 
 ```js
 function addNumbers(a, b) {
@@ -398,11 +392,12 @@ let secondNumber = 30;
 let sum = addNumbers(firstNumber, secondNumber);
 console.log('Return value of addNumbers()', sum); // 42
 ```
-The code above defines two variables: `firstNumber` and `secondNumber` which both are assigned `Number` values.
+The code above first defines two variables: `firstNumber` and `secondNumber`.  
+Both are assigned `Number` values.
 
-The third variable `sum` is assigned the value returned by calling `addNumbers(firstNumber, secondNumber)`.
+A third variable `sum` is declared, and assigned the return value of `addNumbers(firstNumber, secondNumber)`.
 
-Inside `addNumbers()` parameter `a` receives the value `12`, parameter `b` receives the value `30` and the function returns the sum of the values which is `42`.
+Inside `addNumbers()` parameter `a` receives the value `12`, parameter `b` receives the value `30`, and the function returns the sum of the values which is `42`.
 
 
 ### Documenting your code
@@ -432,10 +427,10 @@ Good documentation can be invaluable as projects or teams grow in size and compl
 ```
 function functionName(requiredParameter, optionalParameter = value) {
   ...
-  return expression;
+  return expression
 }
 ```
-Some functions are often called with the same parameters. Parameters be assigned a default value, like `optionalParameter` above, which make them optional. Optional parameters are always defined after parameters which do not have a default value.
+Some functions are often called with the same parameters. Parameters can be assigned a default value, like `optionalParameter` above, which make them optional. Optional parameters are always defined after parameters which do not have a default value.
 
 ```js
 /**
@@ -458,19 +453,17 @@ const PI = 3.14159265;
 console.log('PI with 4 decimals', roundNumber(PI, 4)); // 3.1415
 console.log('PI with 2 decimals', roundNumber(PI)); // 3.14
 ```
-The first call to `roundNumber()` above passes the value `4` as parameter `precision`.
+The first call to `roundNumber()` above passes the value `4` as parameter `precision` resulting in a value with 4 decimal digits: `3.1415`
 
-The second call omits the second parameter which sets the value of `precision` to `2`.
+The second call omits the second parameter which sets the value of `precision` to `2` resulting in a value with 2 decimal digits: `3.14`
 
 ### Functions as values
 ```
-variable = function(parameter, ...parameters) {
+variable = function(parameters) {
   ...
 }
 ```
-Functions can be used as values using a [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function).
-
-TODO: more explanations
+Functions can be used as values with the [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function). The syntax is the same as [`function` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) except the function name can be omitted.
 
 ```js
 let divide = function(dividend, divisor) {
@@ -478,29 +471,48 @@ let divide = function(dividend, divisor) {
 }
 console.log(divide(8022, 6)); // 1337 
 ```
-This sample shows variable `divide` being assigned a function as a value. Variables behave like functions if their value is a function.
+Variable `divide` is assigned a function expression as a value. Variables behave like functions when their value is a function, and they can be called just the same.
 
+
+### Arrow functions
 ```
-(parameter, ...parameters) => expression
-
-parameter => expression
+(parameters) => expression
 ```
-JavaScript has a compact alternative to a traditional function expression called the [arrow function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). The curly brackets `{}` normally surrounding the function body can be omitted, in which case the `return` keyword can be omitted as well.
+JavaScript has a compact alternative to a traditional function expression called the [arrow `function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions). The curly brackets `{}` normally surrounding the function body can be omitted, in which case the `return` keyword can be omitted as well.
 
-The expression after the fat arrow `=>` symbol evaluates to the return value.
+Arrow functions are always used as values, and the expression after the fat arrow `=>` symbol evaluates to the return value.
 
 ```js
-divide = (dividend, divisor) => (dividend / divisor);
+divide = (dividend, divisor) => dividend / divisor;
 console.log(divide(8022, 6)); // 1337
 ```
 Both versions of `divide()` are functionally identical.
 
+```
+parameter => expression
+```
+If a single parameter is used, the parenthesis `()` can also be omitted.
+
+```js
+const square = number => number * number;
+console.log(square(4)); // 16
+```
+The `square` variable contains a function that returns the value from expression `number * number`.
+
+```
+(parameters) => {
+  ...
+  return expression
+}
+```
+Arrow functions `=>` support code blocks with the curly brackets `{}`, but require a `return` statement to return a value like regular functions.
+
 
 ### Summary
-- [Function declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) is used to create functions.
-- [Function expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to create a function as a value.
+- [`function` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) is used to create functions.
 - [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement is used inside a function to return a value.
-- [Arrow function expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
+- [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to create a function as a value.
+- [Arrow `function` expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
 - [JSDoc](https://jsdoc.app/) is used to describe code in block-level comments.
 - [JSDoc cheatsheet](https://devhints.io/jsdoc) is a quick reference guide to the syntax of JSDoc.
 
@@ -510,73 +522,61 @@ Both versions of `divide()` are functionally identical.
 
 
 ### Assignment 3
-In this assignment you will utilize your knowledge of functions and variables.
+In this assignment you will utilize your new knowledge of functions.
 
 
 #### Task 1: Greeting function
-Modify the code from in Task 1 of [Assignment 2](#assignment-2): *"Hello world" with string interpolation*.
+Modify the code from [Task 1](#task-1-hello-world-with-string-interpolation) of Assignment 2: *"Hello world" with string interpolation*.
 
 ##### Step 1
-> Write a new function `greet()` that accepts two parameters:
-> - `name` that has no default value and is required.
-> - `greeting` that has the default `String` value of `"Greetings"`.
+> Write a new function `greet()` that accepts two parameters:  
+> `name` that has no default value and is required.  
+> `greeting` that has the default `String` value of `"Greetings"`.
 
 ##### Step 2
 > Make the function `greet()` return the template literal that was passed to `console.log()` previously.
 
 ##### Step 3
-> Pass the return values of `greet()` to `console.log()` when using different parameters.
->
+> Pass the return values of `greet()` to `console.log()` when using different parameters.  
 > Ensure the default value is used when the `greeting` parameter is omitted.
 
 
 #### Task 2: Financial transaction functions
-This task will have you modifying the code produced in Task 2 of [Assignment 2](#assignment-2): *Financial transaction*.
+Modify the code from [Task 2](#task-2-financial-transaction) of Assignment 2: *Financial transaction*.
 
 ##### Step 1
 > Write a new function `calculateAffordableItemCount()` which accepts two parameters: `price` and `money`.
 
 ##### Step 2
-> Move the code from the *"Financial transaction"* task inside `calculateAffordableItemCount()`.
->
-> Modify the code so the values of `price` and `money` come from the parameters.
+> Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemCount()`.
+> Modify the code so the values of `price` and `money` are the parameters, and not created with the `let` keyword.
 
 ##### Step 3
 > Make `calculateAffordableItemCount()` return the value of `itemAmount`.
 
 ##### Step 4
-> Write a new function `calculateTotalPrice()` which accepts two parameters: `price` and `amount`.
->
+> Write a new function `calculateTotalPrice()` which accepts two parameters: `price` and `amount`.  
 > The function should return the result of multiplying `price` with `amount`.
 
 ##### Step 5
-> Define the variables `price` and `money` again outside of the function `calculateAffordableItemCount()`.
->
-> Assign them the same `Number` values as you did previously with the variables.
+> Define the variables `price` and `money` again outside of the functions.  
+> Assign them `Number` values, like you did previously.
 
 ##### Step 6
-> Define a variable named `itemCount`.
->
+> Define a variable named `itemCount`.  
 > Assign it the return value of `calculateAffordableItemCount()` with `price` and `money` as the parameters.
 
 ##### Step 7
-> Define a variable named `totalPrice`.
->
+> Define a variable named `totalPrice`.  
 > Assign it the return value of `calculateTotalPrice()` with `price` and `itemCount` as the parameters.
 
 ##### Step 8
-> Define a variable named `moneyAfter`.
->
+> Define a variable named `moneyAfter`.  
 > Assign it an expression where you subtract `totalPrice` from `money`.
 
 ##### Step 9
-> Call `console.log()` to inspect the variables defined after Step 5.
->
+> Call `console.log()` to inspect the variables defined after Step 5.  
 > Use template literals to format the output, detailing the transaction.
-
-
-#### Extra credit
-- TODO
 
 
 ---
