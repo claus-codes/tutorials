@@ -876,7 +876,7 @@ The easiest way to define an `Array` is to wrap the values between hard brackets
 ```js
 const countries = ['Finland', 'Canada', 'Iceland'];
 ```
-The *constant value* `countries` is assigned an `Array` with three values.
+The constant `countries` is assigned an `Array` with three values.
 
 ```
 array[index]
@@ -902,7 +902,7 @@ console.log(countries[3]); // undefined
 ```
 If an `Array` does not have a value at the index, it returns `undefined`.
 
-Because `countries` is a *constant value*, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
+Because `countries` is a constant value, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
 
 Arrays are *objects*, which are are discussed in [Lesson 6](#lesson-6-objects), but for now know that *objects* of the same *type* share functionality.
 
@@ -998,7 +998,7 @@ The *condition* expression checks if value of `index` is less than `countries.le
 
 The *afterthought* expression uses the [increment `++` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment) to increase the value of `index` at the end of each iteration.
 
-Inside the loop a constant value `country` is defined, and it is assigned the value of `countries` at `index`. The value of `country` is then logged.
+Inside the loop the constant `country` is defined, and it is assigned the value of `countries` at `index`. The value of `country` is then logged.
 
 ```js
 for (const country of countries) {
@@ -1042,7 +1042,7 @@ The [decrement `--` operator](https://developer.mozilla.org/en-US/docs/Web/JavaS
 
 ### Cloning an array
 ```js
-const cloneArray = [];
+let cloneArray = [];
 for (const country of countries) {
   cloneArray.push(country);
 }
@@ -1050,7 +1050,7 @@ console.log(cloneArray); // ["Finland", "Norway", "Denmark", "Iceland"]
 ```
 Sometimes a *copy* of an `Array` is required. Loops are one way to do do it.
 
-Constant value `cloneArray` is assigned an empty `Array` as it's value with the hard brackets `[]` without any values.
+Variable `cloneArray` is assigned an empty `Array` as it's value with the hard brackets `[]` without any values defined.
 
 The `for` loop iterates through the values of `countries`, and adds `country` to the end of `cloneArray` with `Array.push()`.
 
@@ -1119,11 +1119,10 @@ The first task is to create a function that returns a list of numbers.
 > In the *afterthought* expression increment `counter` by one.
 
 ##### Step 4
-> Inside the `for` loop add the value of `counter + 1` to the `numbers` array.
+> In the body of the `for` loop add the value of `counter + 1` to the `numbers` array.
 
 ##### Step 5
 > Outside `createNumberList()`, add the following code to verify it works correctly:
-
 ```js
 const numbers = createNumberList(9);
 console.log(numbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -1138,14 +1137,13 @@ The second task is to create a function that removes a value from an `Array` at 
 > Create a new function called `pluckValueFromArray()` that accepts two parameters: `array` and `index`
 
 ##### Step 2
-> In the function, remove a value from `array` at `index` and store the return value in a variable called `values`.
+> In the function, remove a value from `array` at `index`.
 
 ##### Step 3
-> In the function, return the value removed from `array`.
+> In the function, return the the value removed from `array`.
 
 ##### Step 4
 > Outside `pluckValueFromArray()`, add the following code to verify it works correctly:
-
 ```js
 const plucked = pluckValueFromArray(numbers, 2);
 console.log(plucked); // 3
@@ -1165,9 +1163,9 @@ The [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
   key: value
 }
 ```
-Objects definitions are `key: value` pairs inside curly brackets `{}` separated by comma `,`.
+Object definitions are usually `key: value` pairs inside curly brackets `{}` separated by comma `,`.
 
-A property's `key` is usually a `String`, while the property's `value` can be any type.
+A property `key` is usually a `String` and the property `value` can be any type.
 
 ```js
 const testObject = {
@@ -1175,7 +1173,7 @@ const testObject = {
   numberProperty: 58008,
 };
 ```
-Constant value `testObject` is defined with two *properties*:
+Constant value `testObject` is defined with two properties:
 - `textProperty` with the value of `"words are fun"`.
 - `numberProperty` with the value of `58008`.
 
@@ -1221,7 +1219,7 @@ We can access the inner properties of the `address` property by chaining the dot
 const addressKey = 'address';
 console.log(person[addressKey].postalCode); // "12345"
 ```
-Access to a properties can be dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable used to access the desired property using the hard brackets `[]` syntax.
+Access to properties can be made dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable can be used to access the desired property using the hard brackets `[]` syntax.
 
 These methods of accessing properties can be chained together.
 
@@ -1232,13 +1230,13 @@ const anotherPerson = person;
 anotherPerson.name = 'Jane Doe';
 console.log(person.name); // "Jane Doe"
 ```
-When using objects as a value, the value is an *object instance*.
+The constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
 
-When an object value is assigned to a new variable like shown above, the *same instance* is passed along, and the new variable points to the *same object* in memory.
+When changing the `name` property of `anotherPerson`, the change occurs on the *object instance*, which is why the `name` property of `person` also changes. They are the *same object instance*.
 
-The constant `anotherPerson` is assigned the value of `person`.
 
-When changing the `name` property of `anotherPerson`, the change occurs on the original object, which is why the `name` property of `person` variable changes. They are the *same instance.*
+### Iterating objects
+TODO
 
 
 ### JSON
@@ -1264,7 +1262,7 @@ The `JSON.stringify()` function can format the values for better readability wit
 - [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) TODO
 
 
-### Assignment 6: TODO
+### Assignment 6
 TODO
 
 
@@ -1300,9 +1298,97 @@ Sometimes we want to add random values to our code. `Math.random()` returns a ne
 ### Useful things
 - 
 
-### Assignment 7: Generate random array indexes
+### Assignment 7
+This assignment will have you combine previously learned information with the new functions learned from this lesson.
 
-Write a function called `getRandomIndex()` that accepts a single parameter called `array`. The function must return a random index from the `array` parameter.
+
+#### Task 1: Random array index
+In this first task you will use random numbers to access values in an `Array`.
+
+##### Step 1
+> Create a new function called `getRandomIndex()` that accepts a single parameter: `array`
+
+##### Step 2
+> In the function, return a random index from `array`.
+
+##### Step 3
+> Test your implementation by using `getRandomIndex()` with the previously defined `numbers` array:
+>
+> Construct a loop to repeatedly request a new index. Make sure the loop ends.
+>
+> Use `console.log()` to output the values.
+
+
+#### Task 2: Pluck a random value from an Array
+In the second task you combine functionality you have built so far.
+
+##### Step 1
+> Create a new function called `pluckRandomValueFromArray()` that accepts one parameter: `array`
+
+##### Step 2
+> In the function, use `getRandomIndex()` and `pluckValueFromArray()` to remove a random value from `array`.  
+> 
+> Return the value removed from `array`.
+
+##### Step 4
+> Outside the `pluckRandomValueFromArray()` function, construct a `while` loop.
+>
+> The loop `condition` checks if `numbers` has any values.
+> 
+> Inside the loop body use `pluckRandomValueFromArray()` to remove a value from `numbers`.
+> 
+> Use `console.log()` to inspect the removed value.
+> 
+> The loop should output a value from `numbers` in random order until `numbers` has no values left.
+
+
+#### Task 3: Pluck multiple random values from an Array
+This third task has you combine more functionality. Note the difference in the function names; the previously made is *singular* and the new is *plural*.
+
+##### Step 1
+> Create a new function called `pluckRandomValuesFromArray()` that accepts two parameter: `array` and `count`
+
+##### Step 2
+> Inside the function, use a loop to remove `count` values from `array` using `pluckRandomValueFromArray()` from the previous task.
+
+##### Step 3
+> Inside the function, store the removed values in a new `Array`.
+
+##### Step 4
+> Inside the function, return the removed values as an array.
+
+##### Step 5
+> Outside `pluckRandomValuesFromArray()`, use `createNumberList()` to create a new list and store it in a variable called `moreNumbers`.
+
+##### Step 6
+> Use `pluckRandomValuesFromArray()` to remove some number of values from `moreNumbers`, and store them in a variable.
+
+##### Step 7
+> Use `console.log()` to check the value of `moreNumbers`, and the `Array` returned by `pluckRandomValuesFromArray()`.
+
+
+#### Task 4: Select multiple random values from an Array
+In this 4th task has you combine even more functionality.
+
+##### Step 1
+> Create a new function called `selectRandomValuesFromArray()` that accepts two parameters: `array` and `count`
+
+##### Step 2
+> Inside the function, clone the `array` parameter to a new variable.
+
+##### Step 3
+> Inside the function, use `pluckRandomValuesFromArray()` to pluck `count` values from the *cloned array*.
+
+##### Step 4
+> Outside `selectRandomValuesFromArray()`, use `createNumberList()` to create a new list and store it in a variable called `staticNumbers`.
+
+##### Step 5
+> Use `selectRandomValuesFromArray()` to return random values from `staticNumbers`, and store them in a variable.
+
+##### Step 6
+> Use `console.log()` to check the value of `staticNumbers`, and the `Array` returned by `selectRandomValuesFromArray()`.
+>
+> The `staticNumbers` should have *all the values* intact, and the return value of `selectRandomValuesFromArray()` should have *some of the values* of `staticNumbers`.
 
 
 ---
