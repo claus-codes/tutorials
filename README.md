@@ -37,21 +37,17 @@ Lessons feature the following recurrent sections at the end:
 
 
 ### Assignments
-The assignments after each lesson are designed to use new and previously learned information.
+The assignments after each lesson are designed to use new and previously learned information. They ask you to write new code, or modify code written during previous assignments.
 
-Assignments can have multiple tasks for you to complete, which may be broken into smaller steps.
-
-*All the code from the assignments should be placed in the same file*, as code written in earlier assignments will be used later. Tasks should be done in the order they are presented.
+Assignments can have multiple tasks for you to complete, which may be broken into smaller steps. The tasks and steps should be completed in the order they are presented.
 
 
 ### Workflow
 This tutorial is intended to be used with [CodePen](https://codepen.io/pen/) which offers a free coding playground, where you can write code that runs and saves automatically.
 
-We use the *console* exclusively for displaying information so you can keep track of what's happening. You can open the console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
+We use the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
 
 Sample code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the sample code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1](#lesson-1-hello-world).
-
-I would recommend writing a comment before the code for each assignment, and to include the assignment number so you can find it more easily.
 
 
 ---
@@ -61,10 +57,12 @@ I would recommend writing a comment before the code for each assignment, and to 
 All software is just data processing and manipulation. Let me introduce you to two primitive data types found in JavaScript:
 
 #### [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-> The `Number` data type represents *any real numbers* like `42`, `3.14159` or `-10000000000`.
+> The `Number` data type represents *any real numbers* like `42`, `3.14159` or `-1000000`.
 
 #### [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-> The `String` data type represents sequences of characters. They are commonly wrapped in quotes like `'single'`, or `"double"`. This tutorial uses double-quotes when discussing string values during this tutorial, and single-quotes in sample code.
+> The `String` data type represents sequences of characters.  
+> They are commonly wrapped in quotes like `'single'`, or `"double"`.  
+> This tutorial uses double-quotes when discussing string values, and single-quotes when used in sample code.
 
 ### A humble beginning
 ```
@@ -116,7 +114,7 @@ The first assignment is an easy one:
 
 
 ## Lesson 2: Values, variables and expressions
-To store and manipulate values, like `Number` or `String`, we need to use variables. Variables are like boxes with a label, that can contain a single thing, or *value*.
+To store and manipulate values, like `Number` or `String`, we need to use variables. Variables are like boxes with a label that can contain a single thing: a value.
 
 ```
 let variableName = expression
@@ -142,7 +140,9 @@ Multiple variables can be defined with a single `let` keyword by separating each
 let emptyVar;
 console.log(emptyVar); // undefined
 ```
-Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value. There is more information about empty values in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
+Variables can be declared with assigning an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value.
+
+Empty values are discussed more in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
 
 
 ### Constant values
@@ -150,7 +150,9 @@ Variables can be declared with assigning an initial value. The variable `emptyVa
 const immutableValue = 'I cannot be overwritten';
 immutableValue = 'this will not work'; // This line will throw an Error
 ```
-The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a constant value, which acts like a variable but it's value cannot be changed after it's declaration. When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
+The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a constant value, which acts like a variable but it's value cannot be changed after it's declaration.
+
+When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Logging variables
@@ -469,7 +471,7 @@ Functions can be used as values with the [`function` expression](https://develop
 let divide = function(dividend, divisor) {
   return dividend / divisor;
 }
-console.log(divide(8022, 6)); // 1337 
+console.log('Result of divide()', divide(8022, 6)); // 1337 
 ```
 Variable `divide` is assigned a function expression as a value. Variables behave like functions when their value is a function, and they can be called just the same.
 
@@ -484,7 +486,7 @@ Arrow functions are always used as values, and the expression after the fat arro
 
 ```js
 divide = (dividend, divisor) => dividend / divisor;
-console.log(divide(8022, 6)); // 1337
+console.log('Result of divide()', divide(8022, 6)); // 1337
 ```
 Both versions of `divide()` are functionally identical.
 
@@ -508,10 +510,46 @@ The `square` variable contains a function that returns the value from expression
 Arrow functions `=>` support code blocks with the curly brackets `{}`, but require a `return` statement to return a value like regular functions.
 
 
+### Higher-order functions
+```js
+function createPowerFunction(exponent) {
+  return value => value ** exponent;
+}
+let powerOfTwo = createPowerFunction(2);
+console.log('Power function', powerOfTwo(4)) // 16
+```
+Functions can *return* other functions. This is a very useful and powerful feature of JavaScript. It allows creating functions that can define, or override, the default parameters of other functions.
+
+Function `createPowerFunction()` accepts a single parameter: `exponent`.
+
+`createPowerFunction()` returns an arrow function that accepts a single parameter: `value`.
+
+This arrow function returns the expression `value ** exponent`, where parameter `exponent` comes from the *scope* of `createPowerFunction()`. The concept of *scopes* is discussed in [Lesson N]().
+
+Variable `powerOfTwo` is assigned the return value of `createPowerFunction(2)` which is an arrow function.
+
+Calling `powerOfTwo()` then evaluates evaluates the expression `value ** 2`.
+
+```js
+function createLogFunction(logFunction) {
+  return value => logFunction('Value', value)
+}
+let log = createLogFunction(console.log)
+log(1234) // "Value" 1234
+```
+Functions can also *accept functions as parameters* and call them inside the function body.
+
+Function `createLogFunction` accepts a single parameter: `logFunction`.
+
+Variable `log` is assigned the return value of `createLogFunction(console.log)` which is an arrow function.
+
+Calling `log()` evaluates to the expression `console.log('Value', value)` where `value` is the parameter accepted by `log()`.
+
+
 ### Summary
 - [`function` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) is used to create functions.
-- [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement is used inside a function to return a value.
 - [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to create a function as a value.
+- [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement is used inside a function to return a value.
 - [Arrow `function` expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
 - [JSDoc](https://jsdoc.app/) is used to describe code in block-level comments.
 - [JSDoc cheatsheet](https://devhints.io/jsdoc) is a quick reference guide to the syntax of JSDoc.
@@ -549,6 +587,7 @@ Modify the code from [Task 2](#task-2-financial-transaction) of Assignment 2: *F
 
 ##### Step 2
 > Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemCount()`.
+> 
 > Modify the code so the values of `price` and `money` are the parameters, and not created with the `let` keyword.
 
 ##### Step 3
