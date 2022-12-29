@@ -7,7 +7,6 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 
 ## Table of Contents
-[//]: # (ToC >>>)
 **[About this tutorial](#about-this-tutorial)**
 - [Lesson structure](#lesson-structure)
 - [Workflow](#workflow)
@@ -63,7 +62,6 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 **[Lesson 7: Built-in objects](#lesson-7-built-in-objects)**
 
 
-[//]: # (ToC !!!)
 
 
 ## About this tutorial
@@ -75,11 +73,9 @@ Each lesson is broken into sections that teach different concepts. When learning
 
 Whenever you see text formatted `like this`, it means we are discussing about something in `programming terms`.
 
-[//]: # (>>> w9qulo)
 ```js
 console.log('This code is syntax highlighted.');
 ```
-[//]: # (!!! w9qulo)
 *Sample code*, like the one seen above, is always followed by an explanation and is always *syntax highlighted*. This means different things have different colors based on semantic rules.
 
 JavaScript, like all programming languages, is very strict about syntax, which is the *set of rules that govern the structure of a language*.
@@ -129,11 +125,9 @@ functionName(parameter, parameter)
 ```
 This is the syntax example for a *function call*; it starts with the *name of the function* followed with an opening parenthesis `(`, an *optional* list of *parameters* separated by comma `,` with a closing parenthesis `)` at the end.
 
-[//]: # (>>> 06un4k)
 ```js
 console.log('Hello World!');
 ```
-[//]: # (!!! 06un4k)
 The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/console/log), is the name of a built-in function in JavaScript that lets us write, or *log*, to the developer console. It gets passed a single parameter: `String` value of `"Hello World!"`.
 
 The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
@@ -142,22 +136,18 @@ The trailing semicolon `;` after a statement is *entirely optional* in JavaScrip
 
 
 ### Comments
-[//]: # (>>> xjov22)
 ```js
 console.log('Hello again!'); // "Hello again!"
 ```
-[//]: # (!!! xjov22)
 In this example `// "Hello again!"` is the comment. Anything written after a double backslash `//` is interpreted as not being part of the executable code in JavaScript.
 
 During most of this tutorial the output of `console.log()` will have the output as a comment next to the call, or a description of the output.
 
-[//]: # (>>> igw6og)
 ```js
 /* this is
    a multi-line
    comment */
 ```
-[//]: # (!!! igw6og)
 JavaScript also supports multi-line comments, started with `/*`, and terminated with a pairing `*/`.
 
 It's good practice to comment your code and explain what is happening. It can be a very valuable learning tool, and a potential favor to anyone who might have to try to understand your code later.
@@ -184,12 +174,10 @@ let variableName = expression
 ```
 Variables are declared with the keyword [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), followed by the name of the variable, followed by an *optional* [Assignment `=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) operation to set an initial value which is evaluated from the *expression*. Expressions are explained later in this lesson.
 
-[//]: # (>>> 4hxaih)
 ```js
 let num = 9;
 let text = 'piece of text';
 ```
-[//]: # (!!! 4hxaih)
 This code declares two variables:
 - `num`, which is assigned the `Number` value of `9`.
 - `text`, which is assigned the `String` value of `"piece of text"`.
@@ -202,31 +190,26 @@ Multiple variables can be defined with a single `let` keyword by separating each
 
 
 ### Empty values
-[//]: # (>>> 5vnklm)
 ```js
 let emptyVar;
 console.log(emptyVar); // undefined
 ```
-[//]: # (!!! 5vnklm)
 Variables can be declared without an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value.
 
 Empty values are discussed in [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
 
 ### Logging variables
-[//]: # (>>> 2ydvxk)
 ```js
 console.log('Value of num', num); // "Number" 9
 console.log('Value of text', text); // "Message" "string value"
 ```
-[//]: # (!!! 2ydvxk)
 Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before when *logging* values with `console.log()`, as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
 
 For the sake of readability I will omit the context messages going forward.
 
 
 ### Changing the value of a variable
-[//]: # (>>> ve3b0y)
 ```js
 text = 'JavaScript';
 console.log('Value of text after change', text) // "JavaScript"
@@ -234,7 +217,6 @@ console.log('Value of text after change', text) // "JavaScript"
 num = num * 3;
 console.log('After multiplication', num); // 27
 ```
-[//]: # (!!! ve3b0y)
 Variables can have their value changed by assigning them a new value.
 
 Variable `text` is assigned a new `String` value of `"JavaScript"`, after which the new value is logged with `console.log()` to see it is changed.
@@ -243,11 +225,9 @@ Variable `num` is assigned `num * 3`, an *expression*, which evaluates to the `N
 
 
 ### Expressions
-[//]: # (>>> kzwv6l)
 ```js
 console.log('Nice', 23 * 3); // 69
 ```
-[//]: # (!!! kzwv6l)
 The code above calls `console.log()` again, but this time it gets passed the *expression* `23 * 3` instead of a single value or variable. It is a multiplication operation on numbers 23 and 3 which evaluates to `Number` value of `69`.
 
 When referring to a value, a variable or an operation in code you are using an expression. Simply put: *expressions are pieces of code that return a value.*
@@ -286,11 +266,9 @@ When referring to a value, a variable or an operation in code you are using an e
 > `10 ** 3` = `1000` because  
 > `10 * 10 * 10` = `1000`
 
-[//]: # (>>> tivkv5)
 ```js
 console.log('Complex calculation', (11 * 367) - (num * 100)); // 1337
 ```
-[//]: # (!!! tivkv5)
 When writing complex calculations, where maintaining a strict [order of operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is necessary, parenthesis can be used to group operations together.
 
 Any expression inside a pair of matching parenthesis `()` is evaluated *before* other operations are executed.
@@ -304,30 +282,25 @@ Any expression inside a pair of matching parenthesis `()` is evaluated *before* 
 
 
 ### Constants
-[//]: # (>>> 0gqyvn)
 ```js
 const immutableValue = 'I cannot be overwritten';
 immutableValue = 'This will not work'; // This will throw an Error
 ```
-[//]: # (!!! 0gqyvn)
 The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant variable*, also know simply as a *constant*. A constant variable's value cannot be changed after it's declaration.
 
 When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Not-a-Number
-[//]: # (>>> 3o1tir)
 ```js
 const numberValue = 13;
 const notNumberValue = 'hello';
 console.log('Math fail', numberValue / notNumberValue); // NaN
 ```
-[//]: # (!!! 3o1tir)
 When mathematical operations are attempted with values that are not `Number` values, a special [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) value is returned, which stands for *Not-a-Number*.
 
 
 ### String interpolation
-[//]: # (>>> yq0fal)
 ```js
 let text1 = 'mb',
     text2 = 'ed',
@@ -335,21 +308,17 @@ let text1 = 'mb',
     text4 = 'co';
 console.log('Text can be', text4 + text1 + text3 + text2); // "combined" 
 ```
-[//]: # (!!! yq0fal)
 Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins them together.
 
 The sample code above defines variables `text1`, `text2`, `text3` and `text4` which all have a `String` value. They are joined with the addition `+` operator in specific sequence producing the `String` value of `"combined"`.
 
-[//]: # (>>> dfzawz)
 ```js
 console.log(`${text} is amazing`); // "JavaScript is amazing" 
 ```
-[//]: # (!!! dfzawz)
 The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${text}` in the sample code.
 
 # TODO: add syntax example
 
-[//]: # (>>> hr39th)
 ```js
 const title = 'My Website';
 const multiLineText = 'two\nlines';
@@ -366,32 +335,27 @@ const templateLiteralString = `
 `;
 console.log(templateLiteralString); // filled template
 ```
-[//]: # (!!! hr39th)
 Line breaks in normal strings are signified with the *escape-character* `\n`, while template literals use existing line breaks in the code.
 
 # TODO: better explanation of code
 
 ### Checking the type of variables
-[//]: # (>>> 71rwul)
 ```js
 console.log('Type of num', typeof num); // "number"
 console.log('Type of text', typeof text); // "string"
 console.log('Type of emptyVar', typeof emptyVar); // "undefined"
 ```
-[//]: # (!!! 71rwul)
 Each value in JavaScript has a type like `Number` or `String`. The [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) operator can be used to check the type of a value, which it returns as a `String` value.
 
 There are other types in JavaScript that will be discussed in later lessons.
 
 
 ### Naming variables
-[//]: # (>>> ypenj7)
 ```js
 let variable_with_underscores = 'This is called snake_case';
 let variableWithCapitals = 'This is called camelCase';
 let VARIABLE_WITH_UPPER_CASE = 'ALL CAPS AAAHHHH!!!!';
 ```
-[//]: # (!!! ypenj7)
 Variables in JavaScript can be named almost anything with a few restrictions. A variable's name cannot start with a number and should be alpha-numeric, or the underscore `_` character.
 
 > What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things as it can help make the program logic easier to follow and reason about.
@@ -488,13 +452,11 @@ Next is an opening curly bracket `{` that starts the *function body*. The `...` 
 
 The function ends with an *optional* [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement followed by an expression for the return value. The function body ends with a closing curly bracket `}`.
 
-[//]: # (>>> h4b4hu)
 ```js
 function addNumbers(a, b) {
   return a + b;
 }
 ```
-[//]: # (!!! h4b4hu)
 A new function named `addNumbers` is defined.
 
 It accepts two parameters: `a` and `b`.
@@ -505,14 +467,12 @@ Functions follow the same [naming conventions](#naming-variables) as variables.
 
 
 ### Parameters and values
-[//]: # (>>> iwqqvh)
 ```js
 let firstNumber = 12;
 let secondNumber = 30;
 let sum = addNumbers(firstNumber, secondNumber);
 console.log('Return value of addNumbers()', sum); // 42
 ```
-[//]: # (!!! iwqqvh)
 The code above first defines two variables: `firstNumber` and `secondNumber`.  
 Both are assigned `Number` values.
 
@@ -522,7 +482,6 @@ Inside `addNumbers()` parameter `a` receives the value `12`, parameter `b` recei
 
 
 ### Documenting your code
-[//]: # (>>> njsspk)
 ```js
 /**
  * Adds two numbers together.
@@ -540,7 +499,6 @@ function addNumbers(a, b) {
  **/
 let important = 42;
 ```
-[//]: # (!!! njsspk)
 This oddly formatted block-level comment before the `addNumbers()` function and variable `important` is called [JSDoc](https://jsdoc.app). It is a standard way to write descriptions for JavaScript code and there are tools that generate documentation from annotated code like this.
 
 Good documentation can be invaluable as projects or teams grow in size and complexity.
@@ -555,7 +513,6 @@ function functionName(requiredParameter, optionalParameter = value) {
 ```
 Some functions are often called with the same parameters. Parameters can be assigned a default value, like `optionalParameter` above, which make them *optional*. Optional parameters are always defined after parameters which do not have a default value.
 
-[//]: # (>>> kmknsi)
 ```js
 /**
  * Rounds a number to an arbitrary decimal precision.
@@ -568,18 +525,15 @@ function roundNumber(value, precision = 2) {
   return Math.floor(value * precisionFactor) / precisionFactor;
 }
 ```
-[//]: # (!!! kmknsi)
 Function `roundNumber()` defined above accepts two parameters:
 - `value` which is required because it has no default value.
 - `precision` which is optional because it has a default value of `2`. 
 
-[//]: # (>>> g7qoyt)
 ```js
 const PI = 3.14159265;
 console.log('PI with 4 decimals', roundNumber(PI, 4)); // 3.1415
 console.log('PI with 2 decimals', roundNumber(PI)); // 3.14
 ```
-[//]: # (!!! g7qoyt)
 The first call to `roundNumber()` above passes the value `4` as parameter `precision` resulting in a value with 4 decimal digits: `3.1415`
 
 The second call omits the second parameter which sets the value of `precision` to `2` resulting in a value with 2 decimal digits: `3.14`
@@ -592,14 +546,12 @@ variable = function(parameters) {
 ```
 Functions can be used as values with the [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function). The syntax is the same as [`function` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function) except the function name can be omitted.
 
-[//]: # (>>> qsupe7)
 ```js
 let divide = function(dividend, divisor) {
   return dividend / divisor;
 }
 console.log('Result of divide()', divide(8022, 6)); // 1337 
 ```
-[//]: # (!!! qsupe7)
 Variable `divide` is assigned a function expression as a value. Variables can be called like functions when their *value is a function*.
 
 
@@ -611,12 +563,10 @@ JavaScript has a compact alternative to a traditional function expression called
 
 The expression after the fat arrow `=>` symbol evaluates to the return value.
 
-[//]: # (>>> 6qgzzn)
 ```js
 divide = (dividend, divisor) => dividend / divisor;
 console.log('Result of divide()', divide(8022, 6)); // 1337
 ```
-[//]: # (!!! 6qgzzn)
 Both versions of `divide()` are functionally identical.
 
 ```
@@ -624,12 +574,10 @@ parameter => expression
 ```
 If a single parameter is used, the parenthesis `()` around the parameter list can also be omitted.
 
-[//]: # (>>> 6ebbff)
 ```js
 const square = number => number * number;
 console.log(square(4)); // 16
 ```
-[//]: # (!!! 6ebbff)
 The constant `square`, when called, evaluates the expression `number * number`.
 
 ```
@@ -642,7 +590,6 @@ Arrow functions `=>` also support code blocks with the curly brackets `{}`, but 
 
 
 ### Higher-order functions
-[//]: # (>>> ruhtki)
 ```js
 function createPowerFunction(exponent) {
   return value => value ** exponent;
@@ -650,7 +597,6 @@ function createPowerFunction(exponent) {
 let powerOfTwo = createPowerFunction(2);
 console.log('Power function', powerOfTwo(4)); // 16
 ```
-[//]: # (!!! ruhtki)
 Functions can *return* other functions. This is a very powerful feature of JavaScript. It allows creating functions that can define, or override, the default parameters of other functions.
 
 Function `createPowerFunction()` accepts a single parameter: `exponent`.
@@ -663,7 +609,6 @@ Variable `powerOfTwo` is assigned the return value of `createPowerFunction(2)`, 
 
 Calling `powerOfTwo()` then evaluates evaluates the expression `value ** 2`.
 
-[//]: # (>>> jllxh1)
 ```js
 function createLogFunction(logger) {
   return value => logger('Value', value);
@@ -671,7 +616,6 @@ function createLogFunction(logger) {
 let log = createLogFunction(console.log);
 log(1234); // "Value" 1234
 ```
-[//]: # (!!! jllxh1)
 Functions can also *accept functions as parameters* and call them inside the function body.
 
 Function `createLogFunction` accepts a single parameter: `logger`.
@@ -767,27 +711,22 @@ JavaScript has a third important primitive data type which enables conditional l
 [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 > The `Boolean` data type has only two possible values: `true` and `false`.
 
-[//]: # (>>> xwfrzx)
 ```js
 console.log('NOT true', !true); // false
 console.log('NOT false', !false); // true 
 ```
-[//]: # (!!! xwfrzx)
 `Boolean` values can be inversed with the [logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT).
 
 
 ### Empty values and truthiness
-[//]: # (>>> yxjv52)
 ```js
 let nullValue = null;
 console.log('No value', nullValue); // null
 ```
-[//]: # (!!! yxjv52)
 The concept of empty values was mentioned in [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions), where `undefined` was introduced to indicate there is no value. Another way to do that in JavaScript is the [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) value.
 
 The difference is that `undefined` happens when a value was not ever defined to begin with, and `null` is a value that someone purposefully uses to indicate a lack of value.
 
-[//]: # (>>> 7f5kru)
 ```js
 false
 0 // (zero)
@@ -798,26 +737,22 @@ null
 undefined
 NaN // Not a Number
 ```
-[//]: # (!!! 7f5kru)
 All of the values in the list above are always *"falsy"* which means they produce the `Boolean` value `false` when used as booleans.
 
 All other values will always by *"truthy"* which means they produce the `Boolean` value `true` when used as booleans.
 
 
 ### Equality and sameness
-[//]: # (>>> 69hbcj)
 ```js
 console.log(1 === 1); // true
 console.log(1 !== 1); // false
 ```
-[//]: # (!!! 69hbcj)
 *Comparison operators* return `Boolean` values when evaluated. These include checking if two values are equal.
 
 It is recommended to use the [strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) to check if two values are *equal*.
 
 For the inverse the [strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) should be used to check if two values are *NOT equal*.
 
-[//]: # (>>> zw92s9)
 ```js
 // Equality
 console.log(1 == '1'); // true
@@ -827,7 +762,6 @@ console.log(1 != '1'); // false
 console.log(1 === '1'); // false
 console.log(1 !== '1'); // true
 ```
-[//]: # (!!! zw92s9)
 JavaScript has *non-strict* equality operators which *do not check the type* of the values being compared.
 
 The above code first uses the [equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) and the [inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) to compare a `Number` value of `1` to a `String` value of `"1"`, which are *the same*. They are considered same because these operators not compare the *type* of a value.
@@ -835,7 +769,6 @@ The above code first uses the [equality `==` operator](https://developer.mozilla
 This can lead to strange side effects, and so their use is discouraged. Using the *strict* equality operators is recommended as they are *type safe*.
 
 ### Comparing numbers
-[//]: # (>>> i1ydbz)
 ```js
 console.log(4 > 3); // greater than, true
 console.log(3 >= 3); // greater than or equals, true
@@ -843,7 +776,6 @@ console.log(3 >= 3); // greater than or equals, true
 console.log(4 < 3); // false, less than
 console.log(4 <= 3); // false, less than or equals
 ```
-[//]: # (!!! i1ydbz)
 `Number` values can be compared to each other by using numeric comparison operators.
 
 [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than)
@@ -876,7 +808,6 @@ Next is an opening curly bracket `{` that starts a code block. The `...` signifi
 
 An *optional* `else` block will execute if the condition expression evaluates as `false`.
 
-[//]: # (>>> zkx3xg)
 ```js
 if ('value' === 'value') {
   console.log('Values are equal'); // "Values are equal"
@@ -885,7 +816,6 @@ if (1 !== 1) {
   console.log('This is never called because 1 === 1');
 }
 ```
-[//]: # (!!! zkx3xg)
 The first `console.log()` call is executed because it's condition evaluates as `true`, while the second will not.
 
 ```
@@ -901,7 +831,6 @@ else {
 ```
 Multiple `if...else` statements can be nested to create an `else if` clause. It will execute the first code block where the condition evaluates as true, or the *optional* `else` block if one exists.
 
-[//]: # (>>> iitlex)
 ```js
 if (false) {
   console.log('If');
@@ -913,7 +842,6 @@ else {
   console.log('Else'); // "Else"
 }
 ```
-[//]: # (!!! iitlex)
 Because both `if` and `else if` conditions evaluate to `false`, the `else` block is executed.
 
 
@@ -925,22 +853,18 @@ The [conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/We
 
 If the `condition` evaluates as `true`, the `trueExpression` is evaluated, otherwise `falseExpression` is evaluated.
 
-[//]: # (>>> w7uroi)
 ```js
 let conditionalVar = 3 === 4 ? 'Yay' : 'Nah';
 console.log('False expression', conditionalVar); // "Nah"
 ```
-[//]: # (!!! w7uroi)
 The variable `conditionalVar` receives the value `"Nah"` as the expression `3 === 4` evaluates as `false`.
 
-[//]: # (>>> 17gafm)
 ```js
 conditionalVar = 4 === 4
   ? 'Yay'
   : 'Nah';
 console.log('True expression', conditionalVar); // "Yay"
 ```
-[//]: # (!!! 17gafm)
 Using white space can help readability. Here `conditionalVar` receives the value `"Yay"` as the expression `4 === 4` evaluates as `true`.
 
 
@@ -952,13 +876,11 @@ Using the [logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/W
 
 The conditions evaluate left to right, and if a *falsy* value is encountered the combined expression returns that *falsy* value. Otherwise the last *truthy* value is returned.
 
-[//]: # (>>> hm2iu0)
 ```js
 console.log(true && true); // true
 console.log(true && false); // false (in any order)
 console.log(false && false); // false
 ```
-[//]: # (!!! hm2iu0)
 Above is a the *truth table* for the AND `&&` operator with the different combinations of `Boolean` values, and what they evaluate as. 
 
 ```
@@ -966,13 +888,11 @@ expression || expression
 ```
 With the [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) conditions evaluate left to right, and if a *truthy* value is encountered the combined expression returns that *truthy* value. Otherwise it returns `false`.
 
-[//]: # (>>> hxnw9n)
 ```js
 console.log(true || true); // true
 console.log(true || false); // true (in any order)
 console.log(false || false); // false
 ```
-[//]: # (!!! hxnw9n)
 Above is a the truth table for the OR `||` operator with the different combinations of `Boolean` values, and what they evaluate as.
 
 
@@ -1010,11 +930,9 @@ An `Array` is an ordered list of values, or *elements*, which can be accessed wi
 ```
 The easiest way to define an `Array` is to wrap the elements between hard brackets `[]`, separated by `,` comma.
 
-[//]: # (>>> e3meic)
 ```js
 const countries = ['Finland', 'Canada', 'Iceland'];
 ```
-[//]: # (!!! e3meic)
 The constant `countries` is assigned an `Array` with three elements.
 
 ```
@@ -1024,27 +942,21 @@ To access an element at a specific *index* of an array, use a beginning hard bra
 
 The first index is always zero `0`.
 
-[//]: # (>>> 6eak0n)
 ```js
 console.log(countries[0]); // "Finland"
 console.log(countries[1]); // "Canada"
 console.log(countries[2]); // "Iceland"
 ```
-[//]: # (!!! 6eak0n)
 Each element of `countries` is logged by accessing it via the index.
 
-[//]: # (>>> 261zqi)
 ```js
 console.log(countries.length); // 3
 ```
-[//]: # (!!! 261zqi)
 Arrays have a *property* called `length`, which is a `Number` value that equals the number of elements stored in the array. The maximum index in an array is always `length - 1`.
 
-[//]: # (>>> at1c0l)
 ```js
 console.log(countries[3]); // undefined
 ```
-[//]: # (!!! at1c0l)
 If an `Array` does not have an element at the index, it returns `undefined`.
 
 Because `countries` is a constant, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
@@ -1053,69 +965,55 @@ Arrays are *objects*, which are are discussed in [Lesson 6: Objects](#lesson-6-o
 
 
 ### Adding and removing values
-[//]: # (>>> wtq1r8)
 ```js
 countries.push('Russia');
 console.log(countries); // ["Finland", "Canada", "Iceland", "Russia"]
 ```
-[//]: # (!!! wtq1r8)
 To add new elements to the *end* of an `Array` use [`Array.push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), which accepts the new values to be added as parameters.
 
-[//]: # (>>> arq385)
 ```js
 let removedCountry = countries.pop();
 console.log(removedCountry); // "Russia"
 console.log(countries); // ["Finland", "Canada", "Iceland"]
 ```
-[//]: # (!!! arq385)
 To remove the *last* element of an `Array` use [`Array.pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), which returns the removed value.
 
-[//]: # (>>> 6o76lb)
 ```js
 countries.unshift(removedCountry);
 console.log(countries); // ["Russia", "Finland", "Canada", "Iceland"]
 ```
-[//]: # (!!! 6o76lb)
 To add elements to the *beginning* of an `Array` use [`Array.unshift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift), which accepts the new values to be added as parameters.
 
-[//]: # (>>> kgtky2)
 ```js
 removedCountry = countries.shift();
 console.log(removedCountry); // "Russia"
 console.log(countries); // ["Finland", "Canada", "Iceland"]
 ```
-[//]: # (!!! kgtky2)
 To remove the *first* element of an `Array` use [`Array.shift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), which returns the removed value. 
 
 
 ### Splicing values in and out an array
-[//]: # (>>> butbl3)
 ```js
 countries.splice(1, 0, 'Egypt');
 console.log(countries); // ["Finland", "Egypt", "Canada", "Iceland"]
 ```
-[//]: # (!!! butbl3)
 There are more ways to manipulate arrays than simply adding or removing elements to the beginning or end of an array. [`Array.splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) lets you pick an index in an array, and add and or remove elements at that location.
 
 First the value `"Egypt"` is *spliced in* at index `1`.
 
-[//]: # (>>> 0up1bm)
 ```js
 let removedCountries = countries.splice(1, 2);
 console.log(removedCountries); // ["Egypt", "Canada"]
 console.log(countries); // ["Finland", "Iceland"]
 ```
-[//]: # (!!! 0up1bm)
 Next, `2` values are *spliced out* at index `1`, which are `"Egypt"` and `"Canada"`.
 
 They are stored in variable `removedCountries`, an array, as `Array.splice()` returns the removed values as an `Array`.
 
-[//]: # (>>> vcg2ls)
 ```js
 countries.splice(2, 0, 'Norway', 'Denmark');
 console.log(countries); // ["Finland", "Norway", "Denmark", "Iceland"]
 ```
-[//]: # (!!! vcg2ls)
 Two more values, `"Norway"` and `"Denmark"`, are spliced in at index `2`.
 
 
@@ -1143,14 +1041,12 @@ Next is an opening curly bracket `{`, which starts a code block that is repeated
 **Afterthought**
 > Evaluated at the end of loop iteration. This is usually used to update counters before the next iteration.
 
-[//]: # (>>> cza21j)
 ```js
 for (let index = 0; index < countries.length; index++) {
   const country = countries[index];
   console.log(country); // "Finland", "Norway", "Denmark" and "Iceland" in sequence
 }
 ```
-[//]: # (!!! cza21j)
 This for loop iterates through the elements of `countries`.
 
 The *initialization* expression declares variable `index` and it is assigned the value zero `0`, as we plan to count indexes upwards.
@@ -1161,13 +1057,11 @@ The *afterthought* expression uses the [increment `++` operator](https://develop
 
 Inside the loop the constant `country` is defined, and it is assigned the value of `countries` at `index`. The value of `country` is then logged.
 
-[//]: # (>>> 50hsnc)
 ```js
 for (const country of countries) {
   console.log(country); // "Finland", "Norway", "Denmark" and "Iceland" in sequence
 }
 ```
-[//]: # (!!! 50hsnc)
 The [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) loop iterates through the *values* of an `Array` when the index is not relevant.
 
 The two `for` loops in the sample code are functionally identical.
@@ -1179,14 +1073,12 @@ while (condition) {
 ```
 The [`while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while) loop checks it's condition *before* each iteration.
 
-[//]: # (>>> h7uxdz)
 ```js
 let counter = 0
 while (counter++ < 10) {
   console.log('while', counter); // "while" 1...10
 }
 ```
-[//]: # (!!! h7uxdz)
 The increment `++` operator is used to increase the value of `counter`.
 
 ```
@@ -1196,14 +1088,12 @@ do {
 ```
 The [`do...while`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) loop checks it's condition *after* each iteration.
 
-[//]: # (>>> 36ifyq)
 ```js
 counter = 10
 do {
   console.log('do while', counter) // "do while" 10...1
 } while (--counter > 0);
 ```
-[//]: # (!!! 36ifyq)
 The [decrement `--` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement) is used to decrease the value of `counter`.
 
 
@@ -1220,14 +1110,12 @@ The function `Array.map()` accepts as a parameter should follow the signature ab
 - `index` is the current *index*. *This parameter is optional*.
 - `array` is a *reference* to the `Array` itself. *This parameter is optional*.
 
-[//]: # (>>> 9byw1o)
 ```js
 const numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const double = value => value * 2;
 console.log(numberList.map(double)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
 ```
-[//]: # (!!! 9byw1o)
 Constant `numberList` is defined as an `Array`, with a range of numbers from `1` to `10` as it's values.
 
 An arrow function `double` is defined, which returns the expression `value * 2` when called.
@@ -1237,12 +1125,10 @@ The `map()` function iterates through each element in `numberList` and runs the 
 The return value, which is logged, has the same number of elements as `numberList`, but each value is doubled.
 
 
-[//]: # (>>> o9bt7k)
 ```js
 const multiplyByIndex = (value, index) => value * index;
 console.log(numberList.map(multiplyByIndex)); // [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]
 ```
-[//]: # (!!! o9bt7k)
 An arrow function `multiplyByIndex` is defined, which returns the expression `value * index` when called.
 
 Again, the `map()` function iterates through each element and runs the `multiplyByIndex` on each element.
@@ -1261,21 +1147,17 @@ The function `Array.filter()` accepts as a parameter should follow the signature
 - `index` is the current *index*. *This parameter is optional*.
 - `array` is a *reference* to the `Array` itself. *This parameter is optional*.
 
-[//]: # (>>> vr8ivw)
 ```js
 const onlyEvenNumbers = value => value % 2 === 0;
 console.log(numberList.filter(onlyEvenNumbers)); // [2, 4, 6, 8, 10]
 ```
-[//]: # (!!! vr8ivw)
 Constant `onlyEvenNumbers` is defined, with an arrow function `=>` as it's value, which runs the expression `value % 2 === 0`.
 
 Only *even numbers* return `true` from the evaluation, so the resulting `Array` contains only even numbers.
 
-[//]: # (>>> 5g563e)
 ```js
 // TODO: use (element, index) in example
 ```
-[//]: # (!!! 5g563e)
 
 
 ### Reduce
@@ -1298,23 +1180,18 @@ The function `Array.reduce()` accepts as the *first parameter* should follow the
 
 The *second parameter* in `Array.reduce()` is the *initial value of the accumulator*.
 
-[//]: # (>>> 7slus8)
 ```js
 const sumReducer = (accumulator, value) => accumulator + value;
 console.log(numberList.reduce(sumReducer, 0)); // 55
 ```
-[//]: # (!!! 7slus8)
 TODO description
 
-[//]: # (>>> mtg7mp)
 ```js
 // TODO: use (accumulator, element, index) in example
 ```
-[//]: # (!!! mtg7mp)
 
 
 ### Cloning an array
-[//]: # (>>> aqa45r)
 ```js
 let cloneArray = [];
 for (const country of countries) {
@@ -1322,25 +1199,20 @@ for (const country of countries) {
 }
 console.log(cloneArray); // ["Finland", "Norway", "Denmark", "Iceland"]
 ```
-[//]: # (!!! aqa45r)
 Sometimes a *copy* of an `Array` is required. Loops are one way to do do it.
 
 Variable `cloneArray` is assigned an empty `Array` as it's value with the hard brackets `[]` without any values defined.
 
 The `for` loop iterates through the elements of `countries`, and adds `country` to the end of `cloneArray` with `Array.push()`.
 
-[//]: # (>>> kjwvyi)
 ```js
 console.log('These are the same instance', countries === cloneArray); // false
 ```
-[//]: # (!!! kjwvyi)
 The resulting `cloneArray` has the *same values* as `countries`, but is not the *same object instance*. More about object instances in [Lesson 6: Objects](#lesson-6-objects).
 
-[//]: # (>>> e74ai0)
 ```js
 cloneArray = Array.from(countries);
 ```
-[//]: # (!!! e74ai0)
 An easier way to clone an array is to use [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), which accepts any *iteratable* type as a parameter and returns a new `Array`.
 
 
@@ -1390,12 +1262,10 @@ The first task is to create a function that returns a list of numbers.
 ##### Step 5
 > Outside `createNumberList()`, add the following code to verify it works correctly:
 
-[//]: # (>>> fy17n1)
 ```js
 const numbers = createNumberList(9);
 console.log(numbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-[//]: # (!!! fy17n1)
 > The function should produce the same result when called with the same parameter.
 
 
@@ -1414,12 +1284,10 @@ The second task is to create a function that removes a value from an `Array` at 
 ##### Step 4
 > Outside `pluckValueFromArray()`, add the following code to verify it works correctly:
 
-[//]: # (>>> i229hr)
 ```js
 const plucked = pluckValueFromArray(numbers, 2);
 console.log(plucked); // 3
 ```
-[//]: # (!!! i229hr)
 > The function should produce the same result when called with the same parameters.
 
 ---
@@ -1437,14 +1305,12 @@ Object definitions are usually `key: value` pairs inside curly brackets `{}` sep
 
 A property `key` is usually a `String` and the property `value` can be any type.
 
-[//]: # (>>> ht0bzn)
 ```js
 const testObject = {
   textProperty: 'words are fun',
   numberProperty: 58008,
 };
 ```
-[//]: # (!!! ht0bzn)
 Constant `testObject` is defined with two properties:
 - `textProperty` with the value of `"words are fun"`.
 - `numberProperty` with the value of `58008`.
@@ -1457,24 +1323,19 @@ object[key]
 ```
 An object's property can be accessed with the dot `.` notation, or by using the key inside hard brackets `[]`.
 
-[//]: # (>>> fap2n2)
 ```js
 console.log(testObject.textProperty); // "words are fun"
 console.log(testObject['numberProperty']); // 58008
 ```
-[//]: # (!!! fap2n2)
 The `textProperty` of `testObject` is accessed with the dot `.` notation, and `numberProperty` is accessed using the `String` value of the key inside hard brackets `[]`.
 
-[//]: # (>>> c2vxwp)
 ```js
 console.log(testObject.missingProperty); // undefined
 ```
-[//]: # (!!! c2vxwp)
 Accessing a property that does not exist returns `undefined`.
 
 
 ### Nesting objects
-[//]: # (>>> a7gn3y)
 ```js
 const person = {
   name: 'John Smith',
@@ -1488,30 +1349,25 @@ const person = {
 };
 console.log(person.address.street); // "Fake street 1"
 ```
-[//]: # (!!! a7gn3y)
 Because an object's property can have any value, we can easily compose more complex structures by nesting objects; `person` has the property `address` that is also an object with it's own properties.
 
 We can access the inner properties of the `address` property by chaining the dot `.` notation.
 
-[//]: # (>>> bbahmm)
 ```js
 const addressKey = 'address';
 console.log(person[addressKey].postalCode); // "12345"
 ```
-[//]: # (!!! bbahmm)
 Access to properties can be made dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable can be used to access the desired property using the hard brackets `[]` syntax.
 
 These methods of accessing properties can be chained together as needed.
 
 
 ### Object instances
-[//]: # (>>> 1e4rul)
 ```js
 const anotherPerson = person;
 anotherPerson.name = 'Jane Doe';
 console.log(person.name); // "Jane Doe"
 ```
-[//]: # (!!! 1e4rul)
 Constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
 
 When changing the `name` property of `anotherPerson`, the change occurs on the *object instance*, which is why the `name` property of `person` also changes. They are the *same object instance*.
@@ -1526,7 +1382,6 @@ TODO: function `this` scope.
 
 
 ### JSON
-[//]: # (>>> 0ecoed)
 ```js
 const jsonString = JSON.stringify(testObject)
 console.log(jsonString) // "{'property':'value','anotherProperty':2}"
@@ -1534,15 +1389,12 @@ console.log(jsonString) // "{'property':'value','anotherProperty':2}"
 const parsedObject = JSON.parse(jsonString)
 console.log(parsedObject) // copy of testObject
 ```
-[//]: # (!!! 0ecoed)
 JavaScript Object Notation, or JSON for short, is a way of representing data the same way JavaScript represents data. JSON is being used by most websites on the planet as it works seamlessly with JavaScript with the `JSON.stringify()` and `JSON.parse()` functions.
 
-[//]: # (>>> r9s6xs)
 ```js
 const prettyJsonString = JSON.stringify(person, null, 2)
 console.log(prettyJsonString) // person as formatted JSON
 ```
-[//]: # (!!! r9s6xs)
 The `JSON.stringify()` function can format the output for better readability with the right parameters.
 
 
@@ -1561,22 +1413,18 @@ The `JSON.stringify()` function can format the output for better readability wit
 ## Lesson 7: Built-in objects
 JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being `Math`.
 
-[//]: # (>>> yddwrh)
 ```js
 console.log('Round down', Math.floor(1.998)); // 1
 console.log('Round nearest', Math.round(1.500)); // 2
 console.log('Round up', Math.ceil(1.001)); // 2
 ```
-[//]: # (!!! yddwrh)
 Some of the basic functionality in the `Math` object includes functions for rounding numbers.
 
-[//]: # (>>> nug0qt)
 ```js
 console.log(Math.random());
 console.log(Math.random());
 console.log(Math.random());
 ```
-[//]: # (!!! nug0qt)
 Sometimes randomness is a desired feature of a program. `Math.random()` returns a new random `Number` value each time the function is called. The returned value is a fractional value between `0.0` an `1.0`.
 
 
