@@ -8,15 +8,15 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 ## Table of Contents
 [//]: # (ToC >>>)
-#### [About this tutorial](#about-this-tutorial)
+**[About this tutorial](#about-this-tutorial)**
 - [Lesson structure](#lesson-structure)
 - [Workflow](#workflow)
 
-#### [Lesson 1: Hello World!](#lesson-1-hello-world)
+**[Lesson 1: Hello World!](#lesson-1-hello-world)**
 - [A humble beginning](#a-humble-beginning)
 - [Comments](#comments)
 
-#### [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions)
+**[Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions)**
 - [Empty values](#empty-values)
 - [Logging variables](#logging-variables)
 - [Changing the value of a variable](#changing-the-value-of-a-variable)
@@ -27,7 +27,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Checking the type of variables](#checking-the-type-of-variables)
 - [Naming variables](#naming-variables)
 
-#### [Lesson 3: Functions](#lesson-3-functions)
+**[Lesson 3: Functions](#lesson-3-functions)**
 - [Parameters and values](#parameters-and-values)
 - [Documenting your code](#documenting-your-code)
 - [Default parameters](#default-parameters)
@@ -35,7 +35,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Arrow functions](#arrow-functions)
 - [Higher-order functions](#higher-order-functions)
 
-#### [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations)
+**[Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations)**
 - [Empty values and truthiness](#empty-values-and-truthiness)
 - [Equality and sameness](#equality-and-sameness)
 - [Comparing numbers](#comparing-numbers)
@@ -43,7 +43,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Ternary operator](#ternary-operator)
 - [Logical operators](#logical-operators)
 
-#### [Lesson 5: Arrays and loops](#lesson-5-arrays-and-loops)
+**[Lesson 5: Arrays and loops](#lesson-5-arrays-and-loops)**
 - [Adding and removing values](#adding-and-removing-values)
 - [Splicing values in and out an array](#splicing-values-in-and-out-an-array)
 - [Loops](#loops)
@@ -52,7 +52,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Reduce](#reduce)
 - [Cloning an array](#cloning-an-array)
 
-#### [Lesson 6: Objects](#lesson-6-objects)
+**[Lesson 6: Objects](#lesson-6-objects)**
 - [Accessing properties](#accessing-properties)
 - [Nesting objects](#nesting-objects)
 - [Object instances](#object-instances)
@@ -60,7 +60,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [This](#this)
 - [JSON](#json)
 
-#### [Lesson 7: Built-in objects](#lesson-7-built-in-objects)
+**[Lesson 7: Built-in objects](#lesson-7-built-in-objects)**
 
 
 [//]: # (ToC !!!)
