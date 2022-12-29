@@ -112,17 +112,15 @@ Sample code provided in each lesson can be copied to the editor and will work **
 ## Lesson 1: Hello World!
 All software is just data processing and manipulation. Here are the first two primitive data types found in JavaScript:
 
-
-#### [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+[`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 > The `Number` data type represents any *real number* like `42`, `3.14159` or `-1000000`.
 
-#### [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+[`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 > The `String` data type represents sequences of characters.
 >  
 > They are commonly wrapped in quotes like `'single'`, or `"double"`.
 > 
 > This tutorial uses double-quotes when discussing string values, and single-quotes when used in sample code.
-
 
 ### A humble beginning
 ```
@@ -140,7 +138,6 @@ The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API
 The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
 
 [Lesson 3: Functions](#lesson-3-functions) is dedicated to functions, but for now think of a function as code that can be called with parameters.
-
 
 ### Comments
 [//]: # (>>> xjov22)
@@ -162,7 +159,6 @@ During most of this tutorial the output of `console.log()` will have the output 
 JavaScript also supports multi-line comments, started with `/*`, and terminated with a pairing `*/`.
 
 It's good practice to comment your code and explain what is happening. It can be a very valuable learning tool, and a potential favor to anyone who might have to try to understand your code later.
-
 
 ### Summary
 - [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) is a primitive data type that represents a numeric value.
@@ -200,6 +196,7 @@ let variableName = expression,
     variableName = expression
 ```
 Multiple variables can be defined with a single `let` keyword by separating each variable declaration with a comma `,`.
+
 
 ### Empty values
 [//]: # (>>> 5vnklm)
@@ -254,23 +251,23 @@ When referring to a value, a variable or an operation in code you are using an e
 
 `Number` values can be used to perform calculations using various mathematical operators.
 
-#### [Addition `+`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition)
+[Addition `+`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition)
 > The addition operator adds numbers together, producing a sum of values.  
 > `1 + 2` = `3` 
 
-#### [Subtraction `-`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction)
+[Subtraction `-`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Subtraction)
 > The subtraction operator subtracts two numbers from one another, producing their difference.  
 > `2 - 1` = `1`
 
-#### [Multiplication `*`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication)
+[Multiplication `*`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Multiplication)
 > The multiplication operator multiplies numbers, producing the product of the numbers.  
 > `3 * 3` = `9`
 
-#### [Division `/`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division)
+[Division `/`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Division)
 > The division operator divides the left number, the dividend, with the right, the divisor.  
 > `9 / 3` = `3`
 
-#### [Remainder `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
+[Remainder `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
 > The remainder operator returns the remainder left over when left number is divided with right number.  
 > `83 % 10` = `3` because  
 > `83 / 10` = `8` with `3` as the remainder.  
@@ -278,7 +275,7 @@ When referring to a value, a variable or an operation in code you are using an e
 > `4 % 2` = `0` because  
 > `4 / 2` = `2` with `0` as the remainder.
 
-#### [Exponentation `**`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+[Exponentation `**`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 > The exponentation operator returns the result of raising left number to the power of the right number.  
 > `3 ** 2` = `9` because  
 > `3 * 3` = `9`  
@@ -347,6 +344,8 @@ console.log(`${text} is amazing`); // "JavaScript is amazing"
 [//]: # (!!! dfzawz)
 The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${text}` in the sample code.
 
+# TODO: add syntax example
+
 [//]: # (>>> hr39th)
 ```js
 const title = 'My Website';
@@ -367,6 +366,7 @@ console.log(templateLiteralString); // filled template
 [//]: # (!!! hr39th)
 Line breaks in normal strings are signified with the *escape-character* `\n`, while template literals use existing line breaks in the code.
 
+# TODO: better explanation of code
 
 ### Checking the type of variables
 [//]: # (>>> 71rwul)
@@ -994,6 +994,7 @@ Above is a the truth table for the OR `||` operator with the different combinati
 ### Assignment 4
 
 # TODO
+
 ---
 
 ## Lesson 5: Arrays and loops
@@ -1385,12 +1386,13 @@ The first task is to create a function that returns a list of numbers.
 
 ##### Step 5
 > Outside `createNumberList()`, add the following code to verify it works correctly:
-[//]: # (>>> o8u6ey)
+
+[//]: # (>>> fy17n1)
 ```js
 const numbers = createNumberList(9);
 console.log(numbers); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-[//]: # (!!! o8u6ey)
+[//]: # (!!! fy17n1)
 > The function should produce the same result when called with the same parameter.
 
 
@@ -1408,12 +1410,13 @@ The second task is to create a function that removes a value from an `Array` at 
 
 ##### Step 4
 > Outside `pluckValueFromArray()`, add the following code to verify it works correctly:
-[//]: # (>>> 6kt2zf)
+
+[//]: # (>>> i229hr)
 ```js
 const plucked = pluckValueFromArray(numbers, 2);
 console.log(plucked); // 3
 ```
-[//]: # (!!! 6kt2zf)
+[//]: # (!!! i229hr)
 > The function should produce the same result when called with the same parameters.
 
 ---
@@ -1544,6 +1547,11 @@ The `JSON.stringify()` function can format the output for better readability wit
 - [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) type TODO
 - [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) TODO
 - [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) TODO
+
+
+### Assignment 6
+
+# TODO
 
 
 ### Assignment 6
