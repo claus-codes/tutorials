@@ -251,7 +251,7 @@ let text1 = 'mb',
     text2 = 'ed',
     text3 = 'in',
     text4 = 'co';
-console.log('Text can be', text4 + text1 + text2 + text3); // "combined" 
+console.log('Text can be', text4 + text1 + text3 + text2); // "combined" 
 ```
 Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins them together.
 
