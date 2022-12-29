@@ -155,7 +155,7 @@ Empty values are discussed in [Lesson 4](#lesson-4-booleans-comparisons-and-cond
 console.log('Value of num', num); // "Number" 9
 console.log('Value of text', text); // "Message" "string value"
 ```
-Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before when *logging* values as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
+Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before when *logging* values with `console.log()`, as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
 
 For the sake of readability I will omit the context messages going forward.
 
@@ -170,19 +170,9 @@ console.log('After multiplication', num); // 27
 ```
 Variables can have their value changed by assigning them a new value.
 
-Variable `text` is assigned a new `String` value of `"JS"`, after which the new value is logged to see it is changed.
+Variable `text` is assigned a new `String` value of `"JavaScript"`, after which the new value is logged with `console.log()` to see it is changed.
 
 Variable `num` is assigned `num * 3`, an *expression*, which evaluates to the `Number` value of `27` as the value of `num` was `9` before evaluation.
-
-
-### Constants
-```js
-const immutableValue = 'I cannot be overwritten';
-immutableValue = 'This will not work'; // This will throw an Error
-```
-The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant value*, which acts like a variable but it's value cannot be changed after it's declaration.
-
-When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Expressions
@@ -213,20 +203,24 @@ When referring to a value, a variable or an operation in code you are using an e
 
 #### [Remainder `%`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder)
 > The remainder operator returns the remainder left over when left number is divided with right number.  
-> `83 % 10` = `3` because `83 / 10` = `8` with `3` as the remainder.  
+> `83 % 10` = `3` because  
+> `83 / 10` = `8` with `3` as the remainder.  
 > 
-> `4 % 2` = `0` because `4 / 2` = `2` with `0` as the remainder.
+> `4 % 2` = `0` because  
+> `4 / 2` = `2` with `0` as the remainder.
 
 #### [Exponentation `**`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
 > The exponentation operator returns the result of raising left number to the power of the right number.  
-> `3 ** 2` = `9` because `3 * 3` = `9`  
+> `3 ** 2` = `9` because  
+> `3 * 3` = `9`  
 > 
-> `10 ** 3` = `1000` because `10 * 10 * 10` = `1000`
+> `10 ** 3` = `1000` because  
+> `10 * 10 * 10` = `1000`
 
 ```js
 console.log('Complex calculation', (11 * 367) - (num * 100)); // 1337
 ```
-Parenthesis can be used to group operations together which helps writing complex calculations where maintaining a strict [order of operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is necessary.
+When writing complex calculations, where maintaining a strict [order of operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is necessary, parenthesis can be used to group operations together.
 
 Any expression inside a pair of matching parenthesis `()` is evaluated *before* other operations are executed.
 
@@ -236,6 +230,16 @@ Any expression inside a pair of matching parenthesis `()` is evaluated *before* 
 >
 > After evaluating the expressions inside parenthesis `()`, the remaining subtraction operation `4037 - 2700` produces the final result `1337`:  
 > `4037 - 2700` = `1337`.
+
+
+### Constants
+```js
+const immutableValue = 'I cannot be overwritten';
+immutableValue = 'This will not work'; // This will throw an Error
+```
+The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant value*, which acts like a variable but it's value cannot be changed after it's declaration.
+
+When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Not-a-Number
