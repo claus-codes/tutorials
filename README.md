@@ -1,4 +1,4 @@
-# JavaScript tutorial: from beginner to programmer
+# JavaScript: from beginner to programmer
 > This document is very much a work in progress and subject to change often based on feedback.
 >
 > If you find yourself struggling to understand the lessons or the assignments, please contact me so I can make improvements.
@@ -7,7 +7,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 
 ## About this tutorial
-This tutorial features N lessons each introducing you to new concepts. Each lesson is followed by an assignment which asks you to write some code.
+This tutorial features N lessons, each introducing you to new concepts. The lesson is followed by an assignment which asks you to write code.
 
 
 ### Lesson structure
@@ -47,7 +47,7 @@ Assignments can have multiple tasks which are broken into smaller steps. The tas
 ### Workflow
 This tutorial is intended to be used with [CodePen](https://codepen.io/pen/) which offers a free coding playground, where you can write code that runs and saves automatically.
 
-We use the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
+This tutorial uses the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
 
 Sample code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the sample code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1](#lesson-1-hello-world).
 
@@ -326,7 +326,8 @@ Template literals introduced in this lesson can be used to inject values inside 
 > Assign it your own name as a `String` value.
 
 ##### Step 3
-> Call `console.log()` and use template literals to inject `greeting` and `name` to the output.  
+> Call `console.log()` and use template literals to inject `greeting` and `name` to the output.
+>
 > The console should log out something like `"Hello Claus!"`, where `"Hello"` is your greeting and `"Claus"` is your name.
 
 
@@ -358,14 +359,16 @@ In this task you will define variables and perform calculations on them using ex
 > Assign it an expression where you multiply `itemAmount` with `price`.
 
 ##### Step 7
-> Call `console.log()` to inspect the values of the variables you defined.  
+> Call `console.log()` to inspect the values of the variables you defined.
+>   
 > Use template literals to make it look nice.
 
 ##### Step 8
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` to inspect the new value of `money`, which should be equal to the value of `change`.  
+> Call `console.log()` to inspect the new value of `money`, which should be equal to the value of `change`.
+> 
 > Use template literals again to format the output.
 
 
@@ -373,7 +376,7 @@ In this task you will define variables and perform calculations on them using ex
 
 
 ## Lesson 3: Functions
-As mentioned in [Lesson 1](#lesson-1-hello-world), a [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is essentially a block of code that can be called with parameters. They are used to encapsulate logic. TODO??
+As mentioned in [Lesson 1](#lesson-1-hello-world), a [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is essentially a block of code that can be called with parameters. They are used to encapsulate logic that can be reused.
 
 ```
 function functionName(parameters) {
@@ -396,7 +399,9 @@ A new function named `addNumbers` is defined.
 
 It accepts two parameters: `a` and `b`.
 
-Parameters are variables that are used to receive *input values*. These input values, also known as *arguments*, are passed to the function when it is called. Inside the function body is a return statement that evaluates the expression `a + b`, returning the sum of `a` and `b`.
+Parameters are variables that are used to receive *input values*. These input values, also known as *arguments*, are passed to the function when it is called. Inside the function body is a return statement that evaluates the expression `a + b` which returns the sum of `a` and `b`.
+
+Functions follow the same [naming conventions](#naming-variables) as variables.
 
 
 ### Parameters and values
@@ -485,7 +490,7 @@ let divide = function(dividend, divisor) {
 }
 console.log('Result of divide()', divide(8022, 6)); // 1337 
 ```
-Variable `divide` is assigned a function expression as a value. Variables can be called like functions when their value is a function.
+Variable `divide` is assigned a function expression as a value. Variables can be called like functions when their *value is a function*.
 
 
 ### Arrow functions
@@ -508,10 +513,10 @@ parameter => expression
 If a single parameter is used, the parenthesis `()` around the parameter list can also be omitted.
 
 ```js
-let square = number => number * number;
+const square = number => number * number;
 console.log(square(4)); // 16
 ```
-The `square` variable, when called, evaluates the expression `number * number`.
+The constant `square`, when called, evaluates the expression `number * number`.
 
 ```
 (parameters) => {
@@ -528,9 +533,9 @@ function createPowerFunction(exponent) {
   return value => value ** exponent;
 }
 let powerOfTwo = createPowerFunction(2);
-console.log('Power function', powerOfTwo(4)) // 16
+console.log('Power function', powerOfTwo(4)); // 16
 ```
-Functions can *return* other functions. This is a very useful and powerful feature of JavaScript. It allows creating functions that can define, or override, the default parameters of other functions.
+Functions can *return* other functions. This is a very powerful feature of JavaScript. It allows creating functions that can define, or override, the default parameters of other functions.
 
 Function `createPowerFunction()` accepts a single parameter: `exponent`.
 
@@ -544,10 +549,10 @@ Calling `powerOfTwo()` then evaluates evaluates the expression `value ** 2`.
 
 ```js
 function createLogFunction(logger) {
-  return value => logger('Value', value)
+  return value => logger('Value', value);
 }
-let log = createLogFunction(console.log)
-log(1234) // "Value" 1234
+let log = createLogFunction(console.log);
+log(1234); // "Value" 1234
 ```
 Functions can also *accept functions as parameters* and call them inside the function body.
 
@@ -866,22 +871,22 @@ Above is a the truth table for the OR `||` operator with the different combinati
 ## Lesson 5: Arrays and loops
 Sometimes you want to store more than a single value in a variable. One way to accomplish this is to use the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) type.
 
-An `Array` is an ordered list of values which can be accessed with an *index*.
+An `Array` is an ordered list of values, or *elements*, which can be accessed with an *index*.
 
 ```
 [value, ...values]
 ```
-The easiest way to define an `Array` is to wrap the values between hard brackets `[]`, separated by `,` comma.
+The easiest way to define an `Array` is to wrap the elements between hard brackets `[]`, separated by `,` comma.
 
 ```js
 const countries = ['Finland', 'Canada', 'Iceland'];
 ```
-The constant `countries` is assigned an `Array` with three values.
+The constant `countries` is assigned an `Array` with three elements.
 
 ```
 array[index]
 ```
-To access a value at a specific *index* of an array, use a beginning hard bracket `[`, followed by the *index number*, followed with a closing hard bracket `]`.
+To access an element at a specific *index* of an array, use a beginning hard bracket `[`, followed by the *index number*, followed with a closing hard bracket `]`.
 
 The first index is always zero `0`.
 
@@ -890,19 +895,19 @@ console.log(countries[0]); // "Finland"
 console.log(countries[1]); // "Canada"
 console.log(countries[2]); // "Iceland"
 ```
-Each value of `countries` is logged by accessing it via the index.
+Each element of `countries` is logged by accessing it via the index.
 
 ```js
 console.log(countries.length); // 3
 ```
-Arrays have a *property* called `length`, which is a `Number` value that equals the number of values stored in the array. The maximum index in an array is always `length - 1`.
+Arrays have a *property* called `length`, which is a `Number` value that equals the number of elements stored in the array. The maximum index in an array is always `length - 1`.
 
 ```js
 console.log(countries[3]); // undefined
 ```
-If an `Array` does not have a value at the index, it returns `undefined`.
+If an `Array` does not have an element at the index, it returns `undefined`.
 
-Because `countries` is a constant value, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
+Because `countries` is a constant, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
 
 Arrays are *objects*, which are are discussed in [Lesson 6](#lesson-6-objects), but for now know that *objects* of the same *type* share functionality.
 
@@ -912,27 +917,27 @@ Arrays are *objects*, which are are discussed in [Lesson 6](#lesson-6-objects), 
 countries.push('Russia');
 console.log(countries); // ["Finland", "Canada", "Iceland", "Russia"]
 ```
-To add a new value to the *end* of an `Array` use [`Array.push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), which accepts the new values to be added as parameters.
+To add new elements to the *end* of an `Array` use [`Array.push()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push), which accepts the new values to be added as parameters.
 
 ```js
 let removedCountry = countries.pop();
 console.log(removedCountry); // "Russia"
 console.log(countries); // ["Finland", "Canada", "Iceland"]
 ```
-To remove the *last* value of an `Array` use [`Array.pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), which returns the removed value.
+To remove the *last* element of an `Array` use [`Array.pop()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop), which returns the removed value.
 
 ```js
 countries.unshift(removedCountry);
 console.log(countries); // ["Russia", "Finland", "Canada", "Iceland"]
 ```
-To add values to the *beginning* of an `Array` use [`Array.unshift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift), which accepts the new values to be added as parameters.
+To add elements to the *beginning* of an `Array` use [`Array.unshift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift), which accepts the new values to be added as parameters.
 
 ```js
 removedCountry = countries.shift();
 console.log(removedCountry); // "Russia"
 console.log(countries); // ["Finland", "Canada", "Iceland"]
 ```
-To remove the *first* value of an `Array` use [`Array.shift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), which returns the removed value. 
+To remove the *first* element of an `Array` use [`Array.shift()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift), which returns the removed value. 
 
 
 ### Splicing values in and out an array
@@ -940,7 +945,7 @@ To remove the *first* value of an `Array` use [`Array.shift()`](https://develope
 countries.splice(1, 0, 'Egypt');
 console.log(countries); // ["Finland", "Egypt", "Canada", "Iceland"]
 ```
-There are more ways to manipulate arrays than simply adding or removing elements to the beginning or end of an array. [`Array.splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) lets you pick an index in an array, and add and/or remove items at that location.
+There are more ways to manipulate arrays than simply adding or removing elements to the beginning or end of an array. [`Array.splice()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) lets you pick an index in an array, and add and or remove elements at that location.
 
 First the value `"Egypt"` is *spliced in* at index `1`.
 
@@ -966,7 +971,7 @@ for (initialization; condition; afterthought) {
   ...
 }
 ```
-Sometimes code needs to be repeated, like when *iterating* through the values of an `Array`. The [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) loop can be used in such cases.
+Sometimes code needs to be repeated, like when *iterating* through the elements of an `Array`. The [`for`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) loop can be used in such cases.
 
 The keyword `for` is followed by an opening parenthesis `(`, followed by three optional expressions separated by semicolon `;` and ended with a closing parenthesis `)`.
 
@@ -990,7 +995,7 @@ for (let index = 0; index < countries.length; index++) {
   console.log(country); // "Finland", "Norway", "Denmark" and "Iceland" in sequence
 }
 ```
-This for loop iterates through the values of `countries`.
+This for loop iterates through the elements of `countries`.
 
 The *initialization* expression declares variable `index` and it is assigned the value zero `0`, as we plan to count indexes upwards.
 
@@ -1052,7 +1057,7 @@ Sometimes a *copy* of an `Array` is required. Loops are one way to do do it.
 
 Variable `cloneArray` is assigned an empty `Array` as it's value with the hard brackets `[]` without any values defined.
 
-The `for` loop iterates through the values of `countries`, and adds `country` to the end of `cloneArray` with `Array.push()`.
+The `for` loop iterates through the elements of `countries`, and adds `country` to the end of `cloneArray` with `Array.push()`.
 
 ```js
 console.log('These are the same instance', countries === cloneArray); // false
@@ -1063,18 +1068,6 @@ The resulting `cloneArray` has the *same values* as `countries`, but is not the 
 cloneArray = Array.from(countries);
 ```
 An easier way to clone an array is to use [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from), which accepts any *iteratable* type as a parameter and returns a new `Array`.
-
-
-### Array.map()
-TODO
-
-
-### Array.filter()
-TODO
-
-
-### Array.reduce()
-TODO
 
 
 ### Summary
@@ -1096,8 +1089,8 @@ TODO
 - 
 
 
-### Assignment 5: Create an array of numbers, and remove values from it
-In this assignment you will use your knowlege of the `Array` type.
+### Assignment 5
+In this assignment you will use the `Array` type and loops.
 
 
 #### Task 1: A list of numbers
@@ -1152,7 +1145,7 @@ console.log(plucked); // 3
 
 
 ---
-
+s
 
 ## Lesson 6: Objects
 The [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) data type allows the definition of more complex data by allowing the aggregation of data that has some kind of connection between them.
@@ -1221,7 +1214,7 @@ console.log(person[addressKey].postalCode); // "12345"
 ```
 Access to properties can be made dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable can be used to access the desired property using the hard brackets `[]` syntax.
 
-These methods of accessing properties can be chained together.
+These methods of accessing properties can be chained together as needed.
 
 
 ### Object instances
@@ -1239,6 +1232,10 @@ When changing the `name` property of `anotherPerson`, the change occurs on the *
 TODO
 
 
+### This
+TODO: function `this` scope.
+
+
 ### JSON
 ```js
 const jsonString = JSON.stringify(exampleObject)
@@ -1253,7 +1250,7 @@ JavaScript Object Notation, or JSON for short, is a way of representing data the
 const prettyJsonString = JSON.stringify(person, null, 2)
 console.log(prettyJsonString) // person as formatted JSON
 ```
-The `JSON.stringify()` function can format the values for better readability with the right parameters.
+The `JSON.stringify()` function can format the output for better readability with the right parameters.
 
 
 ### Summary
@@ -1268,42 +1265,149 @@ TODO
 
 ---
 
-## Lesson 7: Math functions
 
+## Lesson 7: Map, Filter, Reduce
+The `Array` type has three incredibly useful functions that each take a function as it's parameter.
+
+
+### Map
+[`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
+
+```
+(element, index, array) => { ... }
+```
+The function `Array.map()` accepts as a parameter should follow the signature above.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+```js
+const numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const double = value => value * 2;
+console.log(numberList.map(double)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+```
+Constant `numberList` is defined as an `Array`, with a range of numbers from `1` to `10` as it's values.
+
+An arrow function `double` is defined, which returns the expression `value * 2` when called.
+
+The `map()` function iterates through each element in `numberList` and runs the `double()` function on each element, storing the new values in an `Array` that is returned.
+
+The return value, which is logged, has the same number of elements as `numberList`, but each value is doubled.
+
+
+```js
+const multiplyByIndex = (value, index) => value * index;
+console.log(numberList.map(multiplyByIndex)); // [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]
+```
+An arrow function `multiplyByIndex` is defined, which returns the expression `value * index` when called.
+
+Again, the `map()` function iterates through each element and runs the `multiplyByIndex` on each element.
+
+The return value, which is logged, has the same number of elments as `numberList`, but each value is multiplied by the `index`.
+
+
+### Filter
+[`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the *condition implemented by the provided function*.
+
+```
+(element, index, array) => { ... }
+```
+The function `Array.filter()` accepts as a parameter should follow the signature above.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+```js
+const onlyEvenNumbers = value => value % 2 === 0;
+console.log(numberList.filter(onlyEvenNumbers)); // [2, 4, 6, 8, 10]
+```
+Constant `onlyEvenNumbers` is defined, with an arrow function `=>` as it's value, which runs the expression `value % 2 === 0`.
+
+Only *even numbers* return `true` from the evaluation, so the resulting `Array` contains only even numbers.
+
+```js
+// TODO: use (element, index) in example
+```
+
+
+### Reduce
+[`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an *accumulator* and each element in the array to reduce it to a single value.
+
+It executes the provided function for each value of the array (from left-to-right) and the return value of the function is stored in an *accumulator*, which is then passed along to the next call of the function.
+
+`Array.reduce()` accepts two parameters:
+- The *function*.
+- The initial value of the *accumulator*.
+
+```
+(accumulator, element, index, array) => { ... }
+```
+The function `Array.reduce()` accepts as the *first parameter* should follow the signature above.
+- `accumulator` is the return value that is passed from the previous call of the function.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+The *second parameter* in `Array.reduce()` is the *initial value of the accumulator*.
+
+```js
+const sumReducer = (accumulator, value) => accumulator + value;
+console.log(numberList.reduce(sumReducer, 0)); // 55
+```
+TODO description
+
+```js
+// TODO: use (accumulator, element, index) in example
+```
+
+
+
+### Summary
+- [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
+- [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the condition implemented by the provided function.
+- [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an accumulator and each element in the array to reduce it to a single value.
+
+
+---
+
+
+## Lesson 8: Math functions
 JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being `Math`.
 
 ```js
-console.log(Math.floor(1.998)) // 1, round down
-console.log(Math.round(1.500)) // 2
-console.log(Math.ceil(1.001)) // 2, round up
+console.log('Round down', Math.floor(1.998)); // 1
+console.log('Round nearest', Math.round(1.500)); // 2
+console.log('Round up', Math.ceil(1.001)); // 2
 ```
 Some of the basic functionality in the `Math` object includes functions for rounding numbers.
 
 ```js
-console.log(Math.random())
-console.log(Math.random())
-console.log(Math.random())
+console.log(Math.random());
+console.log(Math.random());
+console.log(Math.random());
 ```
-Sometimes we want to add random values to our code. `Math.random()` returns a new random `Number` value each time the function is called. The returned value is a fractional value between `0.0` an `1.0`.
+Sometimes randomness is a desired feature of a program. `Math.random()` returns a new random `Number` value each time the function is called. The returned value is a fractional value between `0.0` an `1.0`.
 
 
 ### Summary
-- [`Math.floor()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor)
-- [`Math.round()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
-- [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil)
-- [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
-- [`Math` object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+- [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math) is a global object. TODO
+- [`Math.floor()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) returns the value of a number rounded down.
+- [`Math.round()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) returns the value of a number rounded to the nearest integer.
+- [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) returns a value of a number rounded up.
+- [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) returns a random number between `0.0` and `1.0`.
 
 
 ### Useful things
 - 
 
-### Assignment 7
+
+### Assignment 8
 This assignment will have you combine previously learned information with the new functions learned from this lesson.
 
 
-#### Task 1: Random array index
-In this first task you will use random numbers to access values in an `Array`.
+#### Task 1: Random Array index
+In this task you will use random numbers to access values in an `Array`.
 
 ##### Step 1
 > Create a new function called `getRandomIndex()` that accepts a single parameter: `array`
@@ -1320,7 +1424,7 @@ In this first task you will use random numbers to access values in an `Array`.
 
 
 #### Task 2: Pluck a random value from an Array
-In the second task you combine functionality you have built so far.
+In this task you will combine functions written previously with random values.
 
 ##### Step 1
 > Create a new function called `pluckRandomValueFromArray()` that accepts one parameter: `array`
@@ -1343,7 +1447,9 @@ In the second task you combine functionality you have built so far.
 
 
 #### Task 3: Pluck multiple random values from an Array
-This third task has you combine more functionality. Note the difference in the function names; the previously made is *singular* and the new is *plural*.
+In this task you will combine functions written previously remove random elements from an `Array`.
+
+Note the difference in the *function names*; the previously made is *singular*, and the new is *plural*.
 
 ##### Step 1
 > Create a new function called `pluckRandomValuesFromArray()` that accepts two parameter: `array` and `count`
@@ -1368,7 +1474,7 @@ This third task has you combine more functionality. Note the difference in the f
 
 
 #### Task 4: Select multiple random values from an Array
-In this 4th task has you combine even more functionality.
+In this task you will combine functions written previously to select random elements from an `Array` without mutating it.
 
 ##### Step 1
 > Create a new function called `selectRandomValuesFromArray()` that accepts two parameters: `array` and `count`
@@ -1388,21 +1494,20 @@ In this 4th task has you combine even more functionality.
 ##### Step 6
 > Use `console.log()` to check the value of `staticNumbers`, and the `Array` returned by `selectRandomValuesFromArray()`.
 >
-> The `staticNumbers` should have *all the values* intact, and the return value of `selectRandomValuesFromArray()` should have *some of the values* of `staticNumbers`.
+> The `staticNumbers` should have *all the values* intact, and the return value of `selectRandomValuesFromArray()` should have *some of the values* of `staticNumbers`, but no duplicates.
 
 
 ---
 
 
-## Lesson 8: Destructuring and the spread syntax
+## Lesson 9: Destructuring and the spread syntax
+
+TODO
 
 ### Summary
 - [Spread syntax `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-### Assignment 8: Lottery system part 3 - finishing up the number system
 
-Write a function called `pluckRandomElementsFromArray()` that accepts two parameters; `array` and `count`. The function should return `count` number of random elements from `array` parameter.
+### Assignment 9
 
-Write another function called `pickLotteryNumbers()` that acceps two parameters; `array` and `count`. The function should work like `pluckRandomElementsFromArray()` but **not** modify the parameter `array` that was passed to it by cloning it.
-
-Write code to generate a series of numbers, and then use `pickLotteryNumbers()` to select random numbers from the list.
+TODO
