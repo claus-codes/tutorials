@@ -1131,16 +1131,16 @@ The keyword `for` is followed by an opening parenthesis `(`, followed by three o
 
 Next is an opening curly bracket `{`, which starts a code block that is repeated each iteration. The `...` signifies that code can be placed here. The code block ends with a matching closing curly bracket `}`.
 
-##### Initialization
+**Initialization**
 > Evaluated once before the loop begins. This is where variables used in the loop are declared.
 
-##### Condition
+**Condition**
 > Evaluated once before each loop iteration.
 > 
 > If the expression evaluates to `true` the code inside the loop is executed.  
 > If the expression evaluates to `false` the loop ends.
 
-#### Afterthought
+**Afterthought**
 > Evaluated at the end of loop iteration. This is usually used to update counters before the next iteration.
 
 [//]: # (>>> cza21j)
@@ -1550,11 +1550,6 @@ The `JSON.stringify()` function can format the output for better readability wit
 - [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) type TODO
 - [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) TODO
 - [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) TODO
-
-
-### Assignment 6
-
-# TODO
 
 
 ### Assignment 6
