@@ -105,11 +105,9 @@ This tutorial is intended to be used with [CodePen](https://codepen.io/pen/) whi
 
 This tutorial uses the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
 
-Sample code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the sample code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1](#lesson-1-hello-world).
-
+Sample code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the sample code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1: Hello World!](#lesson-1-hello-world).
 
 ---
-
 
 ## Lesson 1: Hello World!
 All software is just data processing and manipulation. Here are the first two primitive data types found in JavaScript:
@@ -141,7 +139,7 @@ The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API
 
 The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
 
-[Lesson 3](#lesson-3-functions) is dedicated to functions, but for now think of a function as code that can be called with parameters.
+[Lesson 3: Functions](#lesson-3-functions) is dedicated to functions, but for now think of a function as code that can be called with parameters.
 
 
 ### Comments
@@ -177,9 +175,7 @@ The first assignment is an easy one:
 
 > Write code that calls `console.log()` with your own message.
 
-
 ---
-
 
 ## Lesson 2: Values, variables and expressions
 To store and manipulate values, like `Number` or `String`, we need to use variables. Variables are like boxes with a label that can contain a single thing: *a value*.
@@ -214,7 +210,7 @@ console.log(emptyVar); // undefined
 [//]: # (!!! 5vnklm)
 Variables can be declared without an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value.
 
-Empty values are discussed in [Lesson 4](#lesson-4-booleans-comparisons-and-conditional-operations).
+Empty values are discussed in [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
 
 ### Logging variables
@@ -472,12 +468,10 @@ In this task you will define variables and perform calculations on them using ex
 > 
 > Use template literals again to format the output.
 
-
 ---
 
-
 ## Lesson 3: Functions
-As mentioned in [Lesson 1](#lesson-1-hello-world), a [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is essentially a block of code that can be called with parameters. They are used to encapsulate logic that can be reused.
+As mentioned in [Lesson 1: Hello World!](#lesson-1-hello-world), a [`function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is essentially a block of code that can be called with parameters. They are used to encapsulate logic that can be reused.
 
 ```
 function functionName(parameters) {
@@ -762,9 +756,7 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 > Call `console.log()` to inspect the variables defined after Step 5.  
 > Use template literals to format the output, detailing the transaction.
 
-
 ---
-
 
 ## Lesson 4: Boolean values, comparisons and conditional operations
 JavaScript has a third important primitive data type which enables conditional logic.
@@ -788,7 +780,7 @@ let nullValue = null;
 console.log('No value', nullValue); // null
 ```
 [//]: # (!!! yxjv52)
-The concept of empty values was mentioned in [Lesson 2](#lesson-2-values-and-variables), where `undefined` was introduced to indicate there is no value. Another way to do that in JavaScript is the [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) value.
+The concept of empty values was mentioned in [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions), where `undefined` was introduced to indicate there is no value. Another way to do that in JavaScript is the [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) value.
 
 The difference is that `undefined` happens when a value was not ever defined to begin with, and `null` is a value that someone purposefully uses to indicate a lack of value.
 
@@ -999,11 +991,10 @@ Above is a the truth table for the OR `||` operator with the different combinati
 - [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) TODO
 
 
-### Assignment 4: TODO
+### Assignment 4
 
-
+# TODO
 ---
-
 
 ## Lesson 5: Arrays and loops
 Sometimes you want to store more than a single value in a variable. One way to accomplish this is to use the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) type.
@@ -1054,7 +1045,7 @@ If an `Array` does not have an element at the index, it returns `undefined`.
 
 Because `countries` is a constant, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
 
-Arrays are *objects*, which are are discussed in [Lesson 6](#lesson-6-objects), but for now know that *objects* of the same *type* share functionality.
+Arrays are *objects*, which are are discussed in [Lesson 6: Objects](#lesson-6-objects), but for now know that *objects* of the same *type* share functionality.
 
 
 ### Adding and removing values
@@ -1339,7 +1330,7 @@ The `for` loop iterates through the elements of `countries`, and adds `country` 
 console.log('These are the same instance', countries === cloneArray); // false
 ```
 [//]: # (!!! kjwvyi)
-The resulting `cloneArray` has the *same values* as `countries`, but is not the *same object instance*. More about object instances in [Lesson 6](#lesson-6-objects).
+The resulting `cloneArray` has the *same values* as `countries`, but is not the *same object instance*. More about object instances in [Lesson 6: Objects](#lesson-6-objects).
 
 [//]: # (>>> e74ai0)
 ```js
@@ -1425,9 +1416,7 @@ console.log(plucked); // 3
 [//]: # (!!! 6kt2zf)
 > The function should produce the same result when called with the same parameters.
 
-
 ---
-s
 
 ## Lesson 6: Objects
 The [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) data type allows the definition of more complex data by allowing the aggregation of data that has some kind of connection between them.
@@ -1558,11 +1547,10 @@ The `JSON.stringify()` function can format the output for better readability wit
 
 
 ### Assignment 6
-TODO
 
+# TODO
 
 ---
-
 
 ## Lesson 7: Built-in objects
 JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being `Math`.
@@ -1687,12 +1675,3 @@ In this task you will combine functions written previously to select random elem
 > Use `console.log()` to check the value of `staticNumbers`, and the `Array` returned by `selectRandomValuesFromArray()`.
 >
 > The `staticNumbers` should have *all the values* intact, and the return value of `selectRandomValuesFromArray()` should have *some of the values* of `staticNumbers`, but no duplicates.
-
-
----
-
-
-# TODO:
-- [Spread syntax `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-- [`console.error()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/error) lets you handle and trace errors. It can speed up debugging tremendously. **TODO**
-- [`console.trace()`](https://developer.mozilla.org/en-US/docs/Web/API/Console/trace) lets you trace the location where you called this function. **TODO**
