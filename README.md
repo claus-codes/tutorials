@@ -237,7 +237,7 @@ Any expression inside a pair of matching parenthesis `()` is evaluated *before* 
 const immutableValue = 'I cannot be overwritten';
 immutableValue = 'This will not work'; // This will throw an Error
 ```
-The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant value*, which acts like a variable but it's value cannot be changed after it's declaration.
+The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant variable*, also know simply as a *constant*. A constant variable's value cannot be changed after it's declaration.
 
 When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
@@ -302,7 +302,7 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 - [Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables) are containers for values defined with the [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) keyword.
 - [Assignment `=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) is used to assign a value to a variable.
 - [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) is a primitive value that means no value has been assigned.
-- [`const` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) is used to define constant values which cannot be changed.
+- [`const` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) is used to define constant variables which cannot be changed.
 - [Remainder `%` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder) returns the remainder left over from a division. 
 - [Exponentiation `**` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) returns the result of raising a number to the power of another number.
 - [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is a concept from classic mathematics about the order in which calculations should be evaluated.
@@ -1170,7 +1170,7 @@ const testObject = {
   numberProperty: 58008,
 };
 ```
-Constant value `testObject` is defined with two properties:
+Constant `testObject` is defined with two properties:
 - `textProperty` with the value of `"words are fun"`.
 - `numberProperty` with the value of `58008`.
 
@@ -1227,7 +1227,7 @@ const anotherPerson = person;
 anotherPerson.name = 'Jane Doe';
 console.log(person.name); // "Jane Doe"
 ```
-The constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
+Constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
 
 When changing the `name` property of `anotherPerson`, the change occurs on the *object instance*, which is why the `name` property of `person` also changes. They are the *same object instance*.
 
