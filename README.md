@@ -122,6 +122,7 @@ All software is just data processing and manipulation. Here are the first two pr
 > 
 > This tutorial uses double-quotes when discussing string values, and single-quotes when used in sample code.
 
+
 ### A humble beginning
 ```
 functionName(parameter, parameter)
@@ -138,6 +139,7 @@ The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API
 The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
 
 [Lesson 3: Functions](#lesson-3-functions) is dedicated to functions, but for now think of a function as code that can be called with parameters.
+
 
 ### Comments
 [//]: # (>>> xjov22)
@@ -159,6 +161,7 @@ During most of this tutorial the output of `console.log()` will have the output 
 JavaScript also supports multi-line comments, started with `/*`, and terminated with a pairing `*/`.
 
 It's good practice to comment your code and explain what is happening. It can be a very valuable learning tool, and a potential favor to anyone who might have to try to understand your code later.
+
 
 ### Summary
 - [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number) is a primitive data type that represents a numeric value.
@@ -761,7 +764,7 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 ## Lesson 4: Boolean values, comparisons and conditional operations
 JavaScript has a third important primitive data type which enables conditional logic.
 
-#### [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+[`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 > The `Boolean` data type has only two possible values: `true` and `false`.
 
 [//]: # (>>> xwfrzx)
@@ -843,16 +846,16 @@ console.log(4 <= 3); // false, less than or equals
 [//]: # (!!! i1ydbz)
 `Number` values can be compared to each other by using numeric comparison operators.
 
-#### [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than)
+[Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than)
 > The "greater than" operator returns `true` if the left value is greater than the right value, and `false` otherwise.
 
-#### [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
+[Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal)
 > The "greater than or equal" operator returns `true` if the left value is greater than or equal to the right value, and `false` otherwise.
 
-#### [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than)
+[Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than)
 > The "less than" operator returns `true` if the left value is less than the right value, and `false` otherwise.
 
-#### [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
+[Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal)
 > The "less than or equal" operator returns `true` if the left value is less than or equal to the right value, and `false` otherwise.
 
 
