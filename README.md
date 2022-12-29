@@ -7,11 +7,11 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 
 ## About this tutorial
-This tutorial features N lessons, each introducing you to new concepts. The lesson is followed by a **Summary**, and an **Assignment** which asks you to write code.
+This tutorial features N lessons, each introducing you to new concepts. The lesson is followed by a *Summary* and an *Assignment*.
 
 
 ### Lesson structure
-Each lesson is broken into chapters that teach different concepts. When learning a programming language it is important to be able to distinguish between the different types of information presented.
+Each lesson is broken into sections that teach different concepts. When learning a programming language it is important to be able to distinguish between the different types of information presented.
 
 Whenever you see text formatted `like this`, it means we are discussing about something in `programming terms`.
 
@@ -20,7 +20,7 @@ console.log('This code is syntax highlighted.');
 ```
 *Sample code*, like the one seen above, is always followed by an explanation and is always *syntax highlighted*. This means different things have different colors based on semantic rules.
 
-JavaScript, like all programming languages, is very strict about syntax, which is the set of rules that govern the structure of a language.
+JavaScript, like all programming languages, is very strict about syntax, which is the *set of rules that govern the structure of a language*.
 
 ```
 if (condition) {
@@ -51,6 +51,7 @@ Sample code provided in each lesson can be copied to the editor and will work **
 
 ## Lesson 1: Hello World!
 All software is just data processing and manipulation. Here are the first two primitive data types found in JavaScript:
+
 
 #### [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 > The `Number` data type represents any *real number* like `42`, `3.14159` or `-1000000`.
@@ -1043,6 +1044,100 @@ do {
 The [decrement `--` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement) is used to decrease the value of `counter`.
 
 
+### Map
+The `Array` type has three incredibly useful functions that each take a function as it's parameter.
+
+[`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
+
+```
+(element, index, array) => { ... }
+```
+The function `Array.map()` accepts as a parameter should follow the signature above.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+```js
+const numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const double = value => value * 2;
+console.log(numberList.map(double)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+```
+Constant `numberList` is defined as an `Array`, with a range of numbers from `1` to `10` as it's values.
+
+An arrow function `double` is defined, which returns the expression `value * 2` when called.
+
+The `map()` function iterates through each element in `numberList` and runs the `double()` function on each element, storing the new values in an `Array` that is returned.
+
+The return value, which is logged, has the same number of elements as `numberList`, but each value is doubled.
+
+
+```js
+const multiplyByIndex = (value, index) => value * index;
+console.log(numberList.map(multiplyByIndex)); // [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]
+```
+An arrow function `multiplyByIndex` is defined, which returns the expression `value * index` when called.
+
+Again, the `map()` function iterates through each element and runs the `multiplyByIndex` on each element.
+
+The return value, which is logged, has the same number of elments as `numberList`, but each value is multiplied by the `index`.
+
+
+### Filter
+[`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the *condition implemented by the provided function*.
+
+```
+(element, index, array) => { ... }
+```
+The function `Array.filter()` accepts as a parameter should follow the signature above.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+```js
+const onlyEvenNumbers = value => value % 2 === 0;
+console.log(numberList.filter(onlyEvenNumbers)); // [2, 4, 6, 8, 10]
+```
+Constant `onlyEvenNumbers` is defined, with an arrow function `=>` as it's value, which runs the expression `value % 2 === 0`.
+
+Only *even numbers* return `true` from the evaluation, so the resulting `Array` contains only even numbers.
+
+```js
+// TODO: use (element, index) in example
+```
+
+
+### Reduce
+[`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an *accumulator* and each element in the array to reduce it to a single value.
+
+It executes the provided function for each value of the array (from left-to-right) and the return value of the function is stored in an *accumulator*, which is then passed along to the next call of the function.
+
+`Array.reduce()` accepts two parameters:
+- The *function*.
+- The initial value of the *accumulator*.
+
+```
+(accumulator, element, index, array) => { ... }
+```
+The function `Array.reduce()` accepts as the *first parameter* should follow the signature above.
+- `accumulator` is the return value that is passed from the previous call of the function.
+- `element` is the current *value*.
+- `index` is the current *index*. *This parameter is optional*.
+- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
+
+The *second parameter* in `Array.reduce()` is the *initial value of the accumulator*.
+
+```js
+const sumReducer = (accumulator, value) => accumulator + value;
+console.log(numberList.reduce(sumReducer, 0)); // 55
+```
+TODO description
+
+```js
+// TODO: use (accumulator, element, index) in example
+```
+
+
 ### Cloning an array
 ```js
 let cloneArray = [];
@@ -1080,6 +1175,9 @@ An easier way to clone an array is to use [`Array.from()`](https://developer.moz
 - [`do...while` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while) TODO
 - [Increment `++` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment) TODO
 - [Decrement `--` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement) TODO
+- [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
+- [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the condition implemented by the provided function.
+- [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an accumulator and each element in the array to reduce it to a single value.
 - [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) TODO
 
 
@@ -1232,11 +1330,11 @@ TODO: function `this` scope.
 
 ### JSON
 ```js
-const jsonString = JSON.stringify(exampleObject)
+const jsonString = JSON.stringify(testObject)
 console.log(jsonString) // "{'property':'value','anotherProperty':2}"
 
 const parsedObject = JSON.parse(jsonString)
-console.log(parsedObject) // copy of exampleObject
+console.log(parsedObject) // copy of testObject
 ```
 JavaScript Object Notation, or JSON for short, is a way of representing data the same way JavaScript represents data. JSON is being used by most websites on the planet as it works seamlessly with JavaScript with the `JSON.stringify()` and `JSON.parse()` functions.
 
@@ -1260,113 +1358,7 @@ TODO
 ---
 
 
-## Lesson 7: Map, Filter, Reduce
-The `Array` type has three incredibly useful functions that each take a function as it's parameter.
-
-
-### Map
-[`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
-
-```
-(element, index, array) => { ... }
-```
-The function `Array.map()` accepts as a parameter should follow the signature above.
-- `element` is the current *value*.
-- `index` is the current *index*. *This parameter is optional*.
-- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
-
-```js
-const numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-const double = value => value * 2;
-console.log(numberList.map(double)); // [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
-```
-Constant `numberList` is defined as an `Array`, with a range of numbers from `1` to `10` as it's values.
-
-An arrow function `double` is defined, which returns the expression `value * 2` when called.
-
-The `map()` function iterates through each element in `numberList` and runs the `double()` function on each element, storing the new values in an `Array` that is returned.
-
-The return value, which is logged, has the same number of elements as `numberList`, but each value is doubled.
-
-
-```js
-const multiplyByIndex = (value, index) => value * index;
-console.log(numberList.map(multiplyByIndex)); // [0, 2, 6, 12, 20, 30, 42, 56, 72, 90]
-```
-An arrow function `multiplyByIndex` is defined, which returns the expression `value * index` when called.
-
-Again, the `map()` function iterates through each element and runs the `multiplyByIndex` on each element.
-
-The return value, which is logged, has the same number of elments as `numberList`, but each value is multiplied by the `index`.
-
-
-### Filter
-[`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the *condition implemented by the provided function*.
-
-```
-(element, index, array) => { ... }
-```
-The function `Array.filter()` accepts as a parameter should follow the signature above.
-- `element` is the current *value*.
-- `index` is the current *index*. *This parameter is optional*.
-- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
-
-```js
-const onlyEvenNumbers = value => value % 2 === 0;
-console.log(numberList.filter(onlyEvenNumbers)); // [2, 4, 6, 8, 10]
-```
-Constant `onlyEvenNumbers` is defined, with an arrow function `=>` as it's value, which runs the expression `value % 2 === 0`.
-
-Only *even numbers* return `true` from the evaluation, so the resulting `Array` contains only even numbers.
-
-```js
-// TODO: use (element, index) in example
-```
-
-
-### Reduce
-[`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an *accumulator* and each element in the array to reduce it to a single value.
-
-It executes the provided function for each value of the array (from left-to-right) and the return value of the function is stored in an *accumulator*, which is then passed along to the next call of the function.
-
-`Array.reduce()` accepts two parameters:
-- The *function*.
-- The initial value of the *accumulator*.
-
-```
-(accumulator, element, index, array) => { ... }
-```
-The function `Array.reduce()` accepts as the *first parameter* should follow the signature above.
-- `accumulator` is the return value that is passed from the previous call of the function.
-- `element` is the current *value*.
-- `index` is the current *index*. *This parameter is optional*.
-- `array` is a *reference* to the `Array` itself. *This parameter is optional*.
-
-The *second parameter* in `Array.reduce()` is the *initial value of the accumulator*.
-
-```js
-const sumReducer = (accumulator, value) => accumulator + value;
-console.log(numberList.reduce(sumReducer, 0)); // 55
-```
-TODO description
-
-```js
-// TODO: use (accumulator, element, index) in example
-```
-
-
-
-### Summary
-- [`Array.map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) creates a new `Array` with the results of calling the provided function on every element of an array.
-- [`Array.filter()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) creates a new `Array` with all the elements that pass the condition implemented by the provided function.
-- [`Array.reduce()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) applies a function against an accumulator and each element in the array to reduce it to a single value.
-
-
----
-
-
-## Lesson 8: Math functions
+## Lesson 7: Built-in objects
 JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being `Math`.
 
 ```js
@@ -1392,7 +1384,7 @@ Sometimes randomness is a desired feature of a program. `Math.random()` returns 
 - [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) returns a random number between `0.0` and `1.0`.
 
 
-### Assignment 8
+### Assignment 7
 This assignment will have you combine previously learned information with the new functions learned from this lesson.
 
 
@@ -1490,7 +1482,7 @@ In this task you will combine functions written previously to select random elem
 ---
 
 
-## Lesson 9: Destructuring and the spread syntax
+## Lesson 8: Destructuring and the spread syntax
 
 TODO
 
@@ -1498,6 +1490,6 @@ TODO
 - [Spread syntax `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 
-### Assignment 9
+### Assignment 8
 
 TODO
