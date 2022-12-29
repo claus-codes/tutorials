@@ -260,7 +260,7 @@ The sample code above defines variables `text1`, `text2`, `text3` and `text4` wh
 ```js
 console.log(`${text} is amazing`); // "JavaScript is amazing" 
 ```
-The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${name}` in the sample code.
+The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${text}` in the sample code.
 
 ```js
 const title = 'My Website';
