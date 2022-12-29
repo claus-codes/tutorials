@@ -7,7 +7,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 
 ## About this tutorial
-This tutorial features N lessons, each introducing you to new concepts. The lesson is followed by an assignment which asks you to write code.
+This tutorial features N lessons, each introducing you to new concepts. The lesson is followed by a **Summary**, and an **Assignment** which asks you to write code.
 
 
 ### Lesson structure
@@ -29,19 +29,13 @@ if (condition) {
 ```
 *Syntax examples* teach you how JavaScript code is structured with an example of the syntax, and are always followed by an explanation. Unlike sample code they are *never* syntax highlighted as they are not actual code.
 
-Lessons feature the following recurrent sections at the end:
-
 #### Summary
-> The Summary section contains a list of links to documentation for the things discussed during the lesson, with a short description of each. The documentation contains more information and sample code, so be curious and explore.
+At the end of each lesson is the *Summary* section. This section contains a list of links to documentation for the things discussed during the lesson, with a short description of each to refresh your memory. The documentation contains more information and sample code, so be curious and explore.
 
-#### Useful things
-> Useful things did not have a good place in the tutorial, but are things you *should* know about.
+#### Assignment
+After the *Summary* section is an *Assignment*. The assignments after each lesson are designed to use information taught so far. They ask you to write new code, or modify code written during previous assignments.
 
-
-### Assignments
-The assignments after each lesson are designed to use information taught so far. They ask you to write new code, or modify code written during previous assignments.
-
-Assignments can have multiple tasks which are broken into smaller steps. The tasks, and steps, should be completed in the order they are presented.
+Assignments can have multiple *tasks*, which are broken into smaller *steps* so they are easier to follow. The tasks, and steps, should be completed in the order they are presented.
 
 
 ### Workflow
@@ -287,15 +281,26 @@ console.log(templateLiteralString); // filled template
 Line breaks in normal strings are signified with the *escape-character* `\n`, while template literals use existing line breaks in the code.
 
 
+### Checking the type of variables
+```js
+console.log('Type of num', typeof num); // "number"
+console.log('Type of text', typeof text); // "string"
+console.log('Type of emptyVar', typeof emptyVar); // "undefined"
+```
+Each value in JavaScript has a type like `Number` or `String`. The [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) operator can be used to check the type of a value, which it returns as a `String` value.
+
+There are other types in JavaScript that will be discussed in later lessons.
+
+
 ### Naming variables
 ```js
 let variable_with_underscores = 'This is called snake_case';
 let variableWithCapitals = 'This is called camelCase';
 let VARIABLE_WITH_UPPER_CASE = 'ALL CAPS AAAHHHH!!!!';
 ```
-Variables can be named almost anything with a few restrictions. A variable's name cannot start with a number and should be alpha-numeric, or the underscore `_` character.
+Variables in JavaScript can be named almost anything with a few restrictions. A variable's name cannot start with a number and should be alpha-numeric, or the underscore `_` character.
 
-What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things as it can help make the program logic easier to follow and reason about.
+> What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things as it can help make the program logic easier to follow and reason about.
 
 
 ### Summary
@@ -307,11 +312,8 @@ What styles of naming *you* adopt does not matter as it is a personal preference
 - [Exponentiation `**` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) returns the result of raising a number to the power of another number.
 - [Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is a concept from classic mathematics about the order in which calculations should be evaluated.
 - [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) is a value that is produced as the result from mathematical operations with values that are not `Number` types.
- - [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) make it easy to construct complex `String` values.
-
-
-### Useful things
-- TODO
+- [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) make it easy to construct complex `String` values.
+- [`typeof` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) returns the *type* of a value as a `String`.
 
 
 ### Assignment 2
@@ -575,10 +577,6 @@ Calling `log()` evaluates the expression `console.log('Value', value)`, where `v
 - [Arrow `function` expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
 - [JSDoc](https://jsdoc.app/) is used to describe code in block-level comments.
 - [JSDoc cheatsheet](https://devhints.io/jsdoc) is a quick reference guide to the syntax of JSDoc.
-
-
-### Useful things
-- 
 
 
 ### Assignment 3
@@ -862,10 +860,6 @@ Above is a the truth table for the OR `||` operator with the different combinati
 - [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) TODO
 
 
-### Useful things
-- 
-
-
 ### Assignment 4: TODO
 
 
@@ -1087,10 +1081,6 @@ An easier way to clone an array is to use [`Array.from()`](https://developer.moz
 - [Increment `++` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment) TODO
 - [Decrement `--` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Decrement) TODO
 - [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) TODO
-
-
-### Useful things
-- 
 
 
 ### Assignment 5
@@ -1400,10 +1390,6 @@ Sometimes randomness is a desired feature of a program. `Math.random()` returns 
 - [`Math.round()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) returns the value of a number rounded to the nearest integer.
 - [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) returns a value of a number rounded up.
 - [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) returns a random number between `0.0` and `1.0`.
-
-
-### Useful things
-- 
 
 
 ### Assignment 8
