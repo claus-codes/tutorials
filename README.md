@@ -28,7 +28,6 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 
 **[Lesson 3: Functions](#lesson-3-functions)**
 - [Parameters and values](#parameters-and-values)
-- [Documenting your code](#documenting-your-code)
 - [Default parameters](#default-parameters)
 - [Functions as values](#functions-as-values)
 - [Arrow functions](#arrow-functions)
@@ -42,7 +41,15 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Ternary operator](#ternary-operator)
 - [Logical operators](#logical-operators)
 
-**[Lesson 5: Arrays and loops](#lesson-5-arrays-and-loops)**
+**[Lesson 5: Objects](#lesson-5-objects)**
+- [Accessing properties](#accessing-properties)
+- [Nesting objects](#nesting-objects)
+- [Object instances](#object-instances)
+- [Iterating objects](#iterating-objects)
+- [This](#this)
+- [JSON](#json)
+
+**[Lesson 6: Arrays and loops](#lesson-6-arrays-and-loops)**
 - [Adding and removing values](#adding-and-removing-values)
 - [Splicing values in and out an array](#splicing-values-in-and-out-an-array)
 - [Loops](#loops)
@@ -50,14 +57,6 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Filter](#filter)
 - [Reduce](#reduce)
 - [Cloning an array](#cloning-an-array)
-
-**[Lesson 6: Objects](#lesson-6-objects)**
-- [Accessing properties](#accessing-properties)
-- [Nesting objects](#nesting-objects)
-- [Object instances](#object-instances)
-- [Iterating objects](#iterating-objects)
-- [This](#this)
-- [JSON](#json)
 
 **[Lesson 7: Built-in objects](#lesson-7-built-in-objects)**
 
@@ -128,7 +127,7 @@ This is the syntax example for a *function call*; it starts with the *name of th
 ```js
 console.log('Hello World!');
 ```
-The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/console/log), is the name of a built-in function in JavaScript that lets us write, or *log*, to the developer console. It gets passed a single parameter: `String` value of `"Hello World!"`.
+The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log), is the name of a built-in function in JavaScript that lets us write, or *log*, to the developer console. It gets passed a single parameter: `String` value of `"Hello World!"`.
 
 The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
 
@@ -167,7 +166,7 @@ The first assignment is an easy one:
 ---
 
 ## Lesson 2: Values, variables and expressions
-To store and manipulate values, like `Number` or `String`, we need to use variables. Variables are like boxes with a label that can contain a single thing: *a value*.
+To store and manipulate values, like `Number` or `String`, we need to use [variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables). Variables are like boxes with a label that can contain a single thing: *a value*.
 
 ```
 let variableName = expression
@@ -196,7 +195,7 @@ console.log(emptyVar); // undefined
 ```
 Variables can be declared without an initial value. The variable `emptyVar` gets a special *empty value* called [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined), which means it has not been given a value.
 
-Empty values are discussed in [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations).
+Empty values are discussed in more detail in [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
 
 ### Logging variables
@@ -362,7 +361,8 @@ Variables in JavaScript can be named almost anything with a few restrictions. A 
 
 
 ### Summary
-- [Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables) are containers for values defined with the [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) keyword.
+- [Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables) are containers for variables.
+- [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) keyword is used to define variables.
 - [Assignment `=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Assignment) is used to assign a value to a variable.
 - [`undefined`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) is a primitive value that means no value has been assigned.
 - [`const` keyword](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) is used to define constant variables which cannot be changed.
@@ -481,29 +481,6 @@ A third variable `sum` is declared, and assigned the return value of `addNumbers
 Inside `addNumbers()` parameter `a` receives the value `12`, parameter `b` receives the value `30`, and the function returns the sum of the values which is `42` by evaluating the expression `12 + 30`.
 
 
-### Documenting your code
-```js
-/**
- * Adds two numbers together.
- * @param {number} a - First number
- * @param {number} b - Second number
- * @return {number} The sum of two numbers
- **/
-function addNumbers(a, b) {
-  return a + b;
-}
-
-/**
- * This is very important number.
- * @type {number}
- **/
-let important = 42;
-```
-This oddly formatted block-level comment before the `addNumbers()` function and variable `important` is called [JSDoc](https://jsdoc.app). It is a standard way to write descriptions for JavaScript code and there are tools that generate documentation from annotated code like this.
-
-Good documentation can be invaluable as projects or teams grow in size and complexity.
-
-
 ### Default parameters
 ```
 function functionName(requiredParameter, optionalParameter = value) {
@@ -514,12 +491,6 @@ function functionName(requiredParameter, optionalParameter = value) {
 Some functions are often called with the same parameters. Parameters can be assigned a default value, like `optionalParameter` above, which make them *optional*. Optional parameters are always defined after parameters which do not have a default value.
 
 ```js
-/**
- * Rounds a number to an arbitrary decimal precision.
- * @param {number} value - The number to be rounded
- * @param {number} precision - The number of decimal places
- * @return {number} Rounded number
- **/
 function roundNumber(value, precision = 2) {
   const precisionFactor = 10 ** precision;
   return Math.floor(value * precisionFactor) / precisionFactor;
@@ -527,7 +498,9 @@ function roundNumber(value, precision = 2) {
 ```
 Function `roundNumber()` defined above accepts two parameters:
 - `value` which is required because it has no default value.
-- `precision` which is optional because it has a default value of `2`. 
+- `precision` which is optional because it has a default value of `2`.
+
+It returns the `value` parameter rounded to an arbitrary decimal `precision`.
 
 ```js
 const PI = 3.14159265;
@@ -631,7 +604,7 @@ Calling `log()` evaluates the expression `console.log('Value', value)`, where `v
 - [`function` expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/function) is used to create a function as a value.
 - [`return`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/return) statement is used inside a function to return a value.
 - [Arrow `function` expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) are a more compact way to define functions.
-- [JSDoc](https://jsdoc.app/) is used to describe code in block-level comments.
+- [JSDoc](https://jsdoc.app) is used to describe code in block-level comments.
 - [JSDoc cheatsheet](https://devhints.io/jsdoc) is a quick reference guide to the syntax of JSDoc.
 
 
@@ -920,7 +893,125 @@ Above is a the truth table for the OR `||` operator with the different combinati
 
 ---
 
-## Lesson 5: Arrays and loops
+## Lesson 5: Objects
+The [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) data type allows the definition of more complex data by allowing the aggregation of data that has some kind of connection between them.
+
+```
+{
+  key: value,
+  key: value
+}
+```
+Object definitions are usually `key: value` pairs inside curly brackets `{}` separated by comma `,`.
+
+A property `key` is usually a `String` and the property `value` can be any type.
+
+```js
+const testObject = {
+  textProperty: 'words are fun',
+  numberProperty: 58008,
+};
+```
+Constant `testObject` is defined with two properties:
+- `textProperty` with the value of `"words are fun"`.
+- `numberProperty` with the value of `58008`.
+
+
+### Accessing properties
+```
+object.property
+object[key]
+```
+An object's property can be accessed with the dot `.` notation, or by using the key inside hard brackets `[]`.
+
+```js
+console.log(testObject.textProperty); // "words are fun"
+console.log(testObject['numberProperty']); // 58008
+```
+The `textProperty` of `testObject` is accessed with the dot `.` notation, and `numberProperty` is accessed using the `String` value of the key inside hard brackets `[]`.
+
+```js
+console.log(testObject.missingProperty); // undefined
+```
+Accessing a property that does not exist returns `undefined`.
+
+
+### Nesting objects
+```js
+const person = {
+  name: 'John Smith',
+  age: 27,
+  address: {
+    street: 'Fake street 1',
+    postalCode: '12345',
+    city: 'Faketown',
+    country: 'Fantasyland',
+  }
+};
+console.log(person.address.street); // "Fake street 1"
+```
+Because an object's property can have any value, we can easily compose more complex structures by nesting objects; `person` has the property `address` that is also an object with it's own properties.
+
+We can access the inner properties of the `address` property by chaining the dot `.` notation.
+
+```js
+const addressKey = 'address';
+console.log(person[addressKey].postalCode); // "12345"
+```
+Access to properties can be made dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable can be used to access the desired property using the hard brackets `[]` syntax.
+
+These methods of accessing properties can be chained together as needed.
+
+
+### Object instances
+```js
+const anotherPerson = person;
+anotherPerson.name = 'Jane Doe';
+console.log(person.name); // "Jane Doe"
+```
+Constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
+
+When changing the `name` property of `anotherPerson`, the change occurs on the *object instance*, which is why the `name` property of `person` also changes. They are the *same object instance*.
+
+
+### Iterating objects
+TODO
+
+
+### This
+TODO: function `this` scope.
+
+
+### JSON
+```js
+const jsonString = JSON.stringify(testObject)
+console.log(jsonString) // "{'property':'value','anotherProperty':2}"
+
+const parsedObject = JSON.parse(jsonString)
+console.log(parsedObject) // copy of testObject
+```
+JavaScript Object Notation, or JSON for short, is a way of representing data the same way JavaScript represents data. JSON is being used by most websites on the planet as it works seamlessly with JavaScript with the [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) and [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) functions.
+
+```js
+const prettyJsonString = JSON.stringify(person, null, 2)
+console.log(prettyJsonString) // person as formatted JSON
+```
+The `JSON.stringify()` function can format the output for better readability with the right parameters.
+
+
+### Summary
+- [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) type TODO
+- [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) TODO
+- [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) TODO
+
+
+### Assignment 5
+
+# TODO
+
+---
+
+## Lesson 6: Arrays and loops
 Sometimes you want to store more than a single value in a variable. One way to accomplish this is to use the [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) type.
 
 An `Array` is an ordered list of values, or *elements*, which can be accessed with an *index*.
@@ -960,8 +1051,6 @@ console.log(countries[3]); // undefined
 If an `Array` does not have an element at the index, it returns `undefined`.
 
 Because `countries` is a constant, it's value cannot be overwritten. The `Array` it contains can still be manipulated with built-in functionality.
-
-Arrays are *objects*, which are are discussed in [Lesson 6: Objects](#lesson-6-objects), but for now know that *objects* of the same *type* share functionality.
 
 
 ### Adding and removing values
@@ -1208,7 +1297,7 @@ The `for` loop iterates through the elements of `countries`, and adds `country` 
 ```js
 console.log('These are the same instance', countries === cloneArray); // false
 ```
-The resulting `cloneArray` has the *same values* as `countries`, but is not the *same object instance*. More about object instances in [Lesson 6: Objects](#lesson-6-objects).
+The resulting `cloneArray` has the *same values* as `countries`, but is not the *same object instance*.
 
 ```js
 cloneArray = Array.from(countries);
@@ -1234,7 +1323,7 @@ An easier way to clone an array is to use [`Array.from()`](https://developer.moz
 - [`Array.from()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) TODO
 
 
-### Assignment 5
+### Assignment 6
 In this assignment you will use the `Array` type and loops.
 
 
@@ -1292,126 +1381,8 @@ console.log(plucked); // 3
 
 ---
 
-## Lesson 6: Objects
-The [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) data type allows the definition of more complex data by allowing the aggregation of data that has some kind of connection between them.
-
-```
-{
-  key: value,
-  key: value
-}
-```
-Object definitions are usually `key: value` pairs inside curly brackets `{}` separated by comma `,`.
-
-A property `key` is usually a `String` and the property `value` can be any type.
-
-```js
-const testObject = {
-  textProperty: 'words are fun',
-  numberProperty: 58008,
-};
-```
-Constant `testObject` is defined with two properties:
-- `textProperty` with the value of `"words are fun"`.
-- `numberProperty` with the value of `58008`.
-
-
-### Accessing properties
-```
-object.property
-object[key]
-```
-An object's property can be accessed with the dot `.` notation, or by using the key inside hard brackets `[]`.
-
-```js
-console.log(testObject.textProperty); // "words are fun"
-console.log(testObject['numberProperty']); // 58008
-```
-The `textProperty` of `testObject` is accessed with the dot `.` notation, and `numberProperty` is accessed using the `String` value of the key inside hard brackets `[]`.
-
-```js
-console.log(testObject.missingProperty); // undefined
-```
-Accessing a property that does not exist returns `undefined`.
-
-
-### Nesting objects
-```js
-const person = {
-  name: 'John Smith',
-  age: 27,
-  address: {
-    street: 'Fake street 1',
-    postalCode: '12345',
-    city: 'Faketown',
-    country: 'Fantasyland',
-  }
-};
-console.log(person.address.street); // "Fake street 1"
-```
-Because an object's property can have any value, we can easily compose more complex structures by nesting objects; `person` has the property `address` that is also an object with it's own properties.
-
-We can access the inner properties of the `address` property by chaining the dot `.` notation.
-
-```js
-const addressKey = 'address';
-console.log(person[addressKey].postalCode); // "12345"
-```
-Access to properties can be made dynamic. Because an object's keys are `String` values, the key can be stored in a *variable*, and that variable can be used to access the desired property using the hard brackets `[]` syntax.
-
-These methods of accessing properties can be chained together as needed.
-
-
-### Object instances
-```js
-const anotherPerson = person;
-anotherPerson.name = 'Jane Doe';
-console.log(person.name); // "Jane Doe"
-```
-Constant `anotherPerson` is assigned the value of `person`. When an object is used as a value, it's a *reference* to an *object instance*.
-
-When changing the `name` property of `anotherPerson`, the change occurs on the *object instance*, which is why the `name` property of `person` also changes. They are the *same object instance*.
-
-
-### Iterating objects
-TODO
-
-
-### This
-TODO: function `this` scope.
-
-
-### JSON
-```js
-const jsonString = JSON.stringify(testObject)
-console.log(jsonString) // "{'property':'value','anotherProperty':2}"
-
-const parsedObject = JSON.parse(jsonString)
-console.log(parsedObject) // copy of testObject
-```
-JavaScript Object Notation, or JSON for short, is a way of representing data the same way JavaScript represents data. JSON is being used by most websites on the planet as it works seamlessly with JavaScript with the `JSON.stringify()` and `JSON.parse()` functions.
-
-```js
-const prettyJsonString = JSON.stringify(person, null, 2)
-console.log(prettyJsonString) // person as formatted JSON
-```
-The `JSON.stringify()` function can format the output for better readability with the right parameters.
-
-
-### Summary
-- [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) type TODO
-- [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) TODO
-- [`JSON.parse()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse) TODO
-
-
-### Assignment 6
-
-# TODO
-
----
-
 ## Lesson 7: Built-in objects
-JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being `Math`.
+JavaScript comes with several built-in *global objects* that give us tools to solve problems with one of the most useful being [`Math`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math).
 
 ```js
 console.log('Round down', Math.floor(1.998)); // 1
@@ -1420,12 +1391,15 @@ console.log('Round up', Math.ceil(1.001)); // 2
 ```
 Some of the basic functionality in the `Math` object includes functions for rounding numbers.
 
+[`Math.floor()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor) returns the value of a number rounded down, [`Math.round()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round) returns the value of a number rounded to the nearest integer and [`Math.ceil()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/ceil) returns a value of a number rounded up.
+
+
 ```js
 console.log(Math.random());
 console.log(Math.random());
 console.log(Math.random());
 ```
-Sometimes randomness is a desired feature of a program. `Math.random()` returns a new random `Number` value each time the function is called. The returned value is a fractional value between `0.0` an `1.0`.
+Sometimes randomness is a desired feature of a program. [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) returns a new random `Number` value each time the function is called. The returned value is a fractional value between `0.0` an `1.0`.
 
 
 ### Summary
