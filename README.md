@@ -16,11 +16,11 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Comments](#comments)
 
 **[Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions)**
+- [Constants](#constants)
 - [Empty values](#empty-values)
-- [Logging variables](#logging-variables)
+- [Variables as parameters](#variables-as-parameters)
 - [Changing the value of a variable](#changing-the-value-of-a-variable)
 - [Expressions](#expressions)
-- [Constants](#constants)
 - [Not-a-Number](#not-a-number)
 - [String interpolation](#string-interpolation)
 - [Checking the type of variables](#checking-the-type-of-variables)
@@ -159,7 +159,7 @@ It's good practice to comment your code and explain what is happening. It can be
 
 
 ### Assignment 1
-The first assignment is an easy one:
+This first assignment is an easy one:
 
 > Write code that calls `console.log()` with your own message.
 
@@ -188,6 +188,16 @@ let variableName = expression,
 Multiple variables can be defined with a single `let` keyword by separating each variable declaration with a comma `,`.
 
 
+### Constants
+```js
+const immutableValue = 'I cannot be overwritten';
+immutableValue = 'This will not work'; // This will throw an Error
+```
+The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant variable*, also know simply as a *constant*. A constant variable's value cannot be changed after it's declaration.
+
+When it is known that a variable's value will not change during execution, it is preferred to use `const` over `let`.
+
+
 ### Empty values
 ```js
 let emptyVar;
@@ -198,12 +208,12 @@ Variables can be declared without an initial value. The variable `emptyVar` gets
 Empty values are discussed in more detail in [Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations).
 
 
-### Logging variables
+### Variables as parameters
 ```js
 console.log('Value of num', num); // "Number" 9
 console.log('Value of text', text); // "Message" "string value"
 ```
-Variables can be used as parameters just like `Number` and `String` values. It is good practice to add some context before when *logging* values with `console.log()`, as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
+Variables can be used as parameters just like raw `Number` and `String` values. It is good practice to add some context before when *logging* values with `console.log()`, as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
 
 For the sake of readability I will omit the context messages going forward.
 
@@ -227,7 +237,7 @@ Variable `num` is assigned `num * 3`, an *expression*, which evaluates to the `N
 ```js
 console.log('Nice', 23 * 3); // 69
 ```
-The code above calls `console.log()` again, but this time it gets passed the *expression* `23 * 3` instead of a single value or variable. It is a multiplication operation on numbers 23 and 3 which evaluates to `Number` value of `69`.
+The code above calls `console.log()` again, but this time it gets passed the *expression* `23 * 3` instead of a single value or variable. It is a multiplication operation on numbers `23` and `3` which evaluates to `69`.
 
 When referring to a value, a variable or an operation in code you are using an expression. Simply put: *expressions are pieces of code that return a value.*
 
@@ -268,33 +278,23 @@ When referring to a value, a variable or an operation in code you are using an e
 ```js
 console.log('Complex calculation', (11 * 367) - (num * 100)); // 1337
 ```
-When writing complex calculations, where maintaining a strict [order of operations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence) is necessary, parenthesis can be used to group operations together.
+When writing complex calculations, where maintaining a strict *order of operations* with is necessary, parenthesis `()` can be used to group operations together along with [operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence).
 
-Any expression inside a pair of matching parenthesis `()` is evaluated *before* other operations are executed.
+Any expression inside a pair of matching parenthesis is evaluated *before* other operations are executed.
 
-> Expression `11 * 367` evaluates to `4037`.
+> Expression `(11 * 367)` evaluates to `4037`.
 > 
-> Expression `num * 100` evaluates to `2700` because variable `num` contains the value `27`.  
+> Expression `(num * 100)` evaluates to `2700` because variable `num` contains the value `27`.  
 >
-> After evaluating the expressions inside parenthesis `()`, the remaining subtraction operation `4037 - 2700` produces the final result `1337`:  
+> The remaining subtraction operation produces the final value `1337`.    
 > `4037 - 2700` = `1337`.
-
-
-### Constants
-```js
-const immutableValue = 'I cannot be overwritten';
-immutableValue = 'This will not work'; // This will throw an Error
-```
-The [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) keyword creates a *constant variable*, also know simply as a *constant*. A constant variable's value cannot be changed after it's declaration.
-
-When it is known that a value will not change during execution, it is preferred to use `const` over `let`.
 
 
 ### Not-a-Number
 ```js
 const numberValue = 13;
 const notNumberValue = 'hello';
-console.log('Math fail', numberValue / notNumberValue); // NaN
+console.log('This is not a number', numberValue / notNumberValue); // NaN
 ```
 When mathematical operations are attempted with values that are not `Number` values, a special [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) value is returned, which stands for *Not-a-Number*.
 
@@ -309,14 +309,19 @@ console.log('Text can be', text4 + text1 + text3 + text2); // "combined"
 ```
 Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins them together.
 
-The sample code above defines variables `text1`, `text2`, `text3` and `text4` which all have a `String` value. They are joined with the addition `+` operator in specific sequence producing the `String` value of `"combined"`.
+Variables `text1`, `text2`, `text3` and `text4` are defined, which all have a `String` value. They are joined with the addition `+` operator in a *specific sequence* producing the `String` value of `"combined"`.
+
+```
+`...${expression}...`
+```
+The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals), a *fancy* `String`, which allows variables or expressions to be placed into placeholders. The `...` in the syntax example indicates any text.
+
+Each placeholder begins with the dollar sing `$`, then an opening curly bracket `{` followed by the variable or expression, and ends with a closing curly bracket `}`.
 
 ```js
 console.log(`${text} is amazing`); // "JavaScript is amazing" 
 ```
-The backtick `` ` `` syntax declares a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) which allows values to be inserted inside a `String` by wrapping the value with `${expression}`, like `${text}` in the sample code.
-
-# TODO: add syntax example
+The variable `text` is inserted in the template literal, which produces the `String` value of `"JavaScript is amazing"` when evaluated.
 
 ```js
 const title = 'My Website';
@@ -334,9 +339,26 @@ const templateLiteralString = `
 `;
 console.log(templateLiteralString); // filled template
 ```
-Line breaks in normal strings are signified with the *escape-character* `\n`, while template literals use existing line breaks in the code.
+Constant `title` is assigned the value `"My website"`, and `multilineText` is assigned a string with an *escape character* `"\n"`, which means *new line* or *line break*. The value is `"two"` and `"lines"` separated by a new line.
 
-# TODO: better explanation of code
+Constant `templateLiteralString` is assigned a multi-line template literal. Template literals do not need the `"\n"` escape character, but rather uses the line breaks from the JavaScript code itself.
+
+The definition begins and ends with the backtick `` ` `` character, and includes a small template which has both `title` and `multilineText` placed inside. When it is evaluated, the template is filled:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Website</title>
+</head>
+<body>
+  <pre>two
+lines</pre>
+</body>
+</html>
+```
+This output is syntax highlighted for *HTML* for the sake of clarity, and is <ins>not</ins> JavaScript code.
+
 
 ### Checking the type of variables
 ```js
@@ -344,9 +366,9 @@ console.log('Type of num', typeof num); // "number"
 console.log('Type of text', typeof text); // "string"
 console.log('Type of emptyVar', typeof emptyVar); // "undefined"
 ```
-Each value in JavaScript has a type like `Number` or `String`. The [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) operator can be used to check the type of a value, which it returns as a `String` value.
+Each value in JavaScript has a type like `Number` or `String`. The [`typeof`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof) operator can be used to check the type of a value, which it returns as a `String` value like seen above.
 
-There are other types in JavaScript that will be discussed in later lessons.
+There are more types in JavaScript that will be discussed in later lessons.
 
 
 ### Naming variables
@@ -357,7 +379,7 @@ let VARIABLE_WITH_UPPER_CASE = 'ALL CAPS AAAHHHH!!!!';
 ```
 Variables in JavaScript can be named almost anything with a few restrictions. A variable's name cannot start with a number and should be alpha-numeric, or the underscore `_` character.
 
-> What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things as it can help make the program logic easier to follow and reason about.
+> What styles of naming *you* adopt does not matter as it is a personal preference. More importantly you should always strive to be as descriptive as possible when naming things because it can help make the program logic easier to follow and reason about.
 
 
 ### Summary
@@ -378,8 +400,8 @@ Variables in JavaScript can be named almost anything with a few restrictions. A 
 In this assignment you will work with variables, expressions and template literals.
 
 
-#### Task 1: "Hello world" with string interpolation
-Template literals introduced in this lesson can be used to inject values inside `String` variables.
+#### Task 1: "Hello world" with template literals
+Template literals introduced in this lesson can be used to inject variables or expressions inside `String` values.
 
 ##### Step 1
 > Define a variable named `greeting`.  
@@ -411,29 +433,25 @@ In this task you will define variables and perform calculations on them using ex
 > Assign it an expression that divides `money` by `price`.
 
 ##### Step 4
-> Define a variable named `change`.  
+> Define a variable named `remainder`.  
 > Assign it the expression of getting the *remainder* of dividing `money` by `price`.
 
 ##### Step 5
 > Define a variable named `itemAmount`.  
-> Assign it an expression where you first subtract `change` from `money`, then divide the result with `price`.
+> Assign it an expression, where you first subtract `remainder` from `money`, then divide the result with `price`.
 
 ##### Step 6
 > Define a variable named `totalPrice`.  
 > Assign it an expression where you multiply `itemAmount` with `price`.
 
 ##### Step 7
-> Call `console.log()` to inspect the values of the variables you defined.
->   
-> Use template literals to make it look nice.
+> Call `console.log()` to inspect the values of the variables you defined and use template literals to format the output.
 
 ##### Step 8
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` to inspect the new value of `money`, which should be equal to the value of `change`.
-> 
-> Use template literals again to format the output.
+> Call `console.log()` again to inspect the new value of `money`, which should be equal to the value of `remainder`.
 
 ---
 
@@ -613,7 +631,7 @@ In this assignment you will utilize your new knowledge of functions.
 
 
 #### Task 1: Greeting function
-Modify the code from [Task 1 of Assignment 2: *"Hello world" with string interpolation*](#task-1-hello-world-with-string-interpolation).
+Modify the code from [Task 1 of Assignment 2: *"Hello world" with template literals*](#task-1-hello-world-with-string-interpolation).
 
 ##### Step 1
 > Write a new function `greet()` that accepts two parameters:  
@@ -624,7 +642,8 @@ Modify the code from [Task 1 of Assignment 2: *"Hello world" with string interpo
 > Make the function `greet()` return the template literal that was passed to `console.log()` previously.
 
 ##### Step 3
-> Pass the return value of `greet()` to `console.log()` when using different parameters.  
+> Try passing the return value of `greet()` to `console.log()` when using different parameters.
+>   
 > Ensure the default value is used when the `greeting` parameter is omitted.
 
 ##### Step 4
@@ -635,7 +654,7 @@ Modify the code from [Task 1 of Assignment 2: *"Hello world" with string interpo
 > The function returned by `createGreet()` should call `greet()` with the appropriate parameters.
 
 ##### Step 5
-> Create a few functions with `createGreet()` and test their output.
+> Create a few functions with `createGreet()` and test their return values with `console.log()`.
 
 
 #### Task 2: Financial transaction functions
@@ -662,11 +681,11 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 
 ##### Step 6
 > Define a variable named `itemCount`.  
-> Assign it the return value of `calculateAffordableItemCount()` with `price` and `money` as the parameters.
+> Assign it the return value of `calculateAffordableItemCount()` with variables `price` and `money` as the parameters.
 
 ##### Step 7
 > Define a variable named `totalPrice`.  
-> Assign it the return value of `calculateTotalPrice()` with `price` and `itemCount` as the parameters.
+> Assign it the return value of `calculateTotalPrice()` with variables `price` and `itemCount` as the parameters.
 
 ##### Step 8
 > Define a variable named `moneyAfter`.  
