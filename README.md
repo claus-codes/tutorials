@@ -32,8 +32,8 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Default parameters](#default-parameters)
 - [Functions as values](#functions-as-values)
 - [Arrow functions](#arrow-functions)
-- [Higher-order functions](#higher-order-functions)
 - [Scope](#scope)
+- [Higher-order functions](#higher-order-functions)
 
 **[Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations)**
 - [Empty values and truthiness](#empty-values-and-truthiness)
@@ -104,7 +104,7 @@ This tutorial is intended to be used with [CodePen](https://codepen.io/pen/) whi
 
 This tutorial uses the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
 
-Example code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the example code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1: Hello World!](#lesson-1-hello-world).
+Example code provided in each lesson can be copied to the editor in sequence and will work **unless** it specifically mentions *throwing an Error*. Copying the example code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1: Hello World!](#lesson-1-hello-world).
 
 ---
 
@@ -527,7 +527,7 @@ function roundNumber(value, precision = 2) {
   return Math.floor(value * precisionFactor) / precisionFactor;
 }
 ```
-Functions can define their own variables in their *scope*, and call other functions, among many other things. The concept of scope is explained later this lesson.
+Functions can define their own variables in their *scope*, and call other functions, among many other things. The concept of *function scope* is explained later this lesson.
 
 Defined function `roundNumber()` accepts two parameters:
 - `value` which is required because it has no default value.
@@ -615,6 +615,28 @@ The constant `square`, when called, evaluates the expression `number * number`.
 Arrow functions `=>` also support code blocks with the curly brackets `{}`, but require a `return` statement to return a value like regular functions.
 
 
+### Scope
+```js
+let outside = 'I am from outside the function';
+let override = 'I will be overridden by function scope';
+let parameter = 'I will be overridden as a parameter';
+
+function scopeTest(parameter) {
+  let override = 'I am defined inside the function scope';
+  console.log(outside); // "I am from outside the function"
+  console.log(override); // "I am defined inside the function scope"
+  console.log(parameter); // "I am the parameter"
+}
+
+scopeTest('I am the parameter');
+```
+Scope refers to the *current context of code execution*. It determines the *accessibility of variables* and other resources in the code. Functions can read the variables outside of it's scope as long as they are *declared before the function itself*.
+
+Variables `outside`, `override` and `parameter` are defined *outside* of function `scopeTest()`.
+
+Inside `scopeTest()` a *local variable* `override` is defined, which results in the variable of the same name outside of the function body to not be used. The same happens with `parameter`, while the variable `outside` retains it's value inside the function.
+
+
 ### Higher-order functions
 ```js
 function createPowerFunction(exponent) {
@@ -629,32 +651,27 @@ Function `createPowerFunction()` accepts a single parameter: `exponent`.
 
 `createPowerFunction()` returns an arrow function that accepts a single parameter: `value`.
 
-This arrow function returns the expression `value ** exponent`, where parameter `exponent` comes from the *scope* of `createPowerFunction()`. The concept of *scopes* is discussed in [Lesson N]().
+The returned arrow function itself returns the expression `value ** exponent`, where parameter `exponent` comes from the *scope* of `createPowerFunction()`.
 
 Variable `powerOfTwo` is assigned the return value of `createPowerFunction(2)`, which is the arrow function accepting `value` as the parameter.
 
 Calling `powerOfTwo()` then evaluates evaluates the expression `value ** 2`.
 
 ```js
-function createLogFunction(logger) {
+function wrapLoggerPrefix(logger) {
   return value => logger('WHAT', value);
 }
-let log = createLogFunction(console.log);
+const log = wrapLoggerPrefix(console.log);
 log(1234); // "WHAT" 1234
 ```
 Functions can also *accept functions as parameters* and call them inside the function body.
 
-Function `createLogFunction` accepts a single parameter:
+Function `wrapLoggerPrefix` accepts a single parameter:
 - `logger` which is expected to be a function.
 
-Variable `log` is assigned the return value of `createLogFunction()` with `console.log` (without parenthesis) as the parameter `logger`.
+Constant `log` is assigned the return value of `wrapLoggerPrefix()` with `console.log` (without calling parenthesis) as the parameter `logger`.
 
-Calling `log()` evaluates the expression `console.log('WHAT', value)`, where `value` is the parameter accepted by `log()`.
-
-
-### Scope
-
-# TODO
+Calling `log()` evaluates the expression `console.log('WHAT', value)`, where `value` is the parameter accepted by `log()`, which is the arrow function returned by `wrapLoggerPrefix()`.
 
 
 ### Summary
