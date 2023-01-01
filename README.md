@@ -594,7 +594,7 @@ If a single parameter is used, the parenthesis `()` around the parameter list ca
 
 ```js
 const square = number => number * number;
-console.log(square(4)); // 16
+console.log('Result of square()', square(4)); // 16
 ```
 The constant `square`, when called, evaluates the expression `number * number`.
 
@@ -613,7 +613,7 @@ function createPowerFunction(exponent) {
   return value => value ** exponent;
 }
 let powerOfTwo = createPowerFunction(2);
-console.log('Power function', powerOfTwo(4)); // 16
+console.log('Result of powerOfTwo()', powerOfTwo(4)); // 16
 ```
 Functions can *return* other functions. This is a very powerful feature of JavaScript as it allows creating functions that can define, or override, the default parameters of other functions.
 
@@ -629,19 +629,19 @@ Calling `powerOfTwo()` then evaluates evaluates the expression `value ** 2`.
 
 ```js
 function createLogFunction(logger) {
-  return value => logger('Value', value);
+  return value => logger('WHAT', value);
 }
 let log = createLogFunction(console.log);
-log(1234); // "Value" 1234
+log(1234); // "WHAT" 1234
 ```
 Functions can also *accept functions as parameters* and call them inside the function body.
 
 Function `createLogFunction` accepts a single parameter:
-- `logger`, which is expected to be a function.
+- `logger` which is expected to be a function.
 
 Variable `log` is assigned the return value of `createLogFunction()` with `console.log` (without parenthesis) as the parameter `logger`.
 
-Calling `log()` evaluates the expression `console.log('Value', value)`, where `value` is the parameter accepted by `log()`.
+Calling `log()` evaluates the expression `console.log('WHAT', value)`, where `value` is the parameter accepted by `log()`.
 
 
 ### Scope
