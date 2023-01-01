@@ -32,6 +32,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Functions as values](#functions-as-values)
 - [Arrow functions](#arrow-functions)
 - [Higher-order functions](#higher-order-functions)
+- [Scope](#scope)
 
 **[Lesson 4: Boolean values, comparisons and conditional operations](#lesson-4-boolean-values-comparisons-and-conditional-operations)**
 - [Empty values and truthiness](#empty-values-and-truthiness)
@@ -115,7 +116,7 @@ All software is just data processing and manipulation. Here are the first two pr
 >  
 > They are commonly wrapped in quotes like `'single'`, or `"double"`.
 > 
-> This tutorial uses double-quotes when discussing string values, and single-quotes when used in sample code.
+> This tutorial uses single-quotes in sample code and double-quotes when discussing string values.
 
 
 ### A humble beginning
@@ -475,13 +476,16 @@ function addNumbers(a, b) {
   return a + b;
 }
 ```
-A new function named `addNumbers` is defined.
-
-It accepts two parameters: `a` and `b`.
+A new function named `addNumbers` is defined. It accepts two parameters: `a` and `b`.
 
 Parameters are variables that are used to receive *input values*. These input values, also known as *arguments*, are passed to the function when it is called. Inside the function body is a return statement that evaluates the expression `a + b` which returns the sum of `a` and `b`.
 
-Functions follow the same [naming conventions](#naming-variables) as variables.
+Functions follow the same [naming conventions](#naming-conventions) as variables.
+
+```js
+console.log('Type of addNumbers', typeof addNumbers); // "function"
+```
+The `typeof` operator shown in [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions) returns `"function"` for all functions.
 
 
 ### Parameters and values
@@ -491,12 +495,13 @@ let secondNumber = 30;
 let sum = addNumbers(firstNumber, secondNumber);
 console.log('Return value of addNumbers()', sum); // 42
 ```
-The code above first defines two variables: `firstNumber` and `secondNumber`.  
-Both are assigned `Number` values.
+The code above first defines two variables: `firstNumber` and `secondNumber` and both are assigned `Number` values.
 
-A third variable `sum` is declared, and assigned the return value of `addNumbers(firstNumber, secondNumber)`.
+A third variable `sum` is declared, and assigned the return value of calling `addNumbers(firstNumber, secondNumber)`.
 
-Inside `addNumbers()` parameter `a` receives the value `12`, parameter `b` receives the value `30`, and the function returns the sum of the values which is `42` by evaluating the expression `12 + 30`.
+Inside `addNumbers()` parameter `a` receives the value `12` from `firstNumber`, and parameter `b` receives the value `30` from `secondNumber`.
+
+The function returns the sum of the values which is `42` by evaluating the expression `12 + 30`.
 
 
 ### Default parameters
@@ -514,17 +519,33 @@ function roundNumber(value, precision = 2) {
   return Math.floor(value * precisionFactor) / precisionFactor;
 }
 ```
-Function `roundNumber()` defined above accepts two parameters:
+Functions can define their own variables in their *scope*, and call other functions, among many other things. The concept of scope is explained later this lesson.
+
+Defined function `roundNumber()` accepts two parameters:
 - `value` which is required because it has no default value.
 - `precision` which is optional because it has a default value of `2`.
 
-It returns the `value` parameter rounded to an arbitrary decimal `precision`.
+Inside the constant `precisionFactor` is assigned the expression `10 ** precision`, which uses the exponentation `**` operator raising `10` to the power of `precision`.
+
+> When `precision` is the default value `2`, the expression is    
+> `10 ** 2` = `10 * 19` = `100`  
+>
+> When `precision` is `4`, the expression is  
+> `10 ** 4` = `10 * 10 * 10 * 10` = `10000`.  
+
+The return statement uses `Math.floor()`, another built-in function, to round down the value returned by the expression `value * precisionFactor`, which is then divided by `precisionFactor`.
+
+The returned value is the `value` parameter rounded to an arbitrary decimal `precision` with the above operation.
+
+More about built-in functions in [Lesson 7: Built-in objects](#lesson-7-built-in-objects).
 
 ```js
 const PI = 3.14159265;
 console.log('PI with 4 decimals', roundNumber(PI, 4)); // 3.1415
 console.log('PI with 2 decimals', roundNumber(PI)); // 3.14
 ```
+Constant `PI` is defined with an approximate value of pi. It is then used as the first parameter to `roundNumber()`.
+
 The first call to `roundNumber()` above passes the value `4` as parameter `precision` resulting in a value with 4 decimal digits: `3.1415`
 
 The second call omits the second parameter which sets the value of `precision` to `2` resulting in a value with 2 decimal digits: `3.14`
@@ -543,7 +564,13 @@ let divide = function(dividend, divisor) {
 }
 console.log('Result of divide()', divide(8022, 6)); // 1337 
 ```
-Variable `divide` is assigned a function expression as a value. Variables can be called like functions when their *value is a function*.
+Variable `divide` is assigned a function expression as a value that performs simple division. 
+
+`divide()` is then *called like function*, because it's *value is a function*, executing the function code in the example.
+
+const log = console.log;
+log('I got tired of writing console all the time'); // "I got tired of writing console all the time"
+Functions can be passed around like any value, with some limitations.
 
 
 ### Arrow functions
@@ -558,7 +585,7 @@ The expression after the fat arrow `=>` symbol evaluates to the return value.
 divide = (dividend, divisor) => dividend / divisor;
 console.log('Result of divide()', divide(8022, 6)); // 1337
 ```
-Both versions of `divide()` are functionally identical.
+Both versions of `divide()` are functionally identical and only the syntax used varies.
 
 ```
 parameter => expression
@@ -588,7 +615,7 @@ function createPowerFunction(exponent) {
 let powerOfTwo = createPowerFunction(2);
 console.log('Power function', powerOfTwo(4)); // 16
 ```
-Functions can *return* other functions. This is a very powerful feature of JavaScript. It allows creating functions that can define, or override, the default parameters of other functions.
+Functions can *return* other functions. This is a very powerful feature of JavaScript as it allows creating functions that can define, or override, the default parameters of other functions.
 
 Function `createPowerFunction()` accepts a single parameter: `exponent`.
 
@@ -609,11 +636,17 @@ log(1234); // "Value" 1234
 ```
 Functions can also *accept functions as parameters* and call them inside the function body.
 
-Function `createLogFunction` accepts a single parameter: `logger`.
+Function `createLogFunction` accepts a single parameter:
+- `logger`, which is expected to be a function.
 
 Variable `log` is assigned the return value of `createLogFunction()` with `console.log` (without parenthesis) as the parameter `logger`.
 
 Calling `log()` evaluates the expression `console.log('Value', value)`, where `value` is the parameter accepted by `log()`.
+
+
+### Scope
+
+# TODO
 
 
 ### Summary
