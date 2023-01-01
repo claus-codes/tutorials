@@ -22,7 +22,8 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Changing the value of a variable](#changing-the-value-of-a-variable)
 - [Expressions](#expressions)
 - [Not-a-Number](#not-a-number)
-- [String interpolation](#string-interpolation)
+- [Joining strings](#joining-strings)
+- [Template literals](#template-literals)
 - [Checking the type of variables](#checking-the-type-of-variables)
 - [Naming variables](#naming-variables)
 
@@ -73,22 +74,24 @@ Each lesson is broken into sections that teach different concepts. When learning
 
 Whenever you see text formatted `like this`, it means we are discussing about something in `programming terms`.
 
+#### Example code
 ```js
-console.log('This code is syntax highlighted.');
+console.log('This example is syntax highlighted.');
 ```
-*Sample code*, like the one seen above, is always followed by an explanation and is always *syntax highlighted*. This means different things have different colors based on semantic rules.
+Example code, like the one seen above, is always followed by an explanation and is <ins>always</ins> *syntax highlighted*. This means different things have different colors based on semantic rules.
 
 JavaScript, like all programming languages, is very strict about syntax, which is the *set of rules that govern the structure of a language*.
 
+#### Syntax example
 ```
 if (condition) {
   ...
 }
 ```
-*Syntax examples* teach you how JavaScript code is structured with an example of the syntax, and are always followed by an explanation. Unlike sample code they are *never* syntax highlighted as they are not actual code.
+Syntax examples teach you how JavaScript code is structured with an example of the syntax, and are always followed by an explanation. Unlike example code they are <ins>never</ins> syntax highlighted as they are not *actual code*.
 
 #### Summary
-At the end of each lesson is the *Summary* section. This section contains a list of links to documentation for the things discussed during the lesson, with a short description of each to refresh your memory. The documentation contains more information and sample code, so be curious and explore.
+At the end of each lesson is the *Summary* section. This section contains a list of links to documentation for the things discussed during the lesson, with a short description of each to refresh your memory. The documentation contains more information and example code, so be curious and explore.
 
 #### Assignment
 After the *Summary* section is an *Assignment*. The assignments after each lesson are designed to use information taught so far. They ask you to write new code, or modify code written during previous assignments.
@@ -101,7 +104,7 @@ This tutorial is intended to be used with [CodePen](https://codepen.io/pen/) whi
 
 This tutorial uses the *developer console* exclusively for displaying information so you can keep track of what's happening. You can open the developer console in **CodePen** from the **bottom-left corner** of the workspace from the *"Console"* button.
 
-Sample code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the sample code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1: Hello World!](#lesson-1-hello-world).
+Example code provided in each lesson can be copied to the editor and will work **unless** it specifically mentions *throwing an Error*. Copying the example code is not necessary as the expected output is shown as *comments* in most cases. You will soon learn about comments in [Lesson 1: Hello World!](#lesson-1-hello-world).
 
 ---
 
@@ -116,7 +119,7 @@ All software is just data processing and manipulation. Here are the first two pr
 >  
 > They are commonly wrapped in quotes like `'single'`, or `"double"`.
 > 
-> This tutorial uses single-quotes in sample code and double-quotes when discussing string values.
+> This tutorial uses single-quotes in example code, and double-quotes when discussing string values.
 
 
 ### A humble beginning
@@ -130,7 +133,7 @@ console.log('Hello World!');
 ```
 The first part, [`console.log`](https://developer.mozilla.org/en-US/docs/Web/API/Console/log), is the name of a built-in function in JavaScript that lets us write, or *log*, to the developer console. It gets passed a single parameter: `String` value of `"Hello World!"`.
 
-The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in sample code, but not in syntax examples.
+The trailing semicolon `;` after a statement is *entirely optional* in JavaScript. Their use is recommended as code can break in unexpected ways when you do not include them. This tutorial includes them in example code, but not in syntax examples.
 
 [Lesson 3: Functions](#lesson-3-functions) is dedicated to functions, but for now think of a function as code that can be called with parameters.
 
@@ -300,7 +303,7 @@ console.log('This is not a number', numberValue / notNumberValue); // NaN
 When mathematical operations are attempted with values that are not `Number` values, a special [`NaN`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN) value is returned, which stands for *Not-a-Number*.
 
 
-### String interpolation
+### Joining strings
 ```js
 let text1 = 'mb',
     text2 = 'ed',
@@ -310,8 +313,13 @@ console.log('Text can be', text4 + text1 + text3 + text2); // "combined"
 ```
 Instead of performing addition like on `Number` values, the addition `+` operator with `String` values joins them together.
 
-Variables `text1`, `text2`, `text3` and `text4` are defined, which all have a `String` value. They are joined with the addition `+` operator in a *specific sequence* producing the `String` value of `"combined"`.
+Variables `text1`, `text2`, `text3` and `text4` are defined, which all have a `String` value.
 
+They are joined with the addition `+` operator in a *specific sequence*:
+> `"co"` + `"mb"` + `"in"` + `"ed"` = `"combined"`.
+
+
+### Template literals
 ```
 `...${expression}...`
 ```
@@ -322,7 +330,7 @@ Each placeholder begins with the dollar sing `$`, then an opening curly bracket 
 ```js
 console.log(`${text} is amazing`); // "JavaScript is amazing" 
 ```
-The variable `text` is inserted in the template literal, which produces the `String` value of `"JavaScript is amazing"` when evaluated.
+The variable `text` is inserted in the template literal with the placeholder `${text}`, which produces the `String` value of `"JavaScript is amazing"` when evaluated.
 
 ```js
 const title = 'My Website';
@@ -699,7 +707,7 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 ##### Step 2
 > Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemCount()`.
 > 
-> Modify the code so the values of `price` and `money` are the parameters, and not created with the `let` keyword.
+> Modify the code so the values of `price` and `money` are the parameters and not variables.
 
 ##### Step 3
 > Make `calculateAffordableItemCount()` return the value of `itemAmount`.
@@ -1205,7 +1213,7 @@ for (const country of countries) {
 ```
 The [`for...of`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of) loop iterates through the *values* of an `Array` when the index is not relevant.
 
-The two `for` loops in the sample code are functionally identical.
+The two `for` loops in the example code are functionally identical.
 
 ```
 while (condition) {
