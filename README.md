@@ -96,7 +96,7 @@ At the end of each lesson is the *Summary* section. This section contains a list
 #### Assignment
 After the *Summary* section is an *Assignment*. The assignments after each lesson are designed to use information taught so far. They ask you to write new code, or modify code written during previous assignments.
 
-Assignments can have multiple *tasks*, which are broken into smaller *steps* so they are easier to follow. The tasks, and steps, should be completed in the order they are presented.
+Assignments can have multiple *tasks*, which are broken into smaller *steps* so they are easier to follow. The tasks, and steps, should be completed in the order they are presented. Some tasks will include a *Show solution* part, which will reveal the solution for the task when clicked open - you should only view the solution as a last resort.
 
 
 ### Workflow
@@ -422,8 +422,18 @@ Template literals introduced in this lesson can be used to inject variables or e
 
 ##### Step 3
 > Call `console.log()` and use template literals to inject `greeting` and `name` to the output.
->
+> 
 > The console should log out something like `"Hello Claus!"`, where `"Hello"` is your greeting and `"Claus"` is your name.
+
+<details>
+  <summary>Show solution</summary>
+
+```js
+let greeting = 'Aloha';
+let name = 'Anonymous';
+console.log(`${greeting}, ${name}!`);
+```
+</details>
 
 
 #### Task 2: Financial transaction
@@ -460,7 +470,29 @@ In this task you will define variables and perform calculations on them using ex
 > Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
 
 ##### Step 9
-> Call `console.log()` again to inspect the new value of `money`, which should be equal to the value of `remainder`.
+> Call `console.log()` again to inspect the new value of `money`.
+
+<details>
+  <summary>Show solution</summary>
+
+```js
+const PRICE_UNIT = 'squirrel skins';
+
+let price = 5;
+let money = 37;
+let affordAmount = money / price;
+let remainder = money % price;
+let itemAmount = (money - remainder) / price;
+let totalPrice = itemAmount * price;
+
+console.log(`I have ${money} ${PRICE_UNIT}.
+The thing costs ${price} ${PRICE_UNIT}, so I can buy ${itemAmount} things.
+After purchase I should have ${remainder} ${PRICE_UNIT} left.`);
+
+money = money - totalPrice;
+console.log(`I have ${money} ${PRICE_UNIT} left after the purchase.`);
+```
+</details>
 
 ---
 
@@ -714,20 +746,39 @@ Modify the code from [Task 1 of Assignment 2: *"Hello world" with template liter
 ##### Step 5
 > Create a few functions with `createGreet()` and test their return values with `console.log()`.
 
+<details>
+  <summary>Show solution</summary>
+
+```js
+function greet(name, greeting = 'Hello') {
+  return `${greeting}, ${name}!`;
+}
+
+function createGreet(greeting) {
+  return name => greet(name, greeting);
+}
+
+const greetFinland = createGreet('Terve');
+const greetHawaii = createGreet('Aloha');
+console.log(greetFinland('Anonymous'));
+console.log(greetHawaii('Anonymous'));
+```
+</details>
+
 
 #### Task 2: Financial transaction functions
 Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-financial-transaction).
 
 ##### Step 1
-> Write a new function `calculateAffordableItemCount()` which accepts two parameters: `price` and `money`.
+> Write a new function `calculateAffordableItemAmount()` which accepts two parameters: `price` and `money`.
 
 ##### Step 2
-> Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemCount()`.
+> Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemAmount()`.
 > 
 > Modify the code so the values of `price` and `money` are the parameters and not variables.
 
 ##### Step 3
-> Make `calculateAffordableItemCount()` return the value of `itemAmount`.
+> Make `calculateAffordableItemAmount()` return the value of `itemAmount`.
 
 ##### Step 4
 > Write a new function `calculateTotalPrice()` which accepts two parameters: `price` and `amount`.  
@@ -738,21 +789,51 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 > Assign them `Number` values, like you did previously.
 
 ##### Step 6
-> Define a variable named `itemCount`.  
-> Assign it the return value of `calculateAffordableItemCount()` with variables `price` and `money` as the parameters.
+> Define a variable named `itemAmount`.  
+> Assign it the return value of `calculateAffordableItemAmount()` with variables `price` and `money` as the parameters.
 
 ##### Step 7
 > Define a variable named `totalPrice`.  
-> Assign it the return value of `calculateTotalPrice()` with variables `price` and `itemCount` as the parameters.
+> Assign it the return value of `calculateTotalPrice()` with variables `price` and `itemAmount` as the parameters.
 
 ##### Step 8
-> Define a variable named `moneyAfter`.  
+> Define a variable named `remainder`.  
 > Assign it an expression where you subtract `totalPrice` from `money`.
 
 ##### Step 9
 > Call `console.log()` to inspect the variables defined after Step 5.  
 > Use template literals to format the output, detailing the transaction.
 
+<details>
+  <summary>Show solution</summary>
+
+```js
+function calculateAffordableItemAmount(price, money) {
+  let affordAmount = money / price;
+  let remainder = money % price;
+  let itemAmount = (money - remainder) / price;
+  return itemAmount;
+}
+
+function calculateTotalPrice(price, itemCount) {
+  return price * itemCount;
+}
+
+const PRICE_UNIT = 'dollaroos';
+
+let price = 5;
+let money = 37;
+
+let itemAmount = calculateAffordableItemAmount(price, money);
+let totalPrice = calculateTotalPrice(price, itemAmount);
+let remainder = money - totalPrice;
+
+console.log(`I have ${money} ${PRICE_UNIT}.
+The thing costs ${price} ${PRICE_UNIT}, so I can buy ${itemAmount} things.
+After purchase I have ${remainder} ${PRICE_UNIT} left.`);
+```
+</details>
+s
 ---
 
 ## Lesson 4: Boolean values, comparisons and conditional operations
