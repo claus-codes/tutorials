@@ -585,7 +585,7 @@ The second call omits the second parameter which sets the value of `precision` t
 
 ### Functions as values
 ```
-variable = function(parameters) {
+variable = function(parameter, parameter) {
   ...
 }
 ```
