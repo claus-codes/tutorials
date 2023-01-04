@@ -566,9 +566,7 @@ Inside the constant `precisionFactor` is assigned the expression `10 ** precisio
 > When `precision` is `4`, the expression is  
 > `10 ** 4` = `10 * 10 * 10 * 10` = `10000`.  
 
-The return statement uses `Math.floor()`, another built-in function, to round down the value returned by the expression `value * precisionFactor`, which is then divided by `precisionFactor`.
-
-The returned value is the `value` parameter rounded to an arbitrary decimal `precision` with the above operation.
+The return statement uses `Math.floor()`, another built-in function, to *round down* the value returned by the expression `value * precisionFactor`, which is then divided by `precisionFactor`.
 
 More about built-in functions in [Lesson 7: Built-in objects](#lesson-7-built-in-objects).
 
@@ -577,9 +575,11 @@ const PI = 3.14159265;
 console.log('PI with 4 decimals', roundNumber(PI, 4)); // 3.1415
 console.log('PI with 2 decimals', roundNumber(PI)); // 3.14
 ```
-Constant `PI` is defined with an approximate value of pi. It is then used as the first parameter to `roundNumber()`.
+Constant `PI` is defined with an approximate value of pi (π).
 
-The first call to `roundNumber()` above passes the value `4` as parameter `precision` resulting in a value with 4 decimal digits: `3.1415`
+Calling `roundNumber()` returns the first parameter, `value`, rounded to an arbitrary decimal `precision`, which is the constant `PI` in this example.
+
+The first call to `roundNumber()` above passes the value `4` as the second parameter `precision` resulting in a value with 4 decimal digits: `3.1415`
 
 The second call omits the second parameter which sets the value of `precision` to `2` resulting in a value with 2 decimal digits: `3.14`
 
