@@ -25,7 +25,7 @@ This tutorial aims to be a beginner friendly crash course to programming with [J
 - [Joining strings](#joining-strings)
 - [Template literals](#template-literals)
 - [Checking the type of variables](#checking-the-type-of-variables)
-- [Naming variables](#naming-variables)
+- [Naming conventions](#naming-conventions)
 
 **[Lesson 3: Functions](#lesson-3-functions)**
 - [Parameters and values](#parameters-and-values)
@@ -228,7 +228,7 @@ text = 'JavaScript';
 console.log('Value of text after change', text) // "JavaScript"
 
 num = num * 3;
-console.log('After multiplication', num); // 27
+console.log('Value of num after change', num); // 27
 ```
 Variables can have their value changed by assigning them a new value.
 
@@ -380,7 +380,7 @@ Each value in JavaScript has a type like `Number` or `String`. The [`typeof`](ht
 There are more types in JavaScript that will be discussed in later lessons.
 
 
-### Naming variables
+### Naming conventions
 ```js
 let variable_with_underscores = 'This is called snake_case';
 let variableWithCapitals = 'This is called camelCase';
@@ -520,13 +520,6 @@ A new function named `addNumbers` is defined. It accepts two parameters: `a` and
 
 Parameters are variables that are used to receive *input values*. These input values, also known as *arguments*, are passed to the function when it is called. Inside the function body is a return statement that evaluates the expression `a + b` which returns the sum of `a` and `b`.
 
-Functions follow the same [naming conventions](#naming-conventions) as variables.
-
-```js
-console.log('Type of addNumbers', typeof addNumbers); // "function"
-```
-The `typeof` operator shown in [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions) returns `"function"` for all functions.
-
 
 ### Parameters and values
 ```js
@@ -608,9 +601,16 @@ Variable `divide` is assigned a function expression as a value that performs sim
 
 `divide()` is then *called like function*, because it's *value is a function*, executing the function code in the example.
 
+```js
 const log = console.log;
 log('I got tired of writing console all the time'); // "I got tired of writing console all the time"
-Functions can be passed around like any value, with some limitations.
+```
+Functions can be stored in variables like any other value and passed around as needed.
+
+```js
+console.log('Type of addNumbers', typeof addNumbers); // "function"
+```
+The `typeof` operator shown in [Lesson 2: Values, variables and expressions](#lesson-2-values-variables-and-expressions) returns `"function"` for all functions. Functions also follow the same [naming conventions](#naming-conventions) as variables.
 
 
 ### Arrow functions
