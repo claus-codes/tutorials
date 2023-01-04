@@ -833,7 +833,7 @@ The thing costs ${price} ${PRICE_UNIT}, so I can buy ${itemAmount} things.
 After purchase I have ${remainder} ${PRICE_UNIT} left.`);
 ```
 </details>
-s
+
 ---
 
 ## Lesson 4: Boolean values, comparisons and conditional operations
