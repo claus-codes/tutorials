@@ -561,7 +561,7 @@ Defined function `roundNumber()` accepts two parameters:
 Inside the constant `precisionFactor` is assigned the expression `10 ** precision`, which uses the exponentation `**` operator raising `10` to the power of `precision`.
 
 > When `precision` is the default value `2`, the expression is    
-> `10 ** 2` = `10 * 19` = `100`  
+> `10 ** 2` = `10 * 10` = `100`  
 >
 > When `precision` is `4`, the expression is  
 > `10 ** 4` = `10 * 10 * 10 * 10` = `10000`.  
