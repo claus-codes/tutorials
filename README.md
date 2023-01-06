@@ -691,21 +691,21 @@ Above is a the truth table for the OR `||` operator with the different combinati
 - [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean) is a primitive data type that can be `true` or `false`.
 - [Logical NOT `!` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT) inverses the value of a `Boolean`.
 - [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) value represents the intentional absence of value.
-- [Equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) checks if two values are the same, but does not care about type.
-- [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality) checks if two values are equal while being *type safe*.
-- [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) checks for if two values are NOT the same, but does not care about type.
-- [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) checks if two values are NOT equal while being *type safe*. 
-- [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than) TODO
-- [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) TODO
-- [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than) TODO
-- [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal) TODO
-- [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) TODO
-- [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) TODO
-- [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) TODO
-- [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) TODO
+- [Equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) in JavaScript tests if the values are equal, while ignoring the data type of the values.
+- [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality)  tests if the values are equal in value and data type.
+- [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) tests whether two values are not equal, returning a boolean value of true if they are not equal and false if they are equal.
+- [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) tests whether two values are not equal, and that the values have the same type.
+- [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than) tests whether the value on the left is greater than the value on the right.
+- [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) tests whether the value on the left is greater than or equal to the value on the right.
+- [Less than `<`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than) tests whether the value on the left is less than the value on the right.
+- [Less than or equal `<=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Less_than_or_equal) tests whether the value on the left is less than or equal to the value on the right.
+- [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) is a control flow statement that allows execution of a certain block of code if a specified condition is `true`, and another block of code if the condition is `false`.
+- [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is a short form of an if-else statement that returns a value based on a condition being `true` or `false`.
+- [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns `true` if both values are `true`, and `false` otherwise.
+- [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) returns `true` if either of the values are `true`, and `false` if both operands are `false`.
 
 
-### Assignment 4
+### Assignment 3
 
 # TODO
 
