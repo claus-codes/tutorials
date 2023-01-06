@@ -440,37 +440,43 @@ console.log(`${greeting}, ${name}!`);
 In this task you will define variables and perform calculations on them using expressions.
 
 ##### Step 1
+> Define a constant named `PRICE_UNIT`.
+> Assign it a `String` value that refers to a monetary unit, like `"$"` or `"EUR"`.
+
+##### Step 2
 > Define a variable named `price`.  
 > Assign it any `Number` value above zero `0`.
 
-##### Step 2
+##### Step 3
 > Define a variable named `money`.  
 > Assign it a `Number` value higher than the value of `price`.
 
-##### Step 3
+##### Step 4
 > Define a variable named `affordAmount`.  
 > Assign it an expression that divides `money` by `price`.
 
-##### Step 4
+##### Step 5
 > Define a variable named `remainder`.  
 > Assign it the expression of getting the *remainder* of dividing `money` by `price`.
 
-##### Step 5
+##### Step 6
 > Define a variable named `itemAmount`.  
 > Assign it an expression, where you first subtract `remainder` from `money`, then divide the result with `price`.
 
-##### Step 6
+##### Step 7
 > Define a variable named `totalPrice`.  
 > Assign it an expression where you multiply `itemAmount` with `price`.
 
-##### Step 7
-> Call `console.log()` to inspect the values of the variables you defined and use template literals to format the output.
-
 ##### Step 8
-> Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
+> Call `console.log()` to inspect the values of the variables you defined and use template literals to format the output.
+>
+> Add the `PRICE_UNIT` constant each variable that represents currency, so it reads like `${value} ${PRICE_UNIT`}.
 
 ##### Step 9
-> Call `console.log()` again to inspect the new value of `money`.
+> Change the value of `money` with an expression where `totalPrice` is subtracted from `money`.
+
+##### Step 10
+> Call `console.log()` again to inspect the new value of `money` and use the `PRICE_UNIT` again.
 
 <details>
   <summary>Show solution</summary>
@@ -706,8 +712,51 @@ Above is a the truth table for the OR `||` operator with the different combinati
 
 
 ### Assignment 3
+In this assignment you will work with booleans and conditional logic.
 
-# TODO
+#### Task 1: Not enough money
+Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-financial-transaction).
+
+##### Step 1
+> Change the amount of `money` to be less than the value of `price`.
+
+##### Step 2
+> Add an `if...else` statement after declaring `totalPrice` variable. The `if` condition should check if `itemAmount` is greater than or equal to `1`.
+
+#### Step 3
+> If the `if` condition is `true`, copy the code where you used `console.log()` to inspect variables, subtracted `totalPrice` from `money` and called `console.log()` again afterwards.
+>
+> If the condition is `false`, use `console.log()` to say there is not enough money.
+
+##### Step 3
+> Change the value of `money` to see how the execution changes.
+
+<details>
+  <summary>Show solution</summary>
+
+```js
+const PRICE_UNIT = 'squirrel skins';
+
+let price = 5;
+let money = 3.50;
+let affordAmount = money / price;
+let remainder = money % price;
+let itemAmount = (money - remainder) / price;
+let totalPrice = itemAmount * price;
+
+if (itemAmount >= 1) {
+  console.log(`I have ${money} ${PRICE_UNIT}.
+  The thing costs ${price} ${PRICE_UNIT}, so I can buy ${itemAmount} things.
+  After purchase I should have ${remainder} ${PRICE_UNIT} left.`);
+
+  money = money - totalPrice;
+  console.log(`I have ${money} ${PRICE_UNIT} left after the purchase.`);
+}
+else {
+  console.log(`${money} ${PRICE_UNIT} is not enough to purchase the thing.`)
+}
+```
+</details>
 
 ---
 
