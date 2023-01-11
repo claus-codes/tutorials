@@ -214,8 +214,8 @@ Empty values are discussed in more detail in [Lesson 3: Boolean values, comparis
 
 ### Variables as parameters
 ```js
-console.log('Value of num', num); // "Number" 9
-console.log('Value of text', text); // "Message" "string value"
+console.log('Value of num', num); // "Value of num" 9
+console.log('Value of text', text); // "Value of text" "piece of text"
 ```
 Variables can be used as parameters just like raw `Number` and `String` values. It is good practice to add some context before when *logging* values with `console.log()`, as it's easy to lose track of what value is relevant in the logs if there is a lot of output.
 
@@ -699,7 +699,7 @@ Above is a the truth table for the OR `||` operator with the different combinati
 - [`null`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/null) value represents the intentional absence of value.
 - [Equality `==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) in JavaScript tests if the values are equal, while ignoring the data type of the values.
 - [Strict equality `===` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_equality)  tests if the values are equal in value and data type.
-- [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) tests whether two values are not equal, returning a boolean value of true if they are not equal and false if they are equal.
+- [Inequality `!=` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Inequality) tests whether two values are not equal.
 - [Strict inequality `!==` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality) tests whether two values are not equal, and that the values have the same type.
 - [Greater than `>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than) tests whether the value on the left is greater than the value on the right.
 - [Greater than or equal `>=`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Greater_than_or_equal) tests whether the value on the left is greater than or equal to the value on the right.
@@ -708,7 +708,7 @@ Above is a the truth table for the OR `||` operator with the different combinati
 - [`if...else` statement](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else) is a control flow statement that allows execution of a certain block of code if a specified condition is `true`, and another block of code if the condition is `false`.
 - [Conditional (ternary) operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) is a short form of an if-else statement that returns a value based on a condition being `true` or `false`.
 - [Logical AND `&&` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND) returns `true` if both values are `true`, and `false` otherwise.
-- [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) returns `true` if either of the values are `true`, and `false` if both operands are `false`.
+- [logical OR `||` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR) returns `true` if either of the values are `true`, and `false` if both values are `false`.
 
 
 ### Assignment 3
@@ -1032,13 +1032,13 @@ console.log(greetHawaii('Anonymous'));
 
 
 #### Task 2: Financial transaction functions
-Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-financial-transaction).
+Modify the code from [Task 1 of Assignment 3: *Not enough money*](#task-1-not-enough-money).
 
 ##### Step 1
 > Write a new function `calculateAffordableItemAmount()` which accepts two parameters: `price` and `money`.
 
 ##### Step 2
-> Move the code from the *"Financial transaction"* task inside the function `calculateAffordableItemAmount()`.
+> Move the code from the *"Not enough money"* task inside the function `calculateAffordableItemAmount()`.
 > 
 > Modify the code so the values of `price` and `money` are the parameters and not variables.
 
@@ -1048,6 +1048,10 @@ Modify the code from [Task 2 of Assignment 2: *Financial transaction*](#task-2-f
 ##### Step 4
 > Write a new function `calculateTotalPrice()` which accepts two parameters: `price` and `amount`.  
 > The function should return the result of multiplying `price` with `amount`.
+
+##### Step 5
+> Write a new function `canAffordItem()` which accepts two parameters: `price` and `money`.  
+> The function should use the ternary operator to see if `calculateAffordableItemAmount()` returns a value that is more than zero `0`, and returns a boolean.  
 
 ##### Step 5
 > Define the variables `price` and `money` again outside of the functions.  
@@ -1082,6 +1086,12 @@ function calculateAffordableItemAmount(price, money) {
 
 function calculateTotalPrice(price, itemCount) {
   return price * itemCount;
+}
+
+function canAffordItem(price, money) {
+  return calculateAffordableItemAmount(price, money) > 0
+    ? true
+    : false 
 }
 
 const PRICE_UNIT = 'dollaroos';
